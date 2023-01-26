@@ -51,32 +51,39 @@ if __name__ == '__main__':
     smallNumVar.set(smallNum)
 
     update = 0
+    end = True
 
 
     def stage(name, t, before_update):
-        end = False
-
-        def cover():
-            while not end:
-                root.attributes('-fullscreen', True)
-                root.attributes('-fullscreen', False)
-                root.geometry("300x300")
-
-        def cover2():
-            while not end:
-                ui.click(200, 200, button='left')
-
-        def cover3():
-            while not end:
-                ui.hotkey('ctrl', 'alt')
+        print(f"hello, thfis is stage {name}")
+        global end
+        # mouse_end = False
+        # def cover():
+        #     while not end:
+        #         root.attributes('-fullscreen', True)
+        #         root.attributes('-fullscreen', False)
+        #         root.geometry("300x300")
+        #
+        # def cover2():
+        #     while not mouse_end:
+        #         ui.click(200, 200, button='MIDDLE')
+        #
+        # def cover3():
+        #     while not end:
+        #         ui.hotkey('ctrl', 'alt')
 
         if before_update != update:
             return
         t = t * 60
-        if name == '学习阶段':
-            Thread(target=cover).start()
-            Thread(target=cover2).start()
-            Thread(target=cover3).start()
+        fullStage = '学习阶段'
+        if name == fullStage:
+            root.attributes('-topmost', 1)
+            root.attributes('-fullscreen', True)
+            root.deiconify()
+            end = False
+            login_button.configure(state='disable')
+            # email_entry.state = "readonly"
+            # password_entry.state = "readonly"
         global stageInfo
         for i in range(t):
             stageInfo = f'当前阶段:{name}  剩余时间:{t // 60}分: {t % 60}秒'
@@ -84,19 +91,32 @@ if __name__ == '__main__':
             stageInfoVar.set(stageInfo)
             time.sleep(1)
             t = t - 1
+            # if t <= 20:
+            #     mouse_end = True
             if before_update != update:
                 break
-        end = True
+
+
+        if name == fullStage:
+            root.attributes('-fullscreen', False)
+            root.geometry("300x300")
+            root.attributes('-topmost', 0)
+            end = True
+            login_button.configure(state='enable')
         if before_update == update:
-            music.ring(n=5)
+            music.ring(n=2)
 
 
     def run():
         st = 0
         for i in range(int(smallNum)):
-            Timer(st * 60, partial(stage, name='学习阶段', t=studyTime, before_update=update)).start()
+            t1 = Timer(st * 60, partial(stage, name='学习阶段', t=studyTime, before_update=update))
+            #t1.setDaemon(True)
+            t1.start()
             st += int(studyTime)
-            Timer(st * 60, partial(stage, name='休息阶段', t=smallTime, before_update=update)).start()
+            t2 = Timer(st * 60, partial(stage, name='休息阶段', t=smallTime, before_update=update))
+            t2.start()
+            #t2.setDaemon(True)
             st += int(smallTime)
 
         Timer(st * 60, partial(stage, name='学习阶段', t=studyTime, before_update=update)).start()
@@ -104,13 +124,20 @@ if __name__ == '__main__':
         Timer(st * 60, partial(stage, name='休息阶段', t=bigTime, before_update=update)).start()
         st += int(bigTime)
 
+    # daemon=True
+    Thread(target=run, daemon=True).start()
+    #old.start()
 
-    Thread(daemon=True, target=run).start()
 
+    def close():
+        while not end:
+            pass
+        root.quit()
+        global update
+        update = update + 1
 
     def quit_me():
-        root.quit()
-        root.destroy()
+        Timer(0, close).start()
         data = {}
         with open(path, "w", encoding="utf-8") as f:
             data["smallTime"] = smallTime
@@ -119,6 +146,7 @@ if __name__ == '__main__':
             data["smallNum"] = smallNum
             json.dump(data, f, indent=3, ensure_ascii=False)
 
+
     root.protocol("WM_DELETE_WINDOW", quit_me)
 
 
@@ -126,11 +154,7 @@ if __name__ == '__main__':
         """ callback when the login button clicked
         """
         global smallTime, bigTime, studyTime, smallNum
-
-        print(studyTime)
-
         msg = ''
-        print(studyTime)
         if not small.get().isdigit():
             msg = '小休息时间必须是数字！'
         if not big.get().isdigit():
@@ -148,7 +172,11 @@ if __name__ == '__main__':
             bigTime = int(big.get())
             studyTime = int(study.get())
             smallNum = int(smallNumVar.get())
-            Thread(daemon=True, target=run).start()
+
+            #global old
+            #old.daemon = True
+            Thread(target=run, daemon=True).start()
+            #old.start()
 
             # global olds
             # if olds is not None:
