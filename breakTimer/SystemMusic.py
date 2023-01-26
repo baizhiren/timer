@@ -34,5 +34,4 @@ class SystemMusic:
         print(time.strftime('%Y-%m-%d %H:%M:%S'))
         if not self.cancel_tmr:
             threading.Timer(0, self.beep).start()
-            # 每隔3秒执行一次
             threading.Timer(self.time_gap, self.heart_beat).start()

@@ -6,10 +6,12 @@ from functools import partial
 from threading import Thread, Timer
 from tkinter import ttk
 from tkinter.messagebox import showinfo
-from multiprocessing import Process
+import pyautogui as ui
 
-from breakTimer.BreakTimer import BreakTimer
 from breakTimer.SystemMusic import SystemMusic
+
+ui.FAILSAFE = False
+
 
 if __name__ == '__main__':
     multiprocessing.freeze_support()
@@ -52,17 +54,39 @@ if __name__ == '__main__':
 
 
     def stage(name, t, before_update):
+        end = False
+
+        def cover():
+            while not end:
+                root.attributes('-fullscreen', True)
+                root.attributes('-fullscreen', False)
+                root.geometry("300x300")
+
+        def cover2():
+            while not end:
+                ui.click(200, 200, button='left')
+
+        def cover3():
+            while not end:
+                ui.hotkey('ctrl', 'alt')
+
         if before_update != update:
             return
         t = t * 60
+        if name == '学习阶段':
+            Thread(target=cover).start()
+            Thread(target=cover2).start()
+            Thread(target=cover3).start()
         global stageInfo
         for i in range(t):
             stageInfo = f'当前阶段:{name}  剩余时间:{t // 60}分: {t % 60}秒'
+            stageInfoVar.set(stageInfo)
             stageInfoVar.set(stageInfo)
             time.sleep(1)
             t = t - 1
             if before_update != update:
                 break
+        end = True
         if before_update == update:
             music.ring(n=5)
 
