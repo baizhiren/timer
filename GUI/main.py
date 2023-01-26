@@ -17,7 +17,7 @@ if __name__ == '__main__':
     multiprocessing.freeze_support()
     # root window
     root = tk.Tk()
-    root.geometry("300x300")
+    root.geometry("300x300+500+500")
     root.resizable(False, False)
     root.title('休息定时器')
 
@@ -75,7 +75,7 @@ if __name__ == '__main__':
         if before_update != update:
             return
         t = t * 60
-        fullStage = '学习阶段'
+        fullStage = '休息阶段'
         if name == fullStage:
             root.attributes('-topmost', 1)
             root.attributes('-fullscreen', True)
@@ -86,7 +86,7 @@ if __name__ == '__main__':
             # password_entry.state = "readonly"
         global stageInfo
         for i in range(t):
-            stageInfo = f'当前阶段:{name}  剩余时间:{t // 60}分: {t % 60}秒'
+            stageInfo = f'当前阶段:{name}  剩余时间: {t // 60}分 : {t % 60}秒'
             stageInfoVar.set(stageInfo)
             stageInfoVar.set(stageInfo)
             time.sleep(1)
@@ -95,8 +95,7 @@ if __name__ == '__main__':
             #     mouse_end = True
             if before_update != update:
                 break
-
-
+        stageInfoVar.set(0)
         if name == fullStage:
             root.attributes('-fullscreen', False)
             root.geometry("300x300")
@@ -157,7 +156,7 @@ if __name__ == '__main__':
         msg = ''
         if not small.get().isdigit():
             msg = '小休息时间必须是数字！'
-        if not big.get().isdigit():
+        elif not big.get().isdigit():
             msg = '大休息时间必须是数字！'
         elif not study.get().isdigit():
             msg = '学习时间必须是数字！'
@@ -165,7 +164,6 @@ if __name__ == '__main__':
             msg = '小学次数必须是数字！'
         else:
             msg = f'修改成功'
-
             global update
             update = update + 1
             smallTime = int(small.get())
