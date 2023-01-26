@@ -2,5 +2,6 @@
    "smallTime": 1,
    "bigTime": 1,
    "studyTime": 1,
-   "smallNum": 1
+   "smallNum": 1,
+   "isLoop": 1
 }

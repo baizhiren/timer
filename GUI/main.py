@@ -14,20 +14,19 @@ ui.FAILSAFE = False
 
 
 if __name__ == '__main__':
-    multiprocessing.freeze_support()
-    # root window
+    # multiprocessing.freeze_support()
     root = tk.Tk()
-    root.geometry("300x300+500+500")
+    root.geometry("300x350+500+500")
     root.resizable(False, False)
     root.title('休息定时器')
 
-    # store email address and password
     small = tk.StringVar()
     big = tk.StringVar()
     study = tk.StringVar()
     smallNumVar = tk.StringVar()
     stageInfoVar = tk.StringVar()
     music = SystemMusic()
+    isLoop = tk.IntVar()
 
     smallTime = 5
     bigTime = 20
@@ -42,6 +41,7 @@ if __name__ == '__main__':
             bigTime = data.get('bigTime', 20)
             studyTime = data.get('studyTime', 45)
             smallNum = data.get('smallNum', 1)
+            is_loop = data.get('isLoop', 0)
     except:
         pass
 
@@ -49,14 +49,16 @@ if __name__ == '__main__':
     big.set(bigTime)
     study.set(studyTime)
     smallNumVar.set(smallNum)
+    isLoop.set(is_loop)
 
     update = 0
     end = True
+    lastEnd = True
 
 
     def stage(name, t, before_update):
-        print(f"hello, thfis is stage {name}")
-        global end
+        print(f"hello, this is stage {name}")
+        global end, lastEnd
         # mouse_end = False
         # def cover():
         #     while not end:
@@ -74,6 +76,9 @@ if __name__ == '__main__':
 
         if before_update != update:
             return
+        if not lastEnd:
+            pass
+        lastEnd = False
         t = t * 60
         fullStage = '休息阶段'
         if name == fullStage:
@@ -82,51 +87,52 @@ if __name__ == '__main__':
             root.deiconify()
             end = False
             login_button.configure(state='disable')
-            # email_entry.state = "readonly"
-            # password_entry.state = "readonly"
+
         global stageInfo
+        #t = 5
         for i in range(t):
             stageInfo = f'当前阶段:{name}  剩余时间: {t // 60}分 : {t % 60}秒'
             stageInfoVar.set(stageInfo)
             stageInfoVar.set(stageInfo)
             time.sleep(1)
             t = t - 1
-            # if t <= 20:
-            #     mouse_end = True
             if before_update != update:
                 break
-        stageInfoVar.set(0)
+        stageInfoVar.set(f'当前阶段:{name}  剩余时间: 0分 : 0秒')
         if name == fullStage:
             root.attributes('-fullscreen', False)
-            root.geometry("300x300")
+            root.geometry("300x350+500+500")
             root.attributes('-topmost', 0)
             end = True
             login_button.configure(state='enable')
         if before_update == update:
             music.ring(n=2)
+        lastEnd = True
 
 
     def run():
         st = 0
         for i in range(int(smallNum)):
             t1 = Timer(st * 60, partial(stage, name='学习阶段', t=studyTime, before_update=update))
-            #t1.setDaemon(True)
             t1.start()
             st += int(studyTime)
+            #st += 5
             t2 = Timer(st * 60, partial(stage, name='休息阶段', t=smallTime, before_update=update))
             t2.start()
-            #t2.setDaemon(True)
             st += int(smallTime)
+            #st += 5
 
         Timer(st * 60, partial(stage, name='学习阶段', t=studyTime, before_update=update)).start()
+        #st += 5
         st += int(studyTime)
         Timer(st * 60, partial(stage, name='休息阶段', t=bigTime, before_update=update)).start()
+        #st += 5
         st += int(bigTime)
+        time.sleep(st)
+        if isLoop.get() == 1:
+            Thread(target=run, daemon=True).start()
 
-    # daemon=True
     Thread(target=run, daemon=True).start()
-    #old.start()
-
 
     def close():
         while not end:
@@ -143,6 +149,7 @@ if __name__ == '__main__':
             data["bigTime"] = bigTime
             data["studyTime"] = studyTime
             data["smallNum"] = smallNum
+            data["isLoop"] = isLoop.get()
             json.dump(data, f, indent=3, ensure_ascii=False)
 
 
@@ -171,16 +178,7 @@ if __name__ == '__main__':
             studyTime = int(study.get())
             smallNum = int(smallNumVar.get())
 
-            #global old
-            #old.daemon = True
             Thread(target=run, daemon=True).start()
-            #old.start()
-
-            # global olds
-            # if olds is not None:
-            #     olds.terminate()
-            # olds = Process(target=run)
-            # olds.start()
 
         showinfo(
             title='改变成功',
@@ -226,4 +224,8 @@ if __name__ == '__main__':
     login_button = ttk.Button(signin, text="确定", command=login_clicked)
     login_button.pack(fill='x', expand=True, pady=10)
 
+    Button1 = tk.Checkbutton(root, text="永无止尽的x月",
+                             variable=isLoop,
+                             width=10)
+    Button1.pack()
     root.mainloop()
