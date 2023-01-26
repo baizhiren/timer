@@ -1,1 +1,0 @@
-pyinstaller -w --add-data "shine.wav;."  GUI/main.py breakTimer/BreakTimer.py breakTimer/SystemMusic.py

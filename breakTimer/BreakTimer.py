@@ -24,13 +24,6 @@ class BreakTimer:
             self.k = v
 
     def start(self):
-        # now = time.localtime(time.time())
-        # date = datetime.datetime(now[0], now[1], now[2], now[3], now[4], now[5])
-        # timeTable = []
-        # for i in range(self.smallNum):
-        #     self.timeTable.append(date + datetime.timedelta(minutes=self.studyTime))
-        #     self.timeTable.append(date + datetime.timedelta(minutes=self.smallTime))
-        # self.timeTable.append(date + datetime.timedelta(minutes=self.bigTime))
         music = SystemMusic()
         st = 0
         for i in range(self.smallNum):
