@@ -89,7 +89,7 @@ if __name__ == '__main__':
         fullStage = '休息阶段'
         if name == fullStage:
             root.attributes('-topmost', 1)
-            #root.attributes('-fullscreen', True)
+            root.attributes('-fullscreen', True)
             root.deiconify()
             end = False
             login_button.configure(state='disable')
@@ -118,6 +118,7 @@ if __name__ == '__main__':
 
     def run():
         st = 0
+        before_update = update
         for i in range(int(smallNum)):
             t1 = Timer(st * 60, partial(stage, name='学习阶段', t=studyTime, before_update=update))
             t1.start()
@@ -131,11 +132,10 @@ if __name__ == '__main__':
         Timer(st * 60, partial(stage, name='休息阶段', t=bigTime, before_update=update)).start()
         st += int(bigTime)
         time.sleep(st * 60)
-        #time.sleep(12)
-        cnt_round.set(f'肝数:{int(cnt_round.get()[3:]) + 1}')
-        print('***********************')
-        if isLoop.get() == 1:
-            Thread(target=run, daemon=True).start()
+        if update == before_update:
+            cnt_round.set(f'肝数:{int(cnt_round.get()[3:]) + 1}')
+            if isLoop.get() == 1:
+                Thread(target=run, daemon=True).start()
 
     Thread(target=run, daemon=True).start()
 
@@ -177,13 +177,20 @@ if __name__ == '__main__':
         else:
             msg = f'修改成功'
             global update
-            update = update + 1
-            smallTime = int(small.get())
-            bigTime = int(big.get())
-            studyTime = int(study.get())
-            smallNum = int(smallNumVar.get())
-
-            Thread(target=run, daemon=True).start()
+            sm = int(small.get())
+            b = int(big.get())
+            st = int(study.get())
+            sn = int(smallNumVar.get())
+            max = 24 * 60
+            if sm > max or b > max or st > max or sn > max:
+                msg = '数字过大啦'
+            else:
+                smallTime = sm
+                bigTime = b
+                studyTime = st
+                smallNum = sn
+                update = update + 1
+                Thread(target=run, daemon=True).start()
 
         showinfo(
             title='改变成功',
