@@ -3,6 +3,7 @@ import multiprocessing
 import time
 import tkinter as tk
 from functools import partial
+from multiprocessing.context import Process
 from threading import Thread, Timer
 from tkinter import ttk
 from tkinter.messagebox import showinfo
@@ -16,7 +17,9 @@ ui.FAILSAFE = False
 if __name__ == '__main__':
     # multiprocessing.freeze_support()
     root = tk.Tk()
-    root.geometry("300x350+500+500")
+    #size = "8000x3000+-4000+0"
+    size = "330x350+500+500"
+    root.geometry(size)
     root.resizable(False, False)
     root.title('休息定时器')
 
@@ -27,11 +30,14 @@ if __name__ == '__main__':
     stageInfoVar = tk.StringVar()
     music = SystemMusic()
     isLoop = tk.IntVar()
+    cnt_round = tk.StringVar()
+    cnt_round.set('肝数:0')
 
-    smallTime = 5
-    bigTime = 20
+    smallTime = 7
+    bigTime = 30
     studyTime = 45
-    smallNum = 1
+    smallNum = 2
+    is_loop = 0
 
     path = 'config.json'
     try:
@@ -76,22 +82,22 @@ if __name__ == '__main__':
 
         if before_update != update:
             return
-        if not lastEnd:
+        while not lastEnd:
             pass
         lastEnd = False
         t = t * 60
         fullStage = '休息阶段'
         if name == fullStage:
             root.attributes('-topmost', 1)
-            root.attributes('-fullscreen', True)
+            #root.attributes('-fullscreen', True)
             root.deiconify()
             end = False
             login_button.configure(state='disable')
 
         global stageInfo
-        #t = 5
+        #t = 3
         for i in range(t):
-            stageInfo = f'当前阶段:{name}  剩余时间: {t // 60}分 : {t % 60}秒'
+            stageInfo = f'当前阶段:{name}  剩余时间:  {t // 60}分 : {t % 60}秒'
             stageInfoVar.set(stageInfo)
             stageInfoVar.set(stageInfo)
             time.sleep(1)
@@ -101,13 +107,13 @@ if __name__ == '__main__':
         stageInfoVar.set(f'当前阶段:{name}  剩余时间: 0分 : 0秒')
         if name == fullStage:
             root.attributes('-fullscreen', False)
-            root.geometry("300x350+500+500")
+            root.geometry("330x350+500+500")
             root.attributes('-topmost', 0)
             end = True
             login_button.configure(state='enable')
+        lastEnd = True
         if before_update == update:
             music.ring(n=2)
-        lastEnd = True
 
 
     def run():
@@ -116,19 +122,18 @@ if __name__ == '__main__':
             t1 = Timer(st * 60, partial(stage, name='学习阶段', t=studyTime, before_update=update))
             t1.start()
             st += int(studyTime)
-            #st += 5
             t2 = Timer(st * 60, partial(stage, name='休息阶段', t=smallTime, before_update=update))
             t2.start()
             st += int(smallTime)
-            #st += 5
 
         Timer(st * 60, partial(stage, name='学习阶段', t=studyTime, before_update=update)).start()
-        #st += 5
         st += int(studyTime)
         Timer(st * 60, partial(stage, name='休息阶段', t=bigTime, before_update=update)).start()
-        #st += 5
         st += int(bigTime)
-        time.sleep(st)
+        time.sleep(st * 60)
+        #time.sleep(12)
+        cnt_round.set(f'肝数:{int(cnt_round.get()[3:]) + 1}')
+        print('***********************')
         if isLoop.get() == 1:
             Thread(target=run, daemon=True).start()
 
@@ -224,8 +229,11 @@ if __name__ == '__main__':
     login_button = ttk.Button(signin, text="确定", command=login_clicked)
     login_button.pack(fill='x', expand=True, pady=10)
 
-    Button1 = tk.Checkbutton(root, text="永无止尽的x月",
+    Button1 = tk.Checkbutton(signin, text="永无止尽的x月",
                              variable=isLoop,
                              width=10)
     Button1.pack()
+    count_round = ttk.Label(signin, textvariable=cnt_round)
+    count_round.pack(fill='x', expand=True)
+
     root.mainloop()
