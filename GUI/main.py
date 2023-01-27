@@ -115,11 +115,10 @@ if __name__ == '__main__':
         if before_update == update:
             music.ring(n=2)
 
-
     def run():
         st = 0
         before_update = update
-        for i in range(int(smallNum)):
+        for i in range(int(smallNum) - 1):
             t1 = Timer(st * 60, partial(stage, name='学习阶段', t=studyTime, before_update=update))
             t1.start()
             st += int(studyTime)
@@ -184,6 +183,8 @@ if __name__ == '__main__':
             max = 24 * 60
             if sm > max or b > max or st > max or sn > max:
                 msg = '数字过大啦'
+            elif sn <= 0:
+                msg = '轮数必须大于1'
             else:
                 smallTime = sm
                 bigTime = b
@@ -205,7 +206,7 @@ if __name__ == '__main__':
     email_label = ttk.Label(signin, textvariable=stageInfoVar)
     email_label.pack(fill='x', expand=True)
 
-    email_label = ttk.Label(signin, text="小休息时间")
+    email_label = ttk.Label(signin, text="小休时间")
     email_label.pack(fill='x', expand=True)
 
     email_entry = ttk.Entry(signin, textvariable=small)
@@ -225,7 +226,7 @@ if __name__ == '__main__':
     email_entry.pack(fill='x', expand=True)
     email_entry.focus()
 
-    email_label = ttk.Label(signin, text="小学次数")
+    email_label = ttk.Label(signin, text="学习次数")
     email_label.pack(fill='x', expand=True)
 
     email_entry = ttk.Entry(signin, textvariable=smallNumVar)

@@ -1,7 +1,7 @@
 {
-   "smallTime": 1,
-   "bigTime": 1,
-   "studyTime": 1000,
-   "smallNum": 1,
+   "smallTime": 7,
+   "bigTime": 30,
+   "studyTime": 45,
+   "smallNum": 3,
    "isLoop": 1
 }
