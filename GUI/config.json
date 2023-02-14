@@ -1,7 +1,7 @@
 {
-   "smallTime": 7,
-   "bigTime": 15,
-   "studyTime": 45,
+   "smallTime": 1,
+   "bigTime": 1,
+   "studyTime": 1,
    "smallNum": 3,
    "isLoop": 1,
    "liver": "22:30",

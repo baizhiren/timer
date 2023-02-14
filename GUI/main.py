@@ -143,7 +143,7 @@ if __name__ == '__main__':
         print(target)
 
         if(now > target):
-            Timer(5, partial(stage, name='养肝阶段', t=1, before_update=update)).start()
+            Timer(5, partial(stage, name='养肝阶段', t=bigTime * 2, before_update=update)).start()
         else:
             d = (target - now)
             Timer(d.seconds, partial(stage, name='养肝阶段', t=bigTime, before_update=update)).start()
