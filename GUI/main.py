@@ -2,6 +2,7 @@ import json
 import multiprocessing
 import time
 import tkinter as tk
+import datetime
 from functools import partial
 from multiprocessing.context import Process
 from threading import Thread, Timer
@@ -18,7 +19,7 @@ if __name__ == '__main__':
     # multiprocessing.freeze_support()
     root = tk.Tk()
     #size = "8000x3000+-4000+0"
-    size = "330x350+500+500"
+    size = "400x400+500+500"
     root.geometry(size)
     root.resizable(False, False)
     root.title('休息定时器')
@@ -34,10 +35,12 @@ if __name__ == '__main__':
     cnt_round.set('肝数:0')
 
     smallTime = 7
-    bigTime = 30
+    bigTime = 15
     studyTime = 45
-    smallNum = 2
+    smallNum = 3
     is_loop = 0
+    liver = ""
+    force = 1
 
     path = 'config.json'
     try:
@@ -48,6 +51,8 @@ if __name__ == '__main__':
             studyTime = data.get('studyTime', 45)
             smallNum = data.get('smallNum', 1)
             is_loop = data.get('isLoop', 0)
+            liver = data.get('liver', '22:00')
+            force = data.get('force', 1)
     except:
         pass
 
@@ -60,34 +65,24 @@ if __name__ == '__main__':
     update = 0
     end = True
     lastEnd = True
+    #close_All = False
 
 
     def stage(name, t, before_update):
         print(f"hello, this is stage {name}")
-        global end, lastEnd
-        # mouse_end = False
-        # def cover():
-        #     while not end:
-        #         root.attributes('-fullscreen', True)
-        #         root.attributes('-fullscreen', False)
-        #         root.geometry("300x300")
-        #
-        # def cover2():
-        #     while not mouse_end:
-        #         ui.click(200, 200, button='MIDDLE')
-        #
-        # def cover3():
-        #     while not end:
-        #         ui.hotkey('ctrl', 'alt')
+        global end, lastEnd, update
 
-        if before_update != update:
+        if before_update != update and name != '养肝阶段':
             return
+        if name == '养肝阶段':
+            update = update + 1
+
         while not lastEnd:
             pass
         lastEnd = False
         t = t * 60
-        fullStage = '休息阶段'
-        if name == fullStage:
+        fullStage = ['休息阶段', '养肝阶段']
+        if name in fullStage:
             root.attributes('-topmost', 1)
             root.attributes('-fullscreen', True)
             root.deiconify()
@@ -102,18 +97,20 @@ if __name__ == '__main__':
             stageInfoVar.set(stageInfo)
             time.sleep(1)
             t = t - 1
-            if before_update != update:
+            if before_update != update and name != '养肝阶段':
                 break
         stageInfoVar.set(f'当前阶段:{name}  剩余时间: 0分 : 0秒')
-        if name == fullStage:
+        if name in fullStage:
             root.attributes('-fullscreen', False)
-            root.geometry("330x350+500+500")
+            root.geometry("400x400+500+500")
             root.attributes('-topmost', 0)
             end = True
             login_button.configure(state='enable')
         lastEnd = True
         if before_update == update:
             music.ring(n=2)
+            if name == '学习阶段':
+                cnt_round.set(f'肝数:{int(cnt_round.get()[3:]) + 1}')
 
     def run():
         st = 0
@@ -132,14 +129,30 @@ if __name__ == '__main__':
         st += int(bigTime)
         time.sleep(st * 60)
         if update == before_update:
-            cnt_round.set(f'肝数:{int(cnt_round.get()[3:]) + 1}')
             if isLoop.get() == 1:
                 Thread(target=run, daemon=True).start()
 
     Thread(target=run, daemon=True).start()
 
+    #新增10点半养肝功能
+
+    def livers():
+        now = datetime.datetime.now()
+        liver_time = liver.split(":");
+        target = datetime.datetime(now.year, now.month, now.day, int(liver_time[0]), int(liver_time[1]), 0, 0)
+        print(target)
+
+        if(now > target):
+            Timer(5, partial(stage, name='养肝阶段', t=1, before_update=update)).start()
+        else:
+            d = (target - now)
+            Timer(d.seconds, partial(stage, name='养肝阶段', t=bigTime, before_update=update)).start()
+
+
+    Thread(target=livers, daemon=True).start()
+
     def close():
-        while not end:
+        while not end and force:
             pass
         root.quit()
         global update
@@ -154,6 +167,8 @@ if __name__ == '__main__':
             data["studyTime"] = studyTime
             data["smallNum"] = smallNum
             data["isLoop"] = isLoop.get()
+            data["liver"] = liver
+            data["force"] = force
             json.dump(data, f, indent=3, ensure_ascii=False)
 
 
