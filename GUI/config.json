@@ -2,8 +2,12 @@
    "smallTime": 1,
    "bigTime": 1,
    "studyTime": 1,
-   "smallNum": 3,
+   "smallNum": 1,
    "isLoop": 1,
-   "liver": "22:30",
-   "force": 1
+   "liver": "12:20",
+   "liver_to": "12:30",
+   "force": 1,
+   "width": "450",
+   "length": "450",
+   "is_music": 0
 }

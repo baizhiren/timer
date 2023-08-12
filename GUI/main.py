@@ -1,10 +1,8 @@
 import json
-import multiprocessing
 import time
 import tkinter as tk
 import datetime
 from functools import partial
-from multiprocessing.context import Process
 from threading import Thread, Timer
 from tkinter import ttk
 from tkinter.messagebox import showinfo
@@ -19,40 +17,51 @@ if __name__ == '__main__':
     # multiprocessing.freeze_support()
     root = tk.Tk()
     #size = "8000x3000+-4000+0"
-    size = "400x400+500+500"
-    root.geometry(size)
+    #size = "400x400+500+500"
     root.resizable(False, False)
-    root.title('休息定时器')
+    root.title('休息定时器3.1')
 
     small = tk.StringVar()
     big = tk.StringVar()
     study = tk.StringVar()
     smallNumVar = tk.StringVar()
     stageInfoVar = tk.StringVar()
+    pauseVar = tk.StringVar()
+
     music = SystemMusic()
     isLoop = tk.IntVar()
     cnt_round = tk.StringVar()
     cnt_round.set('肝数:0')
+    pauseVar.set('暂停')
 
-    smallTime = 7
-    bigTime = 15
-    studyTime = 45
+    smallTime = 6
+    bigTime = 12
+    studyTime = 40
     smallNum = 3
     is_loop = 0
-    liver = ""
+    liver = "22:30"
+    liver_to = "6:00"
     force = 1
+    width = "450"
+    length = "450"
+    is_music = 0
+
 
     path = 'config.json'
     try:
         with open(path, "r", encoding="utf-8") as f:
             data = json.load(f)  # 加载我们的数据
-            smallTime = data.get('smallTime', 5)
-            bigTime = data.get('bigTime', 20)
-            studyTime = data.get('studyTime', 45)
-            smallNum = data.get('smallNum', 1)
-            is_loop = data.get('isLoop', 0)
-            liver = data.get('liver', '22:00')
-            force = data.get('force', 1)
+            smallTime = data.get('smallTime', smallTime)
+            bigTime = data.get('bigTime', bigTime)
+            studyTime = data.get('studyTime', studyTime)
+            smallNum = data.get('smallNum', smallNum)
+            is_loop = data.get('isLoop', isLoop)
+            liver = data.get('liver', liver)
+            liver_to = data.get('liver_to', liver)
+            force = data.get('force', force)
+            width = data.get('width', width)
+            length = data.get('length', length)
+            is_music = data.get('is_music', is_music)
     except:
         pass
 
@@ -61,13 +70,16 @@ if __name__ == '__main__':
     study.set(studyTime)
     smallNumVar.set(smallNum)
     isLoop.set(is_loop)
+    size = width + "x" + length + "+500+500"
+    root.geometry(size)
+
 
     update = 0
     end = True
     lastEnd = True
-    #close_All = False
+    pause = False
 
-
+    # 1 1 2 1 2 1
     def stage(name, t, before_update):
         print(f"hello, this is stage {name}")
         global end, lastEnd, update
@@ -78,16 +90,18 @@ if __name__ == '__main__':
             update = update + 1
 
         while not lastEnd:
-            pass
+            time.sleep(1)
         lastEnd = False
         t = t * 60
         fullStage = ['休息阶段', '养肝阶段']
         if name in fullStage:
             root.attributes('-topmost', 1)
-            root.attributes('-fullscreen', True)
+            if force:
+                root.attributes('-fullscreen', True)
             root.deiconify()
             end = False
             login_button.configure(state='disable')
+            break_now_button.configure(state='disable')
 
         global stageInfo
         #t = 3
@@ -97,20 +111,26 @@ if __name__ == '__main__':
             stageInfoVar.set(stageInfo)
             time.sleep(1)
             t = t - 1
+            while pause:
+                time.sleep(1)
             if before_update != update and name != '养肝阶段':
                 break
         stageInfoVar.set(f'当前阶段:{name}  剩余时间: 0分 : 0秒')
         if name in fullStage:
             root.attributes('-fullscreen', False)
-            root.geometry("400x400+500+500")
+            root.geometry(size)
             root.attributes('-topmost', 0)
             end = True
             login_button.configure(state='enable')
+            break_now_button.configure(state='enable')
         lastEnd = True
         if before_update == update:
-            music.ring(n=2)
+            if is_music:
+                music.ring(n=2)
             if name == '学习阶段':
                 cnt_round.set(f'肝数:{int(cnt_round.get()[3:]) + 1}')
+        if name == '养肝阶段':
+            Thread(target=livers, daemon=True).start()
 
     def run():
         st = 0
@@ -132,28 +152,43 @@ if __name__ == '__main__':
             if isLoop.get() == 1:
                 Thread(target=run, daemon=True).start()
 
-    Thread(target=run, daemon=True).start()
+
+    #Thread(target=run, daemon=True).start()
 
     #新增10点半养肝功能
 
-    def livers():
+    def livers(right_now=False):
+        if right_now:
+            Timer(3, partial(stage, name='养肝阶段', t=60, before_update=update)).start()
         now = datetime.datetime.now()
+        h = now.time().hour
+        m = now.time().minute
         liver_time = liver.split(":");
-        target = datetime.datetime(now.year, now.month, now.day, int(liver_time[0]), int(liver_time[1]), 0, 0)
-        print(target)
+        liver_end = liver_to.split(":");
+        th, tm = int(liver_time[0]), int(liver_time[1])
+        eh, em = int(liver_end[0]), int(liver_end[1])
 
-        if(now > target):
-            Timer(5, partial(stage, name='养肝阶段', t=bigTime * 2, before_update=update)).start()
+        target = datetime.datetime(now.year, now.month, now.day, th, tm, 0, 0)
+        target_end = datetime.datetime(now.year, now.month, now.day, eh, em, 0, 0)
+        print((target_end - now).seconds)
+        if (h > th or h == th and m >= tm) and (h < eh or h == eh and m <= em):
+            Timer(0, partial(stage, name='养肝阶段', t=(target_end - now).seconds // 60, before_update=update)).start()
         else:
             d = (target - now)
-            Timer(d.seconds, partial(stage, name='养肝阶段', t=bigTime, before_update=update)).start()
+            Timer(d.seconds, partial(stage, name='养肝阶段', t=(target_end - target).seconds // 60, before_update=update)).start()
+
+    def break_now():
+        livers(right_now=True)
+
 
 
     Thread(target=livers, daemon=True).start()
 
     def close():
-        while not end and force:
-            pass
+        if force:
+            return
+        while not end:
+            time.sleep(1)
         root.quit()
         global update
         update = update + 1
@@ -167,8 +202,12 @@ if __name__ == '__main__':
             data["studyTime"] = studyTime
             data["smallNum"] = smallNum
             data["isLoop"] = isLoop.get()
-            data["liver"] = liver
-            data["force"] = force
+            #data["liver"] = liver
+            #data["liver_to"] = liver_to
+            #data["force"] = force
+            #data["width"] = width
+            #data["length"] = length
+            #data["is_music"] = is_music
             json.dump(data, f, indent=3, ensure_ascii=False)
 
 
@@ -213,6 +252,20 @@ if __name__ == '__main__':
             message=msg
         )
 
+    def pause_clicked():
+        global pause
+        pause = not pause
+        if pause:
+            pauseVar.set('取消暂停')
+        else:
+            pauseVar.set('暂停')
+
+    def break_clicked():
+        global update
+        update = update + 1
+        Thread(target=break_now, daemon=True).start()
+
+
 
     # Sign in frame
     signin = ttk.Frame(root)
@@ -249,8 +302,15 @@ if __name__ == '__main__':
     email_entry.focus()
 
     # login button
-    login_button = ttk.Button(signin, text="确定", command=login_clicked)
-    login_button.pack(fill='x', expand=True, pady=10)
+    login_button = ttk.Button(signin, text="确认修改", command=login_clicked)
+    login_button.pack(fill='x', expand=True, pady=8)
+    #
+    # pause_button = ttk.Button(signin, textvariable=pauseVar, command=pause_clicked)
+    # pause_button.pack(fill='x', expand=True, pady=5)
+
+    break_now_button = ttk.Button(signin, text="强制休息", command=break_clicked)
+    break_now_button.pack(fill='x', expand=True, pady=5)
+
 
     Button1 = tk.Checkbutton(signin, text="永无止尽的x月",
                              variable=isLoop,
