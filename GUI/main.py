@@ -7,6 +7,8 @@ from threading import Thread, Timer
 from tkinter import ttk
 from tkinter.messagebox import showinfo
 import pyautogui as ui
+import os
+
 
 from breakTimer.SystemMusic import SystemMusic
 
@@ -15,6 +17,12 @@ ui.FAILSAFE = False
 
 if __name__ == '__main__':
     # multiprocessing.freeze_support()
+
+    print("自动启动时的环境变量：", os.environ)
+    print("自动启动时的环境变量：", os.environ.get('PYTHONPATH'))
+    work_dir = os.getcwd()
+    print("自动启动时的当前工作目录：", work_dir)
+
     root = tk.Tk()
     #size = "8000x3000+-4000+0"
     #size = "400x400+500+500"
@@ -41,30 +49,81 @@ if __name__ == '__main__':
     is_loop = 0
     liver = "22:30"
     liver_to = "6:00"
-    force = 1
+    force = 0
     width = "450"
     length = "450"
     is_music = 0
+    path = "D:\\work\\python_code\\protect\\dist\\main\\config.json"
 
 
-    path = 'config.json'
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            data = json.load(f)  # 加载我们的数据
-            smallTime = data.get('smallTime', smallTime)
-            bigTime = data.get('bigTime', bigTime)
-            studyTime = data.get('studyTime', studyTime)
-            smallNum = data.get('smallNum', smallNum)
-            is_loop = data.get('isLoop', isLoop)
-            liver = data.get('liver', liver)
-            liver_to = data.get('liver_to', liver)
-            force = data.get('force', force)
-            width = data.get('width', width)
-            length = data.get('length', length)
-            is_music = data.get('is_music', is_music)
-    except:
-        pass
+    target = ''
+    target_end = ''
+    now = ''
+    time.sleep(5)
 
+    def write_configs(write_all=True, first_read=True):
+        data = read_configs(first_read)
+        global studyTime
+        try:
+            with open(path, "w", encoding="utf-8") as f:
+                data["smallTime"] = smallTime
+                data["bigTime"] = bigTime
+                data["studyTime"] = studyTime
+                data["smallNum"] = smallNum
+                data["isLoop"] = isLoop.get()
+                if target != '':
+                    data['target'] = target.strftime("%Y-%m-%d %H:%M:%S")
+                if target_end != '':
+                    data['target_end'] = target_end.strftime("%Y-%m-%d %H:%M:%S")
+                if write_all:
+                    data["liver"] = liver
+                    data["liver_to"] = liver_to
+                    data["force"] = force
+                    data["width"] = width
+                    data["length"] = length
+                    data["is_music"] = is_music
+                json.dump(data, f, indent=3, ensure_ascii=False)
+        except:
+            print(f'写错误 write_all:{write_all} first read:{first_read}')
+
+    def read_configs(first_read=True):
+        global smallTime, bigTime, studyTime, smallNum, is_loop, liver, liver_to, force, width, length, is_music, target, target_end,path
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)  # 加载我们的数据
+                if first_read:
+                    smallTime = data.get('smallTime', smallTime)
+                    bigTime = data.get('bigTime', bigTime)
+                    studyTime = data.get('studyTime', studyTime)
+                    smallNum = data.get('smallNum', smallNum)
+                    is_loop = data.get('isLoop', isLoop)
+
+                    target = data.get('target', target)
+                    try:
+                        if target != '':
+                            target = datetime.datetime.strptime(target, "%Y-%m-%d %H:%M:%S")
+
+                        target_end = data.get('target_end', target_end)
+                        if target_end != '':
+                            target_end = datetime.datetime.strptime(target_end, "%Y-%m-%d %H:%M:%S")
+                    except:
+                        target = ''
+                        target_end = ''
+                liver = data.get('liver', liver)
+                liver_to = data.get('liver_to', liver)
+                force = data.get('force', force)
+                width = data.get('width', width)
+                length = data.get('length', length)
+                is_music = data.get('is_music', is_music)
+                # path = data.get('path', path)
+
+                return data
+        except:
+            print(f'读错误 first read:{first_read}')
+            return {}
+
+    #read_configs()
+    write_configs(write_all=True, first_read=True)
     small.set(smallTime)
     big.set(bigTime)
     study.set(studyTime)
@@ -79,6 +138,8 @@ if __name__ == '__main__':
     lastEnd = True
     pause = False
 
+    now_state = ''
+
     # 1 1 2 1 2 1
     def stage(name, t, before_update):
         print(f"hello, this is stage {name}")
@@ -87,10 +148,15 @@ if __name__ == '__main__':
         if before_update != update and name != '养肝阶段':
             return
         if name == '养肝阶段':
+            # if(now_state == '养肝阶段'):
+            #     return
             update = update + 1
 
         while not lastEnd:
             time.sleep(1)
+        global now_state
+        now_state = name
+
         lastEnd = False
         t = t * 60
         fullStage = ['休息阶段', '养肝阶段']
@@ -115,8 +181,13 @@ if __name__ == '__main__':
                 time.sleep(1)
             if before_update != update and name != '养肝阶段':
                 break
+            # if name == '养肝阶段' and i % 10 == 0:
+            #     root.attributes('-topmost', 1)
+            #     root.attributes('-fullscreen', True)
+
+
         stageInfoVar.set(f'当前阶段:{name}  剩余时间: 0分 : 0秒')
-        if name in fullStage:
+        if name == '休息阶段':
             root.attributes('-fullscreen', False)
             root.geometry(size)
             root.attributes('-topmost', 0)
@@ -153,36 +224,74 @@ if __name__ == '__main__':
                 Thread(target=run, daemon=True).start()
 
 
-    #Thread(target=run, daemon=True).start()
 
     #新增10点半养肝功能
-
     def livers(right_now=False):
         if right_now:
             Timer(3, partial(stage, name='养肝阶段', t=60, before_update=update)).start()
-        now = datetime.datetime.now()
-        h = now.time().hour
-        m = now.time().minute
-        liver_time = liver.split(":");
-        liver_end = liver_to.split(":");
-        th, tm = int(liver_time[0]), int(liver_time[1])
-        eh, em = int(liver_end[0]), int(liver_end[1])
-
-        target = datetime.datetime(now.year, now.month, now.day, th, tm, 0, 0)
-        target_end = datetime.datetime(now.year, now.month, now.day, eh, em, 0, 0)
-        print((target_end - now).seconds)
-        if (h > th or h == th and m >= tm) and (h < eh or h == eh and m <= em):
-            Timer(0, partial(stage, name='养肝阶段', t=(target_end - now).seconds // 60, before_update=update)).start()
-        else:
-            d = (target - now)
-            Timer(d.seconds, partial(stage, name='养肝阶段', t=(target_end - target).seconds // 60, before_update=update)).start()
+            return
+        # if check():
+        #     Timer(0, partial(stage, name='养肝阶段', t=(target_end - now).seconds // 60, before_update=update)).start()
+        # else:
+        #     d = (target - now)
+        #     Timer(d.seconds, partial(stage, name='养肝阶段', t=(target_end - target).seconds // 60, before_update=update)).start()
 
     def break_now():
         livers(right_now=True)
 
+    def check():
+        now = datetime.datetime.now()
+        return (now >= target) and (now <= target_end)
+
+    def update_target(firstTime=True):
+        global target, target_end
+        now = datetime.datetime.now()
+        if target != '' and target_end != '' and now <= target_end:
+            return
+        if target != '' and target.day == now.day:
+            return
+        liver_time = liver.split(":");
+        liver_end = liver_to.split(":");
+        th, tm = int(liver_time[0]), int(liver_time[1])
+        eh, em = int(liver_end[0]), int(liver_end[1])
+        target = datetime.datetime(now.year, now.month, now.day, th, tm, 0, 0)
+        target_end = datetime.datetime(now.year, now.month, now.day, eh, em, 0, 0)
+        if not (eh > th or eh == th and em >= tm):
+            one_day = datetime.timedelta(days=1)
+            target_end = target_end + one_day
+        write_configs(write_all=False, first_read=False)
+
+    update_target(firstTime=True)
 
 
-    Thread(target=livers, daemon=True).start()
+
+
+    # 实时监控
+    def monitor():
+        print('monitor 启动' + target.strftime("%Y-%m-%d %H:%M:%S"))
+        # time.sleep(1)
+        global end
+        global now_state
+        gap_time = 5
+        Timer(gap_time * 60, monitor).start()
+        if check():
+            stage(name = '养肝阶段', t=gap_time, before_update=update)
+        elif now_state == '养肝阶段':
+            root.attributes('-fullscreen', False)
+            root.geometry(size)
+            root.attributes('-topmost', 0)
+            end = True
+            login_button.configure(state='enable')
+            break_now_button.configure(state='enable')
+            now_state = ''
+            update_target(firstTime=False)
+        else:
+            update_target(firstTime=False)
+
+
+    # Thread(target=livers, daemon=True).start()
+    Thread(target=monitor, daemon=True).start()
+
 
     def close():
         if force:
@@ -194,22 +303,8 @@ if __name__ == '__main__':
         update = update + 1
 
     def quit_me():
+        write_configs(write_all=False, first_read=False)
         Timer(0, close).start()
-        data = {}
-        with open(path, "w", encoding="utf-8") as f:
-            data["smallTime"] = smallTime
-            data["bigTime"] = bigTime
-            data["studyTime"] = studyTime
-            data["smallNum"] = smallNum
-            data["isLoop"] = isLoop.get()
-            #data["liver"] = liver
-            #data["liver_to"] = liver_to
-            #data["force"] = force
-            #data["width"] = width
-            #data["length"] = length
-            #data["is_music"] = is_music
-            json.dump(data, f, indent=3, ensure_ascii=False)
-
 
     root.protocol("WM_DELETE_WINDOW", quit_me)
 
