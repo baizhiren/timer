@@ -49,7 +49,7 @@ if __name__ == '__main__':
     is_loop = 0
     liver = "22:30"
     liver_to = "6:00"
-    force = 0
+    force = 1
     width = "450"
     length = "450"
     is_music = 0
@@ -148,8 +148,6 @@ if __name__ == '__main__':
         if before_update != update and name != '养肝阶段':
             return
         if name == '养肝阶段':
-            # if(now_state == '养肝阶段'):
-            #     return
             update = update + 1
 
         while not lastEnd:
@@ -159,7 +157,7 @@ if __name__ == '__main__':
 
         lastEnd = False
         t = t * 60
-        fullStage = ['休息阶段', '养肝阶段']
+        fullStage = ['休息阶段', '养肝阶段', '立刻休息']
         if name in fullStage:
             root.attributes('-topmost', 1)
             if force:
@@ -187,7 +185,7 @@ if __name__ == '__main__':
 
 
         stageInfoVar.set(f'当前阶段:{name}  剩余时间: 0分 : 0秒')
-        if name == '休息阶段':
+        if name == '休息阶段' or name == '立刻休息':
             root.attributes('-fullscreen', False)
             root.geometry(size)
             root.attributes('-topmost', 0)
@@ -237,7 +235,7 @@ if __name__ == '__main__':
         #     Timer(d.seconds, partial(stage, name='养肝阶段', t=(target_end - target).seconds // 60, before_update=update)).start()
 
     def break_now():
-        livers(right_now=True)
+        Timer(3, partial(stage, name='立刻休息', t=60, before_update=update)).start()
 
     def check():
         now = datetime.datetime.now()
@@ -275,7 +273,7 @@ if __name__ == '__main__':
         gap_time = 5
         Timer(gap_time * 60, monitor).start()
         if check():
-            stage(name = '养肝阶段', t=gap_time, before_update=update)
+            stage(name='养肝阶段', t=gap_time, before_update=update)
         elif now_state == '养肝阶段':
             root.attributes('-fullscreen', False)
             root.geometry(size)
@@ -399,7 +397,7 @@ if __name__ == '__main__':
     # login button
     login_button = ttk.Button(signin, text="确认修改", command=login_clicked)
     login_button.pack(fill='x', expand=True, pady=8)
-    #
+
     # pause_button = ttk.Button(signin, textvariable=pauseVar, command=pause_clicked)
     # pause_button.pack(fill='x', expand=True, pady=5)
 
