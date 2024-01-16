@@ -1,0 +1,15 @@
+{
+   "smallTime": 1,
+   "bigTime": 12,
+   "studyTime": 40,
+   "smallNum": 3,
+   "isLoop": 0,
+   "liver": "12:10",
+   "liver_to": "12:22",
+   "force": 0,
+   "width": "450",
+   "length": "450",
+   "is_music": 0,
+   "target": "2023-08-18 12:10:00",
+   "target_end": "2023-08-18 12:22:00"
+}

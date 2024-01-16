@@ -36,6 +36,6 @@ class SystemMusic:
             threading.Timer(0, self.beep).start()
             threading.Timer(self.time_gap, self.heart_beat).start()
 
-if __name__ == '__main__':
-    music = SystemMusic()
-    music.ring()
+# if __name__ == '__main__':
+#     music = SystemMusic()
+#     music.ring()
