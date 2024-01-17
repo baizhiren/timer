@@ -18,6 +18,8 @@ ui.FAILSAFE = False
 if __name__ == '__main__':
     # multiprocessing.freeze_support()
 
+    debug = False
+
     print("自动启动时的环境变量：", os.environ)
     print("自动启动时的环境变量：", os.environ.get('PYTHONPATH'))
     work_dir = os.getcwd()
@@ -62,7 +64,7 @@ if __name__ == '__main__':
     bigTime = 12
     studyTime = 40
     smallNum = 3
-    is_loop = 1
+    is_loop = 0
     liver = "22:30"
     liver_to = "6:00"
     force = 1
@@ -74,8 +76,8 @@ if __name__ == '__main__':
 
 
     is_music = 0
-    auto_start = 0
-    debug = False
+    auto_start = 1
+
 
     target = ''
     target_end = ''
@@ -184,8 +186,8 @@ if __name__ == '__main__':
         fullStage = ['休息阶段', '养肝阶段', '立刻休息']
         if name in fullStage:
             end = False
-            if not debug:
-                root.attributes('-topmost', 1)
+            # if not debug:
+            root.attributes('-topmost', 1)
             print('启动check window position')
             Thread(target=check_window_position(), daemon=True).start()
             if force:
@@ -205,6 +207,7 @@ if __name__ == '__main__':
                 time.sleep(1)
             if before_update != update and name != '养肝阶段':
                 break
+
 
         stageInfoVar.set(f'当前阶段:{name}  剩余时间: 0分 : 0秒')
         if name == '休息阶段' or name == '立刻休息':
@@ -242,18 +245,23 @@ if __name__ == '__main__':
         else:
             st = 0
             before_update = update
-            for i in range(int(smallNum) - 1):
-                t1 = Timer(st, partial(stage, name='学习阶段', t=studyTime, before_update=update))
-                t1.start()
-                st += int(studyTime)
-                t2 = Timer(st, partial(stage, name='休息阶段', t=smallTime, before_update=update))
-                t2.start()
-                st += int(smallTime)
+            studyTime_d = 3
+            smallTime_d = 20
+            bigTime_d = 20
+            smallNum_d = 3
 
-            Timer(st, partial(stage, name='学习阶段', t=studyTime, before_update=update)).start()
-            st += int(studyTime)
-            Timer(st, partial(stage, name='休息阶段', t=bigTime, before_update=update)).start()
-            st += int(bigTime)
+            for i in range(int(smallNum_d) - 1):
+                t1 = Timer(st, partial(stage, name='学习阶段', t=studyTime_d, before_update=update))
+                t1.start()
+                st += int(studyTime_d)
+                t2 = Timer(st, partial(stage, name='休息阶段', t=smallTime_d, before_update=update))
+                t2.start()
+                st += int(smallTime_d)
+
+            Timer(st, partial(stage, name='学习阶段', t=studyTime_d, before_update=update)).start()
+            st += int(studyTime_d)
+            Timer(st, partial(stage, name='休息阶段', t=bigTime_d, before_update=update)).start()
+            st += int(bigTime_d)
             time.sleep(st)
 
         if update == before_update:
@@ -323,14 +331,18 @@ if __name__ == '__main__':
 
 
     def check_window_position():
-        window_x = root.winfo_x()
-        window_y = root.winfo_y()
-        if window_x != 0 or window_y != 0:
-            root.attributes('-fullscreen', False)
-            root.attributes('-fullscreen', True)
-            print('错位重置')
-        if not end:
-            root.after(1000, check_window_position)
+        if force and not end:
+            ui.moveTo(0, 0)
+            ui.click()
+            window_x = root.winfo_x()
+            window_y = root.winfo_y()
+            if window_x != 0 or window_y != 0:
+                root.attributes('-fullscreen', False)
+                root.attributes('-fullscreen', True)
+                print('错位重置')
+
+        if not end and force:
+            root.after(5000, check_window_position)
         else:
             root.attributes('-fullscreen', False)
 
