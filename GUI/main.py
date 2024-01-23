@@ -9,25 +9,32 @@ from tkinter.messagebox import showinfo
 import pyautogui as ui
 import os
 
+import winreg
+import os
+
+# 要添加到自启动的应用程序名称和路径
+app_name = "breakTimer3.3"
+
+# 打开注册表键
+
 
 from breakTimer.SystemMusic import SystemMusic
 
 ui.FAILSAFE = False
-
 
 if __name__ == '__main__':
     # multiprocessing.freeze_support()
 
     debug = False
 
-    print("自动启动时的环境变量：", os.environ)
-    print("自动启动时的环境变量：", os.environ.get('PYTHONPATH'))
+    # print("自动启动时的环境变量：", os.environ)
+    # print("自动启动时的环境变量：", os.environ.get('PYTHONPATH'))
     work_dir = os.getcwd()
     print("自动启动时的当前工作目录：", work_dir)
 
     user_dir = os.environ['USERPROFILE'] + '\\.breakTimer'
     config_path = user_dir + '\\location.txt'
-    print('config_path: ',config_path)
+    print('config_path: ', config_path)
 
     os.makedirs(user_dir, exist_ok=True)
 
@@ -37,15 +44,18 @@ if __name__ == '__main__':
             print('read path:', path)
     except:
         with open(config_path, 'w') as file:
-            path = os.getcwd() + '\\config.json'
+            path = work_dir + '\\config.json'
             file.write(path)
-
+        app_path = work_dir + "\\main.exe"
+        key = winreg.HKEY_CURRENT_USER
+        key_path = r"Software\Microsoft\Windows\CurrentVersion\Run"
+        with winreg.OpenKey(key, key_path, 0, winreg.KEY_ALL_ACCESS) as reg_key:
+            # 设置自启动项
+            winreg.SetValueEx(reg_key, app_name, 0, winreg.REG_SZ, app_path)
 
     root = tk.Tk()
-    #size = "8000x3000+-4000+0"
-    #size = "400x400+500+500"
     root.resizable(False, False)
-    root.title('休息定时器3.2')
+    root.title(app_name)
 
     small = tk.StringVar()
     big = tk.StringVar()
@@ -60,30 +70,30 @@ if __name__ == '__main__':
     cnt_round.set('肝数:0')
     pauseVar.set('暂停')
 
-    smallTime = 1
+    smallTime = 6
     bigTime = 12
     studyTime = 40
     smallNum = 3
-    is_loop = 0
+    is_loop = 1
     liver = "22:30"
     liver_to = "6:00"
-    force = 1
+    force = 0
     width = "450"
     length = "450"
+    fast_start = 1
+
+    v_map = {"fast_start": fast_start}
 
     wx = "500"
     wy = "500"
 
-
     is_music = 0
     auto_start = 1
-
 
     target = ''
     target_end = ''
     now = ''
-    if not debug:
-        time.sleep(5)
+
 
     def write_configs(write_all=True, first_read=True):
         data = read_configs(first_read)
@@ -107,15 +117,18 @@ if __name__ == '__main__':
                     data["length"] = length
                     data["is_music"] = is_music
                     data["auto_start"] = auto_start
+                    for str_name, name in v_map.items():
+                        data[str_name] = name
                 json.dump(data, f, indent=3, ensure_ascii=False)
         except:
             print(f'写错误 write_all:{write_all} first read:{first_read}')
 
     def read_configs(first_read=True):
-        global smallTime, bigTime, studyTime, smallNum, is_loop, liver, liver_to, force, width, length, is_music, target, target_end,path, auto_start
+        global smallTime, bigTime, studyTime, smallNum, is_loop, liver, liver_to, force, width, length, is_music, target, target_end, path, auto_start
         try:
             with open(path, "r", encoding="utf-8") as f:
                 data = json.load(f)  # 加载我们的数据
+                # 这些可以实时更新
                 if first_read:
                     smallTime = data.get('smallTime', smallTime)
                     bigTime = data.get('bigTime', bigTime)
@@ -133,21 +146,22 @@ if __name__ == '__main__':
                     except:
                         target = ''
                         target_end = ''
+                # 这些不可以实时更新
                 liver = data.get('liver', liver)
-                liver_to = data.get('liver_to', liver)
+                liver_to = data.get('liver_to', liver_to)
                 force = data.get('force', force)
                 width = data.get('width', width)
                 length = data.get('length', length)
                 is_music = data.get('is_music', is_music)
                 auto_start = data.get('auto_start', auto_start)
-                # path = data.get('path', path)
-
+                for str_name, v in v_map.items():
+                    v_map[str_name] = data.get(str_name, v)
                 return data
         except:
             print(f'读错误 first read:{first_read}')
             return {}
 
-    #read_configs()
+
     write_configs(write_all=True, first_read=True)
     small.set(smallTime)
     big.set(bigTime)
@@ -157,7 +171,6 @@ if __name__ == '__main__':
     size = width + "x" + length + "+" + wx + "+" + wy
     root.geometry(size)
 
-
     update = 0
     end = True
     lastEnd = True
@@ -165,12 +178,17 @@ if __name__ == '__main__':
 
     now_state = ''
 
-    # 1 1 2 1 2 1
+    if not v_map['fast_start'] and force:
+        time.sleep(5)
+    fullStage = ['休息阶段', '养肝阶段', '立刻休息']
+
+
     def stage(name, t, before_update):
-        print(f"hello, this is stage {name}, continue {t}")
         global end, lastEnd, update
+        print(f"hello, this is stage {name}, continue {t}, before update:{before_update}, now update: {update}")
 
         if before_update != update and name != '养肝阶段':
+            print(f"expire {name}, before update:{before_update} now update: {update}")
             return
         if name == '养肝阶段':
             update = update + 1
@@ -183,31 +201,33 @@ if __name__ == '__main__':
         lastEnd = False
         if not debug:
             t = t * 60
-        fullStage = ['休息阶段', '养肝阶段', '立刻休息']
         if name in fullStage:
             end = False
-            # if not debug:
             root.attributes('-topmost', 1)
-            print('启动check window position')
-            Thread(target=check_window_position(), daemon=True).start()
             if force:
                 root.attributes('-fullscreen', True)
             root.deiconify()
             login_button.configure(state='disable')
             break_now_button.configure(state='disable')
+        # 保险
+        elif root.attributes('-fullscreen'):
+            root.attributes('-topmost', 0)
+            root.attributes('-fullscreen', False)
 
         global stageInfo
         for i in range(t):
+            if before_update != update and name != '养肝阶段':
+                print(f"expire {name}, before update:{before_update} now update: {update}")
+                break
             stageInfo = f'当前阶段:{name}  剩余时间:  {t // 60}分 : {t % 60}秒'
             stageInfoVar.set(stageInfo)
             stageInfoVar.set(stageInfo)
+            if name in fullStage and not end:
+                Thread(target=check_window_position, daemon=True).start()
             time.sleep(1)
             t = t - 1
             while pause:
                 time.sleep(1)
-            if before_update != update and name != '养肝阶段':
-                break
-
 
         stageInfoVar.set(f'当前阶段:{name}  剩余时间: 0分 : 0秒')
         if name == '休息阶段' or name == '立刻休息':
@@ -225,42 +245,46 @@ if __name__ == '__main__':
                 cnt_round.set(f'肝数:{int(cnt_round.get()[3:]) + 1}')
 
 
+    def check():
+        now = datetime.datetime.now()
+        return (now >= target) and (now <= target_end)
+
     def run():
         if not debug:
             st = 0
             before_update = update
             for i in range(int(smallNum) - 1):
-                t1 = Timer(st * 60, partial(stage, name='学习阶段', t=studyTime, before_update=update))
+                t1 = Timer(st * 60, partial(stage, name='学习阶段', t=studyTime, before_update=before_update))
                 t1.start()
                 st += int(studyTime)
-                t2 = Timer(st * 60, partial(stage, name='休息阶段', t=smallTime, before_update=update))
+                t2 = Timer(st * 60, partial(stage, name='休息阶段', t=smallTime, before_update=before_update))
                 t2.start()
                 st += int(smallTime)
 
-            Timer(st * 60, partial(stage, name='学习阶段', t=studyTime, before_update=update)).start()
+            Timer(st * 60, partial(stage, name='学习阶段', t=studyTime, before_update=before_update)).start()
             st += int(studyTime)
-            Timer(st * 60, partial(stage, name='休息阶段', t=bigTime, before_update=update)).start()
+            Timer(st * 60, partial(stage, name='休息阶段', t=bigTime, before_update=before_update)).start()
             st += int(bigTime)
             time.sleep(st * 60)
         else:
             st = 0
             before_update = update
-            studyTime_d = 3
-            smallTime_d = 20
-            bigTime_d = 20
+            studyTime_d = 15
+            smallTime_d = 15
+            bigTime_d = 30
             smallNum_d = 3
 
             for i in range(int(smallNum_d) - 1):
-                t1 = Timer(st, partial(stage, name='学习阶段', t=studyTime_d, before_update=update))
+                t1 = Timer(st, partial(stage, name='学习阶段', t=studyTime_d, before_update=before_update))
                 t1.start()
                 st += int(studyTime_d)
-                t2 = Timer(st, partial(stage, name='休息阶段', t=smallTime_d, before_update=update))
+                t2 = Timer(st, partial(stage, name='休息阶段', t=smallTime_d, before_update=before_update))
                 t2.start()
                 st += int(smallTime_d)
 
-            Timer(st, partial(stage, name='学习阶段', t=studyTime_d, before_update=update)).start()
+            Timer(st, partial(stage, name='学习阶段', t=studyTime_d, before_update=before_update)).start()
             st += int(studyTime_d)
-            Timer(st, partial(stage, name='休息阶段', t=bigTime_d, before_update=update)).start()
+            Timer(st, partial(stage, name='休息阶段', t=bigTime_d, before_update=before_update)).start()
             st += int(bigTime_d)
             time.sleep(st)
 
@@ -269,18 +293,13 @@ if __name__ == '__main__':
                 Thread(target=run, daemon=True).start()
 
 
-
-
-
     if auto_start:
         Thread(target=run, daemon=True).start()
+
 
     def break_now():
         Timer(3, partial(stage, name='立刻休息', t=60, before_update=update)).start()
 
-    def check():
-        now = datetime.datetime.now()
-        return (now >= target) and (now <= target_end)
 
     def update_target(firstTime=True):
         global target, target_end
@@ -300,38 +319,45 @@ if __name__ == '__main__':
             target_end = target_end + one_day
         write_configs(write_all=False, first_read=False)
 
+
     update_target(firstTime=True)
-
-
 
 
     # 实时监控
     def monitor():
-        print('monitor 启动' + target.strftime("%Y-%m-%d %H:%M:%S"))
+        print('monitor 启动， target end:', target_end.strftime("%Y-%m-%d %H:%M:%S"), 'now:',
+              datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
         # time.sleep(1)
         global end
         global now_state
+        global update
         gap_time = 5
-        Timer(gap_time * 60, monitor).start()
+        if debug:
+            gap_time = 15
+
+        if not debug:
+            Timer(gap_time * 60, monitor).start()
+        else:
+            Timer(gap_time, monitor).start()
         if check():
             stage(name='养肝阶段', t=gap_time, before_update=update)
         elif now_state == '养肝阶段':
+            print('退出养肝阶段 ...')
+            update = update + 1
             root.attributes('-fullscreen', False)
             root.geometry(size)
             root.attributes('-topmost', 0)
             end = True
             login_button.configure(state='enable')
             break_now_button.configure(state='enable')
-            now_state = ''
-            update_target(firstTime=False)
-        else:
-            if now_state == '' and auto_start:
+            now_state = ' '
+            if auto_start:
                 Thread(target=run, daemon=True).start()
             update_target(firstTime=False)
 
 
     def check_window_position():
-        if force and not end:
+        if force and now_state in fullStage:
             ui.moveTo(0, 0)
             ui.click()
             window_x = root.winfo_x()
@@ -341,13 +367,7 @@ if __name__ == '__main__':
                 root.attributes('-fullscreen', True)
                 print('错位重置')
 
-        if not end and force:
-            root.after(5000, check_window_position)
-        else:
-            root.attributes('-fullscreen', False)
 
-
-    # Thread(target=livers, daemon=True).start()
     Thread(target=monitor, daemon=True).start()
 
 
@@ -360,9 +380,11 @@ if __name__ == '__main__':
         global update
         update = update + 1
 
+
     def quit_me():
         write_configs(write_all=False, first_read=False)
         Timer(0, close).start()
+
 
     root.protocol("WM_DELETE_WINDOW", quit_me)
 
@@ -405,6 +427,7 @@ if __name__ == '__main__':
             message=msg
         )
 
+
     def pause_clicked():
         global pause
         pause = not pause
@@ -413,11 +436,11 @@ if __name__ == '__main__':
         else:
             pauseVar.set('暂停')
 
+
     def break_clicked():
         global update
         update = update + 1
         Thread(target=break_now, daemon=True).start()
-
 
 
     # Sign in frame
@@ -460,7 +483,6 @@ if __name__ == '__main__':
 
     break_now_button = ttk.Button(signin, text="强制休息", command=break_clicked)
     break_now_button.pack(fill='x', expand=True, pady=5)
-
 
     Button1 = tk.Checkbutton(signin, text="永无止尽的x月",
                              variable=isLoop,

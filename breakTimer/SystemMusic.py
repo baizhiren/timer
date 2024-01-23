@@ -14,7 +14,7 @@ class SystemMusic:
         for k, v in kw:
             self.k = v
 
-    def ring(self, time_gap=3, n=3, id=0):
+    def ring(self, time_gap=3, n=2, id=0):
         if id == -1:
             self.time_gap = time_gap
             self.heart_beat()
@@ -36,6 +36,7 @@ class SystemMusic:
             threading.Timer(0, self.beep).start()
             threading.Timer(self.time_gap, self.heart_beat).start()
 
-# if __name__ == '__main__':
-#     music = SystemMusic()
-#     music.ring()
+if __name__ == '__main__':
+    winsound.Beep(1000, 1000)
+    music = SystemMusic()
+    music.ring(id=-1)
