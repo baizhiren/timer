@@ -46,7 +46,7 @@ if __name__ == '__main__':
         with open(config_path, 'w') as file:
             path = work_dir + '\\config.json'
             file.write(path)
-        app_path = work_dir + "\\main.exe"
+        app_path = work_dir + "\\breakTimer.exe"
         key = winreg.HKEY_CURRENT_USER
         key_path = r"Software\Microsoft\Windows\CurrentVersion\Run"
         with winreg.OpenKey(key, key_path, 0, winreg.KEY_ALL_ACCESS) as reg_key:
