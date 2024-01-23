@@ -1,5 +1,4 @@
-# timer
-休息定时器
+# timer 休息定时器
 
 ![image](https://user-images.githubusercontent.com/30487483/214989507-abcffbc9-8187-42af-980a-d4dfaf152e0f.png)
 
@@ -22,7 +21,7 @@
 
 config 参数
 ---
-可以再config.json 文件钟修改配置
+可以在config.json 文件中修改配置
 
  "smallTime": 6 （小休时间
  
