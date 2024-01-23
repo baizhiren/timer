@@ -77,7 +77,7 @@ if __name__ == '__main__':
     is_loop = 1
     liver = "22:30"
     liver_to = "6:00"
-    force = 0
+    force = 1
     width = "450"
     length = "450"
     fast_start = 1
@@ -128,7 +128,7 @@ if __name__ == '__main__':
         try:
             with open(path, "r", encoding="utf-8") as f:
                 data = json.load(f)  # 加载我们的数据
-                # 这些可以实时更新
+                # 这些可以实时更新（在程序里更新
                 if first_read:
                     smallTime = data.get('smallTime', smallTime)
                     bigTime = data.get('bigTime', bigTime)
@@ -301,13 +301,12 @@ if __name__ == '__main__':
         Timer(3, partial(stage, name='立刻休息', t=60, before_update=update)).start()
 
 
-    def update_target(firstTime=True):
+    def update_first_time_target():
         global target, target_end
         now = datetime.datetime.now()
         if target != '' and target_end != '' and now <= target_end:
             return
-        if target != '' and target.day == now.day:
-            return
+        #对应定时任务不存在或者已经过期
         liver_time = liver.split(":");
         liver_end = liver_to.split(":");
         th, tm = int(liver_time[0]), int(liver_time[1])
@@ -319,8 +318,14 @@ if __name__ == '__main__':
             target_end = target_end + one_day
         write_configs(write_all=False, first_read=False)
 
+    def update_target():
+        global target, target_end
+        one_day = datetime.timedelta(days=1)
+        target_end = target_end + one_day
+        target = target + one_day
+        write_configs(write_all=False, first_read=False)
 
-    update_target(firstTime=True)
+    update_first_time_target()
 
 
     # 实时监控
@@ -353,7 +358,7 @@ if __name__ == '__main__':
             now_state = ' '
             if auto_start:
                 Thread(target=run, daemon=True).start()
-            update_target(firstTime=False)
+        update_target()
 
 
     def check_window_position():
@@ -374,12 +379,11 @@ if __name__ == '__main__':
     def close():
         if force:
             return
-        while not end:
-            time.sleep(1)
+        # global update
+        # update = update + 1
+        # while not end:
+        #     time.sleep(1)
         root.quit()
-        global update
-        update = update + 1
-
 
     def quit_me():
         write_configs(write_all=False, first_read=False)
