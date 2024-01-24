@@ -14,6 +14,11 @@ from tkinter import *
 import winreg
 import os
 
+import sys
+
+
+
+
 # 要添加到自启动的应用程序名称和路径
 app_name = "breakTimer3.4"
 
@@ -28,6 +33,10 @@ if __name__ == '__main__':
     # multiprocessing.freeze_support()
 
     debug = True
+    if getattr(sys, 'frozen', False):
+        # 在可执行文件中运行的逻辑
+        print("在可执行文件中运行")
+        debug = False
 
     # print("自动启动时的环境变量：", os.environ)
     # print("自动启动时的环境变量：", os.environ.get('PYTHONPATH'))
@@ -83,10 +92,15 @@ if __name__ == '__main__':
     width = "450"
     length = "450"
     fast_start = 1
+
     split_screen = 1
+    mouse_lock = 1
 
-
-    v_map = {"fast_start": fast_start, "split_screen": split_screen}
+    v_map = {
+        "fast_start": fast_start,
+        "split_screen": split_screen,
+        "mouse lock": mouse_lock
+    }
 
     wx = "500"
     wy = "500"
@@ -126,6 +140,7 @@ if __name__ == '__main__':
                 json.dump(data, f, indent=3, ensure_ascii=False)
         except:
             print(f'写错误 write_all:{write_all} first read:{first_read}')
+
 
     def read_configs(first_read=True):
         global smallTime, bigTime, studyTime, smallNum, is_loop, liver, liver_to, force, width, length, is_music, target, target_end, path, auto_start
@@ -188,9 +203,8 @@ if __name__ == '__main__':
 
     from screeninfo import get_monitors
 
-
-
     sub_screen_array = []
+
 
     def span():
         monitors = get_monitors()
@@ -202,11 +216,13 @@ if __name__ == '__main__':
                 sub_screen.overrideredirect(1)
                 sub_screen_array.append(sub_screen)
 
+
     def destroy_sub_screen():
         global sub_screen_array
         for sub_screen in sub_screen_array:
             sub_screen.destroy()
         sub_screen_array = []
+
 
     def stage(name, t, before_update):
         global end, lastEnd, update
@@ -234,7 +250,8 @@ if __name__ == '__main__':
             root.deiconify()
             login_button.configure(state='disable')
             break_now_button.configure(state='disable')
-            span()
+            if split_screen:
+                span()
         # 保险
         elif root.attributes('-fullscreen'):
             root.attributes('-topmost', 0)
@@ -275,6 +292,7 @@ if __name__ == '__main__':
     def check():
         now = datetime.datetime.now()
         return (now >= target) and (now <= target_end)
+
 
     def run():
         if not debug:
@@ -333,7 +351,7 @@ if __name__ == '__main__':
         now = datetime.datetime.now()
         if target != '' and target_end != '' and now <= target_end:
             return
-        #对应定时任务不存在或者已经过期
+        # 对应定时任务不存在或者已经过期
         liver_time = liver.split(":");
         liver_end = liver_to.split(":");
         th, tm = int(liver_time[0]), int(liver_time[1])
@@ -346,12 +364,14 @@ if __name__ == '__main__':
         write_configs(write_all=False, first_read=False)
         print('new target:', 'target', target, ' target end:', target_end)
 
+
     def update_target():
         global target, target_end
         one_day = datetime.timedelta(days=1)
         target_end = target_end + one_day
         target = target + one_day
         write_configs(write_all=False, first_read=False)
+
 
     update_first_time_target()
 
@@ -392,8 +412,9 @@ if __name__ == '__main__':
 
     def check_window_position():
         if force and now_state in fullStage:
-            ui.moveTo(0, 0)
-            ui.click()
+            if mouse_lock:
+                ui.moveTo(0, 0)
+                ui.click()
             window_x = root.winfo_x()
             window_y = root.winfo_y()
             if window_x != 0 or window_y != 0:
@@ -413,6 +434,7 @@ if __name__ == '__main__':
         # while not end:
         #     time.sleep(1)
         root.quit()
+
 
     def quit_me():
         write_configs(write_all=False, first_read=False)
