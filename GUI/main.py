@@ -9,11 +9,13 @@ from tkinter.messagebox import showinfo
 import pyautogui as ui
 import os
 
+from tkinter import *
+
 import winreg
 import os
 
 # 要添加到自启动的应用程序名称和路径
-app_name = "breakTimer3.3"
+app_name = "breakTimer3.4"
 
 # 打开注册表键
 
@@ -25,7 +27,7 @@ ui.FAILSAFE = False
 if __name__ == '__main__':
     # multiprocessing.freeze_support()
 
-    debug = False
+    debug = True
 
     # print("自动启动时的环境变量：", os.environ)
     # print("自动启动时的环境变量：", os.environ.get('PYTHONPATH'))
@@ -81,8 +83,10 @@ if __name__ == '__main__':
     width = "450"
     length = "450"
     fast_start = 1
+    split_screen = 1
 
-    v_map = {"fast_start": fast_start}
+
+    v_map = {"fast_start": fast_start, "split_screen": split_screen}
 
     wx = "500"
     wy = "500"
@@ -135,8 +139,8 @@ if __name__ == '__main__':
                     studyTime = data.get('studyTime', studyTime)
                     smallNum = data.get('smallNum', smallNum)
                     is_loop = data.get('isLoop', isLoop)
-                    target = data.get('target', target)
                     try:
+                        target = data.get('target', target)
                         if target != '':
                             target = datetime.datetime.strptime(target, "%Y-%m-%d %H:%M:%S")
 
@@ -182,6 +186,27 @@ if __name__ == '__main__':
         time.sleep(5)
     fullStage = ['休息阶段', '养肝阶段', '立刻休息']
 
+    from screeninfo import get_monitors
+
+
+
+    sub_screen_array = []
+
+    def span():
+        monitors = get_monitors()
+        for m in monitors:
+            if m.x != 0 or m.y != 0:
+                sub_screen = Toplevel()
+                sub_screen.geometry('%dx%d+%d+%d' % (m.width, m.height, m.x, m.y))
+                sub_screen.attributes('-topmost', 1)
+                sub_screen.overrideredirect(1)
+                sub_screen_array.append(sub_screen)
+
+    def destroy_sub_screen():
+        global sub_screen_array
+        for sub_screen in sub_screen_array:
+            sub_screen.destroy()
+        sub_screen_array = []
 
     def stage(name, t, before_update):
         global end, lastEnd, update
@@ -209,6 +234,7 @@ if __name__ == '__main__':
             root.deiconify()
             login_button.configure(state='disable')
             break_now_button.configure(state='disable')
+            span()
         # 保险
         elif root.attributes('-fullscreen'):
             root.attributes('-topmost', 0)
@@ -237,6 +263,7 @@ if __name__ == '__main__':
             end = True
             login_button.configure(state='enable')
             break_now_button.configure(state='enable')
+            destroy_sub_screen()
         lastEnd = True
         if before_update == update:
             if is_music:
@@ -269,9 +296,9 @@ if __name__ == '__main__':
         else:
             st = 0
             before_update = update
-            studyTime_d = 15
-            smallTime_d = 15
-            bigTime_d = 30
+            studyTime_d = 10
+            smallTime_d = 10
+            bigTime_d = 20
             smallNum_d = 3
 
             for i in range(int(smallNum_d) - 1):
@@ -317,6 +344,7 @@ if __name__ == '__main__':
             one_day = datetime.timedelta(days=1)
             target_end = target_end + one_day
         write_configs(write_all=False, first_read=False)
+        print('new target:', 'target', target, ' target end:', target_end)
 
     def update_target():
         global target, target_end
@@ -356,9 +384,10 @@ if __name__ == '__main__':
             login_button.configure(state='enable')
             break_now_button.configure(state='enable')
             now_state = ' '
+            destroy_sub_screen()
             if auto_start:
                 Thread(target=run, daemon=True).start()
-        update_target()
+            update_target()
 
 
     def check_window_position():
