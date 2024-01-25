@@ -1,4 +1,4 @@
-# timer 休息定时器
+# BreakTimer 休息定时器
 
 ![image](https://user-images.githubusercontent.com/30487483/214989507-abcffbc9-8187-42af-980a-d4dfaf152e0f.png)
 
