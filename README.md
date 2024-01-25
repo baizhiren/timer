@@ -53,6 +53,8 @@ config 参数
  "split_screen": 1,(是否开启多个屏幕锁定
    
  "mouse lock": 1,（是否开启鼠标锁定
+ 
+ "auto_boot": 1, (是否自启动)
 
 
 

@@ -7,7 +7,6 @@ from threading import Thread, Timer
 from tkinter import ttk
 from tkinter.messagebox import showinfo
 import pyautogui as ui
-import os
 
 from tkinter import *
 
@@ -16,11 +15,8 @@ import os
 
 import sys
 
-
-
-
 # 要添加到自启动的应用程序名称和路径
-app_name = "breakTimer3.4"
+app_name = "breakTimer3.5"
 
 # 打开注册表键
 
@@ -28,6 +24,36 @@ app_name = "breakTimer3.4"
 from breakTimer.SystemMusic import SystemMusic
 
 ui.FAILSAFE = False
+
+import logging
+
+
+def redirect_print_to_log(log_file_path):
+    # 创建日志记录器
+    logger = logging.getLogger('print_logger')
+    logger.setLevel(logging.INFO)
+
+    # 创建文件处理器
+    file_handler = logging.FileHandler(log_file_path)
+    file_handler.setLevel(logging.INFO)
+
+    # 创建格式化器
+    formatter = logging.Formatter('%(asctime)s - %(message)s')
+    file_handler.setFormatter(formatter)
+
+    # 将文件处理器添加到日志记录器
+    logger.addHandler(file_handler)
+
+    # 重定向print语句的输出
+    class PrintToLog:
+        def write(self, message):
+            if message.rstrip() != '':
+                logger.info(message.rstrip())
+
+    # 将标准输出重定向到PrintToLog对象
+    print_to_log = PrintToLog()
+    sys.stdout = print_to_log
+
 
 if __name__ == '__main__':
     # multiprocessing.freeze_support()
@@ -44,6 +70,9 @@ if __name__ == '__main__':
     print("自动启动时的当前工作目录：", work_dir)
 
     user_dir = os.environ['USERPROFILE'] + '\\.breakTimer'
+    if not debug:
+        redirect_print_to_log(user_dir + "\\output.log")
+
     config_path = user_dir + '\\location.txt'
     print('config_path: ', config_path)
 
@@ -57,12 +86,6 @@ if __name__ == '__main__':
         with open(config_path, 'w') as file:
             path = work_dir + '\\config.json'
             file.write(path)
-        app_path = work_dir + "\\breakTimer.exe"
-        key = winreg.HKEY_CURRENT_USER
-        key_path = r"Software\Microsoft\Windows\CurrentVersion\Run"
-        with winreg.OpenKey(key, key_path, 0, winreg.KEY_ALL_ACCESS) as reg_key:
-            # 设置自启动项
-            winreg.SetValueEx(reg_key, app_name, 0, winreg.REG_SZ, app_path)
 
     root = tk.Tk()
     root.resizable(False, False)
@@ -95,11 +118,13 @@ if __name__ == '__main__':
 
     split_screen = 1
     mouse_lock = 1
+    auto_boot = 1
 
     v_map = {
         "fast_start": fast_start,
         "split_screen": split_screen,
-        "mouse lock": mouse_lock
+        "mouse_lock": mouse_lock,
+        "auto_boot": auto_boot
     }
 
     wx = "500"
@@ -197,21 +222,69 @@ if __name__ == '__main__':
 
     now_state = ''
 
+    if v_map["auto_boot"]:
+        app_path = work_dir + "\\breakTimer.exe"
+        key = winreg.HKEY_CURRENT_USER
+        key_path = r"Software\Microsoft\Windows\CurrentVersion\Run"
+        try:
+            reg = winreg.OpenKey(winreg.HKEY_CURRENT_USER, key_path, 0, winreg.KEY_READ)
+            value, value_type = winreg.QueryValueEx(reg, app_name)
+            print(value, value_type)
+            winreg.CloseKey(reg)
+            print('自启项已存在')
+        except:
+            try:
+                with winreg.OpenKey(key, key_path, 0, winreg.KEY_ALL_ACCESS) as reg_key:
+                    # 设置自启动项
+                    winreg.SetValueEx(reg_key, app_name, 0, winreg.REG_SZ, app_path)
+                print('设置应用启动项成功')
+            except:
+                print('设置应用自启项失败')
+
+        # 检测是否被移除自启动
+        try:
+            # 打开注册表
+            reg_key = winreg.OpenKey(winreg.HKEY_CURRENT_USER,
+                                     r"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run", 0,
+                                     winreg.KEY_ALL_ACCESS)
+            # 如果键存在，删除它
+            winreg.DeleteValue(reg_key, app_name)
+            winreg.CloseKey(reg_key)
+            print("删除被禁用")
+        except:
+            print("删除被禁用失败")
+    else:
+        try:
+            reg_key = winreg.OpenKey(winreg.HKEY_CURRENT_USER,
+                                     r"Software\Microsoft\Windows\CurrentVersion\Run", 0,
+                                     winreg.KEY_ALL_ACCESS)
+            # 如果键存在，删除它
+            winreg.DeleteValue(reg_key, app_name)
+            winreg.CloseKey(reg_key)
+            print("应用取消自启")
+        except:
+            print("应用取消自启失败")
+
     if not v_map['fast_start'] and force:
         time.sleep(5)
+
     fullStage = ['休息阶段', '养肝阶段', '立刻休息']
 
     from screeninfo import get_monitors
 
     sub_screen_array = []
+    before_monitors = ''
 
 
     def span():
         monitors = get_monitors()
+        global before_monitors
+        before_monitors = monitors
         for m in monitors:
             if m.x != 0 or m.y != 0:
                 sub_screen = Toplevel()
                 sub_screen.geometry('%dx%d+%d+%d' % (m.width, m.height, m.x, m.y))
+                create_clock(sub_screen)
                 sub_screen.attributes('-topmost', 1)
                 sub_screen.overrideredirect(1)
                 sub_screen_array.append(sub_screen)
@@ -250,7 +323,7 @@ if __name__ == '__main__':
             root.deiconify()
             login_button.configure(state='disable')
             break_now_button.configure(state='disable')
-            if split_screen:
+            if v_map["split_screen"]:
                 span()
         # 保险
         elif root.attributes('-fullscreen'):
@@ -314,9 +387,9 @@ if __name__ == '__main__':
         else:
             st = 0
             before_update = update
-            studyTime_d = 10
-            smallTime_d = 10
-            bigTime_d = 20
+            studyTime_d = 6
+            smallTime_d = 15
+            bigTime_d = 15
             smallNum_d = 3
 
             for i in range(int(smallNum_d) - 1):
@@ -412,7 +485,16 @@ if __name__ == '__main__':
 
     def check_window_position():
         if force and now_state in fullStage:
-            if mouse_lock:
+            if v_map["split_screen"]:
+                monitors = get_monitors()
+                if len(monitors) != len(before_monitors):
+                    destroy_sub_screen()
+                    span()
+                for m1, m2 in zip(monitors, before_monitors):
+                    if m1.width != m2.width or m1.height != m2.height or m1.x != m2.x or m1.y != m2.y:
+                        destroy_sub_screen()
+                        span()
+            if v_map["mouse_lock"]:
                 ui.moveTo(0, 0)
                 ui.click()
             window_x = root.winfo_x()
@@ -429,10 +511,6 @@ if __name__ == '__main__':
     def close():
         if force:
             return
-        # global update
-        # update = update + 1
-        # while not end:
-        #     time.sleep(1)
         root.quit()
 
 
@@ -499,51 +577,58 @@ if __name__ == '__main__':
 
 
     # Sign in frame
-    signin = ttk.Frame(root)
-    signin.pack(padx=10, pady=10, fill='x', expand=True)
+    def create_clock(root):
+        clock = ttk.Frame(root)
+        clock.pack(padx=10, pady=10, fill='x', expand=True)
 
-    email_label = ttk.Label(signin, textvariable=stageInfoVar)
-    email_label.pack(fill='x', expand=True)
+        email_label = ttk.Label(clock, textvariable=stageInfoVar)
+        email_label.pack(fill='x', expand=True)
 
-    email_label = ttk.Label(signin, text="小休时间")
-    email_label.pack(fill='x', expand=True)
+        email_label = ttk.Label(clock, text="小休时间")
+        email_label.pack(fill='x', expand=True)
 
-    email_entry = ttk.Entry(signin, textvariable=small)
-    email_entry.pack(fill='x', expand=True)
-    email_entry.focus()
+        email_entry = ttk.Entry(clock, textvariable=small)
+        email_entry.pack(fill='x', expand=True)
+        email_entry.focus()
 
-    password_label = ttk.Label(signin, text="大休时间:")
-    password_label.pack(fill='x', expand=True)
+        password_label = ttk.Label(clock, text="大休时间:")
+        password_label.pack(fill='x', expand=True)
 
-    password_entry = ttk.Entry(signin, textvariable=big)
-    password_entry.pack(fill='x', expand=True)
+        password_entry = ttk.Entry(clock, textvariable=big)
+        password_entry.pack(fill='x', expand=True)
 
-    email_label = ttk.Label(signin, text="学习时间")
-    email_label.pack(fill='x', expand=True)
+        email_label = ttk.Label(clock, text="学习时间")
+        email_label.pack(fill='x', expand=True)
 
-    email_entry = ttk.Entry(signin, textvariable=study)
-    email_entry.pack(fill='x', expand=True)
-    email_entry.focus()
+        email_entry = ttk.Entry(clock, textvariable=study)
+        email_entry.pack(fill='x', expand=True)
+        email_entry.focus()
 
-    email_label = ttk.Label(signin, text="学习次数")
-    email_label.pack(fill='x', expand=True)
+        email_label = ttk.Label(clock, text="学习次数")
+        email_label.pack(fill='x', expand=True)
 
-    email_entry = ttk.Entry(signin, textvariable=smallNumVar)
-    email_entry.pack(fill='x', expand=True)
-    email_entry.focus()
+        email_entry = ttk.Entry(clock, textvariable=smallNumVar)
+        email_entry.pack(fill='x', expand=True)
+        email_entry.focus()
 
-    # login button
-    login_button = ttk.Button(signin, text="确认修改", command=login_clicked)
+        # login button
+
+        count_round = ttk.Label(clock, textvariable=cnt_round)
+        count_round.pack(fill='x', expand=True)
+
+        return clock
+
+
+    clock1 = create_clock(root)
+    login_button = ttk.Button(clock1, text="确认修改", command=login_clicked)
     login_button.pack(fill='x', expand=True, pady=8)
 
-    break_now_button = ttk.Button(signin, text="强制休息", command=break_clicked)
+    break_now_button = ttk.Button(clock1, text="强制休息", command=break_clicked)
     break_now_button.pack(fill='x', expand=True, pady=5)
 
-    Button1 = tk.Checkbutton(signin, text="永无止尽的x月",
+    Button1 = tk.Checkbutton(clock1, text="永无止尽的x月",
                              variable=isLoop,
                              width=10)
     Button1.pack()
-    count_round = ttk.Label(signin, textvariable=cnt_round)
-    count_round.pack(fill='x', expand=True)
 
     root.mainloop()
