@@ -13,14 +13,18 @@ class BlackSheet(Component):
             #print(proc)
             for process_name in self.list:
                 if process_name.lower() == proc.info['name'].lower():
-                    pid = proc.info['pid']
-                    p = psutil.Process(pid)
                     print(f'黑名单{proc.info["name"]}')
-                    p.terminate()
+                    try:
+                        pid = proc.info['pid']
+                        p = psutil.Process(pid)
+                        p.terminate()
+                    except Exception as e:
+                        print(e)
+                        print('关闭', proc, '错误')
 
 
-
-if __name__ == '__main__':
-    blackSheet = BlackSheet(['msedge.exe', 'steam.exe'])
-    blackSheet.start()
-    time.sleep(100000)
+# 不可以
+# if __name__ == '__main__':
+#     blackSheet = BlackSheet(['msedge.exe', 'steam.exe'])
+#     blackSheet.start()
+#     time.sleep(100000)

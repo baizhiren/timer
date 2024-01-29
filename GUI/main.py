@@ -308,11 +308,12 @@ if __name__ == '__main__':
 
 
         click_update = False
+        blackSheet = None
         def stage(name, t, before_update):
-            global end, lastEnd, update, click_update
+            global end, lastEnd, update, click_update, blackSheet
             print(f"hello, this is stage {name}, continue {t}, before update:{before_update}, now update: {update}")
 
-            if before_update != update and name != '养肝阶段':
+            if before_update != update and name != '养肝阶段' or destory:
                 print(f"expire {name}, before update:{before_update} now update: {update}")
                 return
             if name == '养肝阶段':
@@ -367,7 +368,7 @@ if __name__ == '__main__':
                     return
                 stageInfoVar.set(stageInfo)
                 if name in fullStage and not end:
-                    Thread(target=check_window_position, daemon=True).start()
+                    Thread(name='p1', target=check_window_position, daemon=True).start()
                 time.sleep(1)
                 t = t - 1
                 while pause:
@@ -382,7 +383,7 @@ if __name__ == '__main__':
                 login_button.configure(state='enable')
                 break_now_button.configure(state='enable')
                 destroy_sub_screen()
-                if name == '大休息阶段':
+                if name == '大休息阶段' or name == '立刻休息':
                     click_update = False
 
 
@@ -430,39 +431,53 @@ if __name__ == '__main__':
             else:
                 st = 0
                 before_update = update
-                studyTime_d = 10 * 60
-                smallTime_d = 10 * 60
-                bigTime_d = 12 * 60
-                smallNum_d = 3
+                studyTime_d = 6
+                smallTime_d = 6
+                bigTime_d = 6
+                smallNum_d = 2
 
                 for i in range(int(smallNum_d) - 1):
                     t1 = Timer(st, partial(stage, name='学习阶段', t=studyTime_d, before_update=before_update))
                     t1.daemon = True
+                    t1.name = 't1'
                     t1.start()
 
                     st += int(studyTime_d)
                     t2 = Timer(st, partial(stage, name='休息阶段', t=smallTime_d, before_update=before_update))
                     t2.daemon = True
+                    t2.name = 't2'
                     t2.start()
                     st += int(smallTime_d)
 
-                Timer(st, partial(stage, name='学习阶段', t=studyTime_d, before_update=before_update)).start()
+                t3 = Timer(st, partial(stage, name='学习阶段', t=studyTime_d, before_update=before_update))
+                t3.daemon = True
+                t3.name = 't3'
+                t3.start()
+
                 st += int(studyTime_d)
-                Timer(st, partial(stage, name='大休息阶段', t=bigTime_d, before_update=before_update)).start()
+                t4 = Timer(st, partial(stage, name='大休息阶段', t=bigTime_d, before_update=before_update))
+                t4.daemon = True
+                t4.name = 't4'
+                t4.start()
                 st += int(bigTime_d)
                 time.sleep(st)
 
+           #show_all_threads()
+
             if update == before_update:
-                if isLoop.get() == 1:
-                    Thread(target=run, daemon=True).start()
+                if not destory and isLoop.get() == 1:
+                    Thread(name='p2', target=run, daemon=True).start()
+
 
 
         if auto_start:
-            Thread(target=run, daemon=True).start()
+            Thread(name='p3', target=run, daemon=True).start()
 
 
         def break_now():
-            Timer(3, partial(stage, name='立刻休息', t=v_["break_now_time"], before_update=update)).start()
+            t = Timer(3, partial(stage, name='立刻休息', t=v_["break_now_time"], before_update=update))
+            t.name = 'ta'
+            t.start()
 
 
         def update_first_time_target():
@@ -508,8 +523,11 @@ if __name__ == '__main__':
 
             if not debug:
                 Timer(gap_time * 60, monitor).start()
-            else:
-                Timer(gap_time, monitor).start()
+            elif not destory:
+                t5 = Timer(gap_time, monitor)
+                t5.name='t5'
+                t5.start()
+
             if check():
                 stage(name='养肝阶段', t=gap_time, before_update=update)
             elif now_state == '养肝阶段':
@@ -524,7 +542,7 @@ if __name__ == '__main__':
                 now_state = ' '
                 destroy_sub_screen()
                 if auto_start:
-                    Thread(target=run, daemon=True).start()
+                    Thread(name='p4', target=run, daemon=True).start()
                 update_target()
 
 
@@ -550,23 +568,29 @@ if __name__ == '__main__':
                     print('错位重置')
 
 
-        Thread(target=monitor, daemon=True).start()
+        Thread(name='p5', target=monitor, daemon=True).start()
 
-
+        # from tools.printThread import show_all_threads
         def close():
             if force:
                 return
             global destory
             destory = True
+            if blackSheet:
+                blackSheet.stop()
             time.sleep(1)
-            root.destroy()
-            #root.quit()
-
+            destroy_sub_screen()
+           #show_all_threads()
+            try:
+                root.destroy()
+                print('主线程结束')
+            except Exception as e:
+                print(e)
 
 
         def quit_me():
             write_configs(write_all=False, first_read=False)
-            Timer(0, close).start()
+            close()
 
 
         root.protocol("WM_DELETE_WINDOW", quit_me)
@@ -605,7 +629,7 @@ if __name__ == '__main__':
                     studyTime = st
                     smallNum = sn
                     update = update + 1
-                    Thread(target=run, daemon=True).start()
+                    Thread(name='p6', target=run, daemon=True).start()
 
             showinfo(
                 title='改变成功',
@@ -626,7 +650,7 @@ if __name__ == '__main__':
         def break_clicked():
             global update
             update = update + 1
-            Thread(target=break_now, daemon=True).start()
+            Thread(name='p7', target=break_now, daemon=True).start()
 
 
         # Sign in frame
