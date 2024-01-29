@@ -54,7 +54,10 @@ config 参数
    
  "mouse lock": 1,（是否开启鼠标锁定
  
- "auto_boot": 1, (是否自启动)
+ "auto_boot": 1, (是否自启动),
+
+ "break_now_time": 20,(强制休息时间，单位分钟)
+
   
   "black_list_open": 1（是否开启黑名单）
   

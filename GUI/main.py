@@ -16,7 +16,7 @@ import os
 import sys
 
 # 要添加到自启动的应用程序名称和路径
-app_name = "breakTimer3.5"
+app_name = "breakTimer3.6"
 
 # 打开注册表键
 
@@ -417,17 +417,22 @@ if __name__ == '__main__':
 
                     st += int(smallTime)
 
-                Timer(st * 60, partial(stage, name='学习阶段', t=studyTime, before_update=before_update)).start()
+                t3 = Timer(st * 60, partial(stage, name='学习阶段', t=studyTime, before_update=before_update))
+                t3.daemon = True
+                t3.start()
+
                 st += int(studyTime)
-                Timer(st * 60, partial(stage, name='大休息阶段', t=bigTime, before_update=before_update)).start()
+                t4 = Timer(st * 60, partial(stage, name='大休息阶段', t=bigTime, before_update=before_update))
+                t4.daemon = True
+                t4.start()
                 st += int(bigTime)
                 time.sleep(st * 60)
             else:
                 st = 0
                 before_update = update
-                studyTime_d = 10
-                smallTime_d = 10
-                bigTime_d = 12
+                studyTime_d = 10 * 60
+                smallTime_d = 10 * 60
+                bigTime_d = 12 * 60
                 smallNum_d = 3
 
                 for i in range(int(smallNum_d) - 1):
@@ -494,7 +499,6 @@ if __name__ == '__main__':
         def monitor():
             print('monitor 启动， target end:', target_end.strftime("%Y-%m-%d %H:%M:%S"), 'now:',
                   datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-            # time.sleep(1)
             global end
             global now_state
             global update
@@ -555,8 +559,8 @@ if __name__ == '__main__':
             global destory
             destory = True
             time.sleep(1)
-            root.quit()
-            # root.destroy()
+            root.destroy()
+            #root.quit()
 
 
 
