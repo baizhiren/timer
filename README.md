@@ -23,7 +23,7 @@
 config 参数
 ---
 可以在config.json 文件中修改配置
-
+```
  "smallTime": 6 （小休时间
  
  "bigTime": 12, （大休时间
@@ -57,21 +57,30 @@ config 参数
  "auto_boot": 1, (是否自启动)
   
   "black_list_open": 1（是否开启黑名单）
+  
   "mode": "study",
-   "black_lists": {
+  
+  "black_lists": {
       "study": [
          "msedge.exe",
-      ],
-      "fun": []
+      ]
    },
+   
    可以自定义学习模式的黑名单， 可以通过修改mode来切换黑名单，这里新建了一个名为"study"的mode,
+   
    在其中禁止了edge浏览器，让我们专心学习（
+   
    注意黑名单只有在点击了确认修改按钮后才会开启，并在大休阶段结束后关闭
+   
    下一次开启黑名单需要重新点击确认修改按钮
+   
    如果想要让黑名单在学习阶段持续生效，可以在黑名单最后一项加上"always"，如
-    "study": [
-         "msedge.exe",“always”
+
+   "study": [
+         "msedge.exe","always"
      ],
+
+```
    
    
    
