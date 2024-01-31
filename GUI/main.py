@@ -332,6 +332,8 @@ if __name__ == '__main__':
                 root.deiconify()
                 login_button.configure(state='disable')
                 break_now_button.configure(state='disable')
+                reload_button.configure(state='disable')
+
                 if v_["split_screen"] and force:
                     span()
             # 保险
@@ -339,8 +341,9 @@ if __name__ == '__main__':
                 root.attributes('-topmost', 0)
                 root.attributes('-fullscreen', False)
 
-            blackSheet = None
             if v_['black_list_open'] and name == '学习阶段':
+                if blackSheet:
+                    blackSheet.start()
                 black_lists = v_["black_lists"]
                 black_list = None
                 try:
@@ -353,6 +356,8 @@ if __name__ == '__main__':
                         blackSheet = BlackSheet(black_list)
                         blackSheet.start()
                         print(f'开启{v_["mode"]}黑名单')
+                        reload_button.configure(state='disable')
+
 
             global stageInfo
             for i in range(t):
@@ -378,13 +383,18 @@ if __name__ == '__main__':
                 end = True
                 login_button.configure(state='enable')
                 break_now_button.configure(state='enable')
+                if not blackSheet:
+                    reload_button.configure(state='enable')
                 destroy_sub_screen()
                 if name == '大休息阶段' or name == '立刻休息':
                     click_update = False
+                    reload_button.configure(state='enable')
+                    blackSheet = None
 
             lastEnd = True
             if blackSheet:
                 blackSheet.stop()
+                # reload_button.configure(state='enable')
 
             if before_update == update:
                 if is_music:
@@ -426,9 +436,9 @@ if __name__ == '__main__':
             else:
                 st = 0
                 before_update = update
-                studyTime_d = 60
-                smallTime_d = 6
-                bigTime_d = 6
+                studyTime_d = 10
+                smallTime_d = 8
+                bigTime_d = 8
                 smallNum_d = 2
 
                 for i in range(int(smallNum_d) - 1):
