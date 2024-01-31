@@ -710,17 +710,17 @@ if __name__ == '__main__':
         break_now_button.pack(fill='x', expand=True, pady=5)
 
         frame = tk.Frame(clock1)
-        frame.pack()
+        frame.pack(pady=10)
 
         reload_button = ttk.Button(frame, text="重置", command=lambda: start_study(using_black_list=False))
-        reload_button.pack(side='left', padx=20)
+        reload_button.pack(side='left', padx=10)
 
         loop_button = ttk.Checkbutton(frame, text="永无止尽的x月",
                                       variable=isLoop)
-        loop_button.pack(padx=40)
+        loop_button.pack(padx=10, side='left')
 
-        count_round = ttk.Label(clock1, textvariable=cnt_round)
-        count_round.pack(fill='x', expand=True)
+        count_round = ttk.Label(frame, textvariable=cnt_round)
+        count_round.pack(fill='x', expand=True, side = 'left', padx=10)
 
         root.mainloop()
     except Exception as e:
