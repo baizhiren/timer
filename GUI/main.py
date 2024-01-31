@@ -318,10 +318,13 @@ if __name__ == '__main__':
 
             while not lastEnd:
                 time.sleep(1)
-            global now_state
-            now_state = name
 
+            global now_state
+            if name == '养肝阶段' and before_update + 100 <= update:
+                return
+            now_state = name
             lastEnd = False
+
             if not debug:
                 t = t * 60
             if name in fullStage:
@@ -368,13 +371,15 @@ if __name__ == '__main__':
                 if destory:
                     return
                 stageInfoVar.set(stageInfo)
-                if name in fullStage and not end:
-                    Thread(name='p1', target=check_window_position, daemon=True).start()
+                if name in fullStage:
+                    if not end:
+                        Thread(name='p1', target=check_window_position, daemon=True).start()
+                    else:
+                        break
                 time.sleep(1)
                 t = t - 1
                 while pause:
                     time.sleep(1)
-
             stageInfoVar.set(f'当前阶段:{name}  剩余时间: 0分 : 0秒')
             if name in fullStage and name != '养肝阶段':
                 root.attributes('-fullscreen', False)
@@ -516,15 +521,16 @@ if __name__ == '__main__':
 
         # 实时监控
         def monitor():
-            print('monitor 启动， target end:', target_end.strftime("%Y-%m-%d %H:%M:%S"), 'now:',
-                  datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            print(f'monitor 启动: '
+                  f'target start:{target.strftime("%Y-%m-%d %H:%M:%S")}\n'
+                  f'target end:{target_end.strftime("%Y-%m-%d %H:%M:%S")}\n'
+                  f'now:{datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
             global end
             global now_state
             global update
             gap_time = 5
             if debug:
                 gap_time = 15
-
             if not debug:
                 Timer(gap_time * 60, monitor).start()
             elif not destory:
@@ -545,6 +551,7 @@ if __name__ == '__main__':
                 break_now_button.configure(state='enable')
                 now_state = ' '
                 destroy_sub_screen()
+                update = update + 100
                 if auto_start:
                     Thread(name='p4', target=run, daemon=True).start()
                 update_target()
