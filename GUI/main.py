@@ -16,15 +16,13 @@ import os
 import sys
 
 # 要添加到自启动的应用程序名称和路径
-app_name = "breakTimer3.6"
+app_name = "breakTimer3.7"
 
 # 打开注册表键
 
 
 from breakTimer.SystemMusic import SystemMusic
-from breakTimer.BlackSheet import  BlackSheet
-
-
+from breakTimer.BlackSheet import BlackSheet
 
 ui.FAILSAFE = False
 
@@ -119,13 +117,10 @@ if __name__ == '__main__':
         width = "450"
         length = "450"
 
-
-
-
         v_ = {
             "fast_start": 1,
             "split_screen": 1,
-            "mouse_lock":  1,
+            "mouse_lock": 1,
             "auto_boot": 1,
             "break_now_time": 20,
             "black_list_open": 1,
@@ -309,6 +304,8 @@ if __name__ == '__main__':
 
         click_update = False
         blackSheet = None
+
+
         def stage(name, t, before_update):
             global end, lastEnd, update, click_update, blackSheet
             print(f"hello, this is stage {name}, continue {t}, before update:{before_update}, now update: {update}")
@@ -342,7 +339,6 @@ if __name__ == '__main__':
                 root.attributes('-topmost', 0)
                 root.attributes('-fullscreen', False)
 
-
             blackSheet = None
             if v_['black_list_open'] and name == '学习阶段':
                 black_lists = v_["black_lists"]
@@ -352,7 +348,7 @@ if __name__ == '__main__':
                 except:
                     pass
                 if black_list:
-                    #如果不是always模式，只有按下确认修改按钮后的几轮是有黑名单的
+                    # 如果不是always模式，只有按下确认修改按钮后的几轮是有黑名单的
                     if black_list[-1] == "always" or click_update:
                         blackSheet = BlackSheet(black_list)
                         blackSheet.start()
@@ -385,7 +381,6 @@ if __name__ == '__main__':
                 destroy_sub_screen()
                 if name == '大休息阶段' or name == '立刻休息':
                     click_update = False
-
 
             lastEnd = True
             if blackSheet:
@@ -431,7 +426,7 @@ if __name__ == '__main__':
             else:
                 st = 0
                 before_update = update
-                studyTime_d = 6
+                studyTime_d = 60
                 smallTime_d = 6
                 bigTime_d = 6
                 smallNum_d = 2
@@ -462,12 +457,11 @@ if __name__ == '__main__':
                 st += int(bigTime_d)
                 time.sleep(st)
 
-           #show_all_threads()
+            # show_all_threads()
 
             if update == before_update:
                 if not destory and isLoop.get() == 1:
                     Thread(name='p2', target=run, daemon=True).start()
-
 
 
         if auto_start:
@@ -525,7 +519,7 @@ if __name__ == '__main__':
                 Timer(gap_time * 60, monitor).start()
             elif not destory:
                 t5 = Timer(gap_time, monitor)
-                t5.name='t5'
+                t5.name = 't5'
                 t5.start()
 
             if check():
@@ -570,6 +564,7 @@ if __name__ == '__main__':
 
         Thread(name='p5', target=monitor, daemon=True).start()
 
+
         # from tools.printThread import show_all_threads
         def close():
             if force:
@@ -580,7 +575,7 @@ if __name__ == '__main__':
                 blackSheet.stop()
             time.sleep(1)
             destroy_sub_screen()
-           #show_all_threads()
+            # show_all_threads()
             try:
                 root.destroy()
                 print('主线程结束')
@@ -596,9 +591,9 @@ if __name__ == '__main__':
         root.protocol("WM_DELETE_WINDOW", quit_me)
 
 
-        def login_clicked():
+        def start_study(using_black_list=True):
             global click_update
-            click_update = True
+            click_update = using_black_list
             """ callback when the login button clicked
             """
             global smallTime, bigTime, studyTime, smallNum
@@ -635,7 +630,6 @@ if __name__ == '__main__':
                 title='改变成功',
                 message=msg
             )
-
 
 
         def pause_clicked():
@@ -688,26 +682,29 @@ if __name__ == '__main__':
             email_entry.pack(fill='x', expand=True)
             email_entry.focus()
 
-            # login button
-
-            count_round = ttk.Label(clock, textvariable=cnt_round)
-            count_round.pack(fill='x', expand=True)
-
             return clock
 
 
         clock1 = create_clock(root)
-        login_button = ttk.Button(clock1, text="确认修改", command=login_clicked)
+        login_button = ttk.Button(clock1, text="开始自律", command=start_study)
         login_button.pack(fill='x', expand=True, pady=8)
 
         break_now_button = ttk.Button(clock1, text="强制休息", command=break_clicked)
         break_now_button.pack(fill='x', expand=True, pady=5)
 
-        Button1 = tk.Checkbutton(clock1, text="永无止尽的x月",
-                                 variable=isLoop,
-                                 width=10)
-        Button1.pack()
+        frame = tk.Frame(clock1)
+        frame.pack()
+
+        reload_button = ttk.Button(frame, text="重置", command=lambda: start_study(using_black_list=False))
+        reload_button.pack(side='left', padx=20)
+
+        loop_button = ttk.Checkbutton(frame, text="永无止尽的x月",
+                                      variable=isLoop)
+        loop_button.pack(padx=40)
+
+        count_round = ttk.Label(clock1, textvariable=cnt_round)
+        count_round.pack(fill='x', expand=True)
+
         root.mainloop()
     except Exception as e:
         print('未知异常', e)
-
