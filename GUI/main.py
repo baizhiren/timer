@@ -316,6 +316,8 @@ if __name__ == '__main__':
             if name == '养肝阶段':
                 update = update + 1
 
+            if not lastEnd:
+                print(f'{name}等待前一个阶段ing')
             while not lastEnd:
                 time.sleep(1)
 
@@ -365,7 +367,7 @@ if __name__ == '__main__':
             global stageInfo
             for i in range(t):
                 if before_update != update and name != '养肝阶段':
-                    print(f"expire {name}, before update:{before_update} now update: {update}")
+                    print(f"expire {name} in the loop, before update:{before_update} now update: {update}")
                     break
                 stageInfo = f'当前阶段:{name}  剩余时间:  {t // 60}分 : {t % 60}秒'
                 if destory:
@@ -382,15 +384,9 @@ if __name__ == '__main__':
                     time.sleep(1)
             stageInfoVar.set(f'当前阶段:{name}  剩余时间: 0分 : 0秒')
             if name in fullStage and name != '养肝阶段':
-                root.attributes('-fullscreen', False)
-                root.geometry(size)
-                root.attributes('-topmost', 0)
-                end = True
-                login_button.configure(state='enable')
-                break_now_button.configure(state='enable')
+                exit_full_stage()
                 if not blackSheet:
                     reload_button.configure(state='enable')
-                destroy_sub_screen()
                 if name == '大休息阶段' or name == '立刻休息':
                     click_update = False
                     reload_button.configure(state='enable')
@@ -406,6 +402,17 @@ if __name__ == '__main__':
                     music.ring(n=2)
                 if name == '学习阶段':
                     cnt_round.set(f'肝数:{int(cnt_round.get()[3:]) + 1}')
+
+
+        def exit_full_stage():
+            global end
+            root.attributes('-fullscreen', False)
+            root.geometry(size)
+            root.attributes('-topmost', 0)
+            end = True
+            login_button.configure(state='enable')
+            break_now_button.configure(state='enable')
+            destroy_sub_screen()
 
 
         def check():
@@ -542,13 +549,8 @@ if __name__ == '__main__':
                 stage(name='养肝阶段', t=gap_time, before_update=update)
             elif now_state == '养肝阶段':
                 print('退出养肝阶段 ...')
-                update = update + 1
-                root.attributes('-fullscreen', False)
-                root.geometry(size)
-                root.attributes('-topmost', 0)
-                end = True
-                login_button.configure(state='enable')
-                break_now_button.configure(state='enable')
+                exit_full_stage()
+                reload_button.configure(state='enable')
                 now_state = ' '
                 destroy_sub_screen()
                 update = update + 100
