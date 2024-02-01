@@ -1,6 +1,7 @@
 # BreakTimer 休息定时器
 
-![image](https://user-images.githubusercontent.com/30487483/214989507-abcffbc9-8187-42af-980a-d4dfaf152e0f.png)
+![image](https://github.com/baizhiren/timer/assets/30487483/9b20752c-b536-4229-8df3-5f73006caeba)
+
 
 ![image](https://user-images.githubusercontent.com/30487483/214987725-7ce7976c-08e0-422f-ad97-0e9c3f9bb444.png)
 
