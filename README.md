@@ -1,7 +1,9 @@
 # BreakTimer 休息定时器
+学习模式：
 
 ![image](https://github.com/baizhiren/timer/assets/30487483/9b20752c-b536-4229-8df3-5f73006caeba)
 
+休息模式：
 
 ![image](https://user-images.githubusercontent.com/30487483/214987725-7ce7976c-08e0-422f-ad97-0e9c3f9bb444.png)
 
@@ -10,7 +12,7 @@
 
 休息模式会全屏显示，无法更改时间，如果此时为强制模式，会同时全屏显示并置于最上层，非常适合沉迷代码\久坐人士
 
-该模式下可以启动黑名单来关掉一些让人分心的应用
+该模式下可以启动黑名单来关掉一些让人分心的应用（参考config参数中的黑名单配置）
 
 2. 点击立刻休息，会立即进入休息阶段，可在config中配置break_now_time时间长度
 
