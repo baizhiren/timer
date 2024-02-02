@@ -112,7 +112,10 @@ if __name__ == '__main__':
         is_loop = 1
         liver = "22:30"
         liver_to = "6:00"
-        force = 1
+        if not debug:
+            force = 1
+        else:
+            force = 0
         width = "450"
         length = "450"
 
@@ -182,7 +185,8 @@ if __name__ == '__main__':
                         bigTime = data.get('bigTime', bigTime)
                         studyTime = data.get('studyTime', studyTime)
                         smallNum = data.get('smallNum', smallNum)
-                        is_loop = data.get('isLoop', isLoop)
+                        is_loop = data.get('isLoop', is_loop)
+                        isLoop.set(is_loop)
                         try:
                             target = data.get('target', target)
                             if target != '':
@@ -223,8 +227,11 @@ if __name__ == '__main__':
         end = True
         lastEnd = True
         pause = False
-
         now_state = ''
+
+
+
+
 
         if v_["auto_boot"]:
             app_path = work_dir + "\\breakTimer.exe"
@@ -553,7 +560,7 @@ if __name__ == '__main__':
                 now_state = ' '
                 destroy_sub_screen()
                 update = update + 100
-                if auto_start:
+                if isLoop.get():
                     Thread(name='p4', target=run, daemon=True).start()
                 update_target()
 
@@ -645,7 +652,7 @@ if __name__ == '__main__':
                     Thread(name='p6', target=run, daemon=True).start()
             if not click_start_discipline:
                 showinfo(
-                    title='改变成功',
+                    title='重置成功',
                     message=msg
                 )
         def pause_clicked():
