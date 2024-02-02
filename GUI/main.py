@@ -112,8 +112,7 @@ if __name__ == '__main__':
         is_loop = 1
         liver = "22:30"
         liver_to = "6:00"
-        force = 0
-
+        force = 1
         width = "450"
         length = "450"
 
@@ -610,9 +609,9 @@ if __name__ == '__main__':
         root.protocol("WM_DELETE_WINDOW", quit_me)
 
 
-        def start_study(using_black_list=True):
+        def start_study(click_start_discipline=True):
             global click_update
-            click_update = using_black_list
+            click_update = click_start_discipline
             """ callback when the login button clicked
             """
             global smallTime, bigTime, studyTime, smallNum
@@ -644,13 +643,11 @@ if __name__ == '__main__':
                     smallNum = sn
                     update = update + 1
                     Thread(name='p6', target=run, daemon=True).start()
-
-            showinfo(
-                title='改变成功',
-                message=msg
-            )
-
-
+            if not click_start_discipline:
+                showinfo(
+                    title='改变成功',
+                    message=msg
+                )
         def pause_clicked():
             global pause
             pause = not pause
@@ -714,7 +711,7 @@ if __name__ == '__main__':
         frame = tk.Frame(clock1)
         frame.pack(pady=10)
 
-        reload_button = ttk.Button(frame, text="重置", command=lambda: start_study(using_black_list=False))
+        reload_button = ttk.Button(frame, text="重置", command=lambda: start_study(click_start_discipline=False))
         reload_button.pack(side='left', padx=10)
 
         loop_button = ttk.Checkbutton(frame, text="永无止尽的x月",
