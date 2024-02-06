@@ -24,6 +24,7 @@ app_name = "breakTimer3.7"
 from breakTimer.SystemMusic import SystemMusic
 from breakTimer.BlackSheet import BlackSheet
 from breakTimer.ModifyMonitor import ModifyMonitor
+from breakTimer.BlockKeyboard import BlockKeyBoard
 
 ui.FAILSAFE = False
 
@@ -65,6 +66,8 @@ if __name__ == '__main__':
             # 在可执行文件中运行的逻辑
             print("在可执行文件中运行")
             debug = False
+        else:
+            print('debug模式启动')
 
         # print("自动启动时的环境变量：", os.environ)
         # print("自动启动时的环境变量：", os.environ.get('PYTHONPATH'))
@@ -136,7 +139,11 @@ if __name__ == '__main__':
             },
             "proxy_block_website": [
                 "C://Users//chao//.config//clash//profiles",
-            ]
+            ],
+            "block_keyboard": 1,
+            "full_screen": 1
+
+
         }
 
         wx = "500"
@@ -235,7 +242,7 @@ if __name__ == '__main__':
         pause = False
         now_state = ''
         if debug:
-            force = 0
+            v_["full_screen"] = 0
 
 
 
@@ -318,10 +325,11 @@ if __name__ == '__main__':
 
         click_update = False
         blackSheet = None
+        block_keyboard = None
 
 
         def stage(name, t, before_update):
-            global end, lastEnd, update, click_update, blackSheet
+            global end, lastEnd, update, click_update, blackSheet, block_keyboard
             print(f"hello, this is stage {name}, continue {t}, before update:{before_update}, now update: {update}")
 
             if before_update != update and name != '养肝阶段' or destory:
@@ -343,18 +351,27 @@ if __name__ == '__main__':
 
             if not debug:
                 t = t * 60
+
+            #这里制定休息模式规则
+
+
             if name in fullStage:
                 end = False
                 root.attributes('-topmost', 1)
                 if force:
-                    root.attributes('-fullscreen', True)
+                    if v_["full_screen"]:
+                        root.attributes('-fullscreen', True)
+                        if v_["split_screen"]:
+                            span()
+                    if v_["block_keyboard"]:
+                        block_keyboard = BlockKeyBoard()
+                        block_keyboard.start()
+
                 root.deiconify()
                 login_button.configure(state='disable')
                 break_now_button.configure(state='disable')
                 reload_button.configure(state='disable')
 
-                if v_["split_screen"] and force:
-                    span()
             # 保险
             elif root.attributes('-fullscreen'):
                 root.attributes('-topmost', 0)
@@ -419,11 +436,14 @@ if __name__ == '__main__':
 
 
         def exit_full_stage():
-            global end
+            global end, block_keyboard
             root.attributes('-fullscreen', False)
             root.geometry(size)
             root.attributes('-topmost', 0)
             end = True
+            if v_["block_keyboard"]:
+                block_keyboard.stop()
+                block_keyboard = None
             login_button.configure(state='enable')
             break_now_button.configure(state='enable')
             destroy_sub_screen()
@@ -462,8 +482,8 @@ if __name__ == '__main__':
             else:
                 st = 0
                 before_update = update
-                studyTime_d = 10
-                smallTime_d = 8
+                studyTime_d = 5
+                smallTime_d = 20
                 bigTime_d = 8
                 smallNum_d = 2
 
@@ -549,7 +569,7 @@ if __name__ == '__main__':
             global end
             global now_state
             global update
-            gap_time = 10
+            gap_time = 1
             if debug:
                 gap_time = 15
             if not debug:
@@ -589,7 +609,7 @@ if __name__ == '__main__':
                     ui.click()
                 window_x = root.winfo_x()
                 window_y = root.winfo_y()
-                if window_x != 0 or window_y != 0:
+                if v_["full_screen"] and (window_x != 0 or window_y != 0):
                     root.attributes('-fullscreen', False)
                     root.attributes('-fullscreen', True)
                     print('错位重置')

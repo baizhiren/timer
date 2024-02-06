@@ -1,4 +1,5 @@
 import time
+import traceback
 from threading import Thread
 
 
@@ -18,10 +19,11 @@ class Component:
         Thread(target=self.__start__, daemon=True).start()
 
     def __start__(self):
-        # try:
-        self.todo()
-        # except Exception as e:
-        #     print(f'定时任务{self.name}错误', e)
+        try:
+            self.todo()
+        except Exception as e:
+            print(f'任务{self.name}错误', e)
+            print(traceback.print_exc())
         time.sleep(self.time_gap)
         if not self.is_end:
             self.__start__()
