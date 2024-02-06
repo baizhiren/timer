@@ -5,7 +5,7 @@ from breakTimer.Component import Component
 # 根据进程名查找进程
 class BlackSheet(Component):
     def __init__(self, list, time_gap=3):
-        super().__init__(time_gap=time_gap)
+        super().__init__(time_gap=time_gap, name='黑名单')
         self.list = list
 
     def todo(self):

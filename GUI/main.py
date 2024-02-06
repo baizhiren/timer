@@ -23,6 +23,7 @@ app_name = "breakTimer3.7"
 
 from breakTimer.SystemMusic import SystemMusic
 from breakTimer.BlackSheet import BlackSheet
+from breakTimer.ModifyMonitor import ModifyMonitor
 
 ui.FAILSAFE = False
 
@@ -67,12 +68,14 @@ if __name__ == '__main__':
 
         # print("自动启动时的环境变量：", os.environ)
         # print("自动启动时的环境变量：", os.environ.get('PYTHONPATH'))
-        work_dir = os.getcwd()
-        print("自动启动时的当前工作目录：", work_dir)
-
         user_dir = os.environ['USERPROFILE'] + '\\.breakTimer'
         if not debug:
             redirect_print_to_log(user_dir + "\\output.log")
+
+
+        work_dir = os.getcwd()
+        print("自动启动时的当前工作目录：", work_dir)
+
 
         config_path = user_dir + '\\location.txt'
         print('config_path: ', config_path)
@@ -130,7 +133,10 @@ if __name__ == '__main__':
             "black_lists": {
                 "study": ['msedge.exe', 'steam.exe', "chrome.exe"],
                 "fun": [],
-            }
+            },
+            "proxy_block_website": [
+                "C://Users//chao//.config//clash//profiles",
+            ]
         }
 
         wx = "500"
@@ -228,6 +234,8 @@ if __name__ == '__main__':
         lastEnd = True
         pause = False
         now_state = ''
+        if debug:
+            force = 0
 
 
 
@@ -541,11 +549,11 @@ if __name__ == '__main__':
             global end
             global now_state
             global update
-            gap_time = 5
+            gap_time = 10
             if debug:
                 gap_time = 15
             if not debug:
-                Timer(gap_time * 60, monitor).start()
+                Timer(gap_time, monitor).start()
             elif not destory:
                 t5 = Timer(gap_time, monitor)
                 t5.name = 't5'
@@ -587,8 +595,9 @@ if __name__ == '__main__':
                     print('错位重置')
 
 
+        #组件管理
         Thread(name='p5', target=monitor, daemon=True).start()
-
+        Thread(name='p5', target=ModifyMonitor(proxy_block_websites=v_["proxy_block_website"]).start, daemon=True).start()
 
         # from tools.printThread import show_all_threads
         def close():
