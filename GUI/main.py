@@ -1,11 +1,15 @@
+import ctypes
 import json
 import time
 import tkinter as tk
 import datetime
+import traceback
 from functools import partial
 from threading import Thread, Timer
 from tkinter import ttk
 from tkinter.messagebox import showinfo
+
+import keyboard
 import pyautogui as ui
 
 from tkinter import *
@@ -16,7 +20,7 @@ import os
 import sys
 
 # 要添加到自启动的应用程序名称和路径
-app_name = "breakTimer3.7"
+app_name = "breakTimer3.8"
 
 # 打开注册表键
 
@@ -141,9 +145,8 @@ if __name__ == '__main__':
                 "C://Users//chao//.config//clash//profiles",
             ],
             "block_keyboard": 1,
-            "full_screen": 1
-
-
+            "full_screen": 1,
+            "lock_screen_when_start_rest": 1
         }
 
         wx = "500"
@@ -242,7 +245,8 @@ if __name__ == '__main__':
         pause = False
         now_state = ''
         if debug:
-            v_["full_screen"] = 0
+            # v_["full_screen"] = 0
+            v_["mouse_lock"] = 0
 
 
 
@@ -353,8 +357,6 @@ if __name__ == '__main__':
                 t = t * 60
 
             #这里制定休息模式规则
-
-
             if name in fullStage:
                 end = False
                 root.attributes('-topmost', 1)
@@ -366,6 +368,8 @@ if __name__ == '__main__':
                     if v_["block_keyboard"]:
                         block_keyboard = BlockKeyBoard()
                         block_keyboard.start()
+                if v_["lock_screen_when_start_rest"]:
+                    ctypes.windll.user32.LockWorkStation()
 
                 root.deiconify()
                 login_button.configure(state='disable')
@@ -482,9 +486,9 @@ if __name__ == '__main__':
             else:
                 st = 0
                 before_update = update
-                studyTime_d = 5
-                smallTime_d = 20
-                bigTime_d = 8
+                studyTime_d =8
+                smallTime_d = 8
+                bigTime_d = 10
                 smallNum_d = 2
 
                 for i in range(int(smallNum_d) - 1):
@@ -589,13 +593,15 @@ if __name__ == '__main__':
                 destroy_sub_screen()
                 update = update + 100
                 if isLoop.get():
-                    Thread(name='p4', target=run, daemon=True).start()
+                    #等待任意键的输入
+                    keyboard.read_key()
+                    Thread(name='run in 退出养肝阶段', target=run, daemon=True).start()
                 update_target()
 
 
         def check_window_position():
             if force and now_state in fullStage:
-                if v_["split_screen"]:
+                if v_["full_screen"] and v_["split_screen"]:
                     monitors = get_monitors()
                     if len(monitors) != len(before_monitors):
                         destroy_sub_screen()
@@ -616,8 +622,8 @@ if __name__ == '__main__':
 
 
         #组件管理
-        Thread(name='p5', target=monitor, daemon=True).start()
-        Thread(name='p5', target=ModifyMonitor(proxy_block_websites=v_["proxy_block_website"]).start, daemon=True).start()
+        Thread(name='monitor', target=monitor, daemon=True).start()
+        Thread(name='modify_monitor', target=ModifyMonitor(proxy_block_websites=v_["proxy_block_website"]).start, daemon=True).start()
 
         # from tools.printThread import show_all_threads
         def close():
@@ -634,7 +640,8 @@ if __name__ == '__main__':
                 root.destroy()
                 print('主线程结束')
             except Exception as e:
-                print(e)
+                print('主线程关闭异常',e)
+                print(traceback.print_exc())
 
 
         def quit_me():
@@ -760,3 +767,4 @@ if __name__ == '__main__':
         root.mainloop()
     except Exception as e:
         print('未知异常', e)
+        print(traceback.print_exc())

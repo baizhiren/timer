@@ -19,14 +19,13 @@ class Component:
         Thread(target=self.__start__, daemon=True).start()
 
     def __start__(self):
-        try:
-            self.todo()
-        except Exception as e:
-            print(f'任务{self.name}错误', e)
-            print(traceback.print_exc())
-        time.sleep(self.time_gap)
-        if not self.is_end:
-            self.__start__()
+        while not self.is_end:
+            try:
+                self.todo()
+            except Exception as e:
+                print(f'任务{self.name}错误', e)
+                print(traceback.print_exc())
+            time.sleep(self.time_gap)
 
     def stop(self):
         self.is_end = True

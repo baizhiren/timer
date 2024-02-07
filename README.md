@@ -97,6 +97,12 @@ config 参数
          "msedge.exe","always"
      ],
 
+  "block_keyboard": 1,  是否开启键盘锁定
+   
+  "full_screen": 1, 是否全屏显示
+            
+  "lock_screen_when_start_rest": 1 是否开启电脑默认锁屏    
+
 ```
    
    
