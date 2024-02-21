@@ -32,6 +32,8 @@
 3. 新增鼠标锁定
 4. 新增多屏幕锁定功能
 5. 新增学习模式黑名单
+6. 新增白名单
+7. 新增网站阻止
 ---
 
 config 参数
@@ -72,37 +74,52 @@ config 参数
 
  "break_now_time": 20,(强制休息时间，单位分钟)
 
-  
-  "black_list_open": 1（是否开启黑名单）
-  
-  "mode": "study",
-  
-  "black_lists": {
-      "study": [
-         "msedge.exe",
-      ]
-   },
-   
-   可以自定义学习模式的黑名单， 可以通过修改mode来切换黑名单，这里新建了一个名为"study"的mode,
-   
-   在其中禁止了edge浏览器，让我们专心学习（
-   
-   注意黑名单只有在点击了确认修改按钮后才会开启，并在大休阶段结束后关闭
-   
-   下一次开启黑名单需要重新点击确认修改按钮
-   
-   如果想要让黑名单在学习阶段持续生效，可以在黑名单最后一项加上"always"，如
-
-   "study": [
-         "msedge.exe","always"
-     ],
-
   "block_keyboard": 1,  是否开启键盘锁定
    
   "full_screen": 1, 是否全屏显示
+  
+  "topmost": 1, 是否置于最上层应用提醒
             
-  "lock_screen_when_start_rest": 1 是否开启电脑默认锁屏    
+  "lock_screen_when_start_rest": 1 是否开启电脑默认锁屏   
+    
+   黑名单：
+    "black_lists": [
+      {
+         "name": "study", #名字
+          # 禁用列表
+         "list": [
+            "msedge.exe",
+            "steam.exe",
+            "chrome.exe"
+         ],
+         "enable": true, # 是否开启
+         "time": "click" # 时间模式
+      }
+   ],
 
+   阻止网页，需要安装mitmproxy的证书
+   "block_website": {
+      "enable": 1, # 是否开启
+      "proxy_rules_location": "C:\\Users\\chao/config/clash/profiles", #代理的位置
+      "websites": [
+         {
+            "name": "zhihu.com", # 网站名
+            "time": {
+               "mode": "day", # 每天
+               "interval": "16:00-16:38" # 时段
+            }
+         }
+      ]
+   },
+    
+   # 白名单
+  "white_sheet": [
+    "time": {
+       "mode": "week", # 每周
+       "interval": "6:00-12:00" # 时段
+        value:[3, 4] 每周三和每周四
+    }
+   ], 
 ```
    
    

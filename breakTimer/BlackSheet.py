@@ -1,12 +1,37 @@
 # study_main.exe_xx.exe_...
+from typing import *
+
 import psutil
 import time
+
+from breakTimer.Awake import check
 from breakTimer.Component import Component
 # 根据进程名查找进程
+from exception.exceptions import custom_exception
 class BlackSheet(Component):
-    def __init__(self, list, time_gap=3):
+    def __init__(self, black_lists:List[Dict[str, str]], time_gap=3, click=False):
         super().__init__(time_gap=time_gap, name='黑名单')
-        self.list = list
+        self.black_lists = black_lists
+        self.click = click
+        self.list = []
+        try:
+            for black_list in self.black_lists:
+                enable = black_list["enable"]
+                if not enable:
+                    continue
+                list = black_list["list"]
+                name = black_list["name"]
+                print(f'开启黑名单{name}')
+
+                time = black_list["time"]
+
+                if time == "click":
+                    if self.click:
+                        self.list += list
+                elif check(time):
+                    self.list += list
+        except:
+            raise custom_exception
 
     def todo(self):
         for proc in psutil.process_iter(['pid', 'name']):

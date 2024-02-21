@@ -20,15 +20,23 @@ import os
 import sys
 
 # 要添加到自启动的应用程序名称和路径
-app_name = "breakTimer3.8"
+from breakTimer.Component import Component
+from breakTimer.FileChecker import FileChecker
+from breakTimer.Hook import Hook
+
+app_name = "breakTimer3.9"
 
 # 打开注册表键
 
 
 from breakTimer.SystemMusic import SystemMusic
 from breakTimer.BlackSheet import BlackSheet
-from breakTimer.ModifyMonitor import ModifyMonitor
 from breakTimer.BlockKeyboard import BlockKeyBoard
+from breakTimer.BlockWebsite import BlockWebsite
+from breakTimer.ModifyProxyOption import ModifyProxyOption
+from breakTimer.WhiteSheet import WhiteSheet
+
+
 
 ui.FAILSAFE = False
 
@@ -60,6 +68,11 @@ def redirect_print_to_log(log_file_path):
     # 将标准输出重定向到PrintToLog对象
     print_to_log = PrintToLog()
     sys.stdout = print_to_log
+
+
+
+
+
 
 
 if __name__ == '__main__':
@@ -122,12 +135,16 @@ if __name__ == '__main__':
         is_loop = 1
         liver = "22:30"
         liver_to = "6:00"
+        force = 1
+
         if not debug:
             force = 1
         else:
             force = 0
         width = "450"
         length = "450"
+        g_ = {
+        }
 
         v_ = {
             "fast_start": 1,
@@ -135,18 +152,41 @@ if __name__ == '__main__':
             "mouse_lock": 1,
             "auto_boot": 1,
             "break_now_time": 20,
-            "black_list_open": 1,
-            "mode": 'study',
-            "black_lists": {
-                "study": ['msedge.exe', 'steam.exe', "chrome.exe"],
-                "fun": [],
-            },
-            "proxy_block_website": [
-                "C://Users//chao//.config//clash//profiles",
+            "black_lists": [
+                {
+                    "name": "study",
+                    "list":[
+                        "msedge.exe",
+                        "steam.exe",
+                        "chrome.exe"],
+                    "enable": True,
+                    "time": "click"
+                }
             ],
+            "block_website": {
+                "enable": 1,
+                "proxy_rules_location": os.environ['USERPROFILE'] + "/config/clash/profiles",
+                "websites": [
+                    {
+                        "name": "zhihu.com",
+                        "time": {
+                            "mode": "day",
+                            "interval": "18:00-22:25"
+                        }
+                    }
+
+                ]
+            },
             "block_keyboard": 1,
             "full_screen": 1,
-            "lock_screen_when_start_rest": 1
+            "lock_screen_when_start_rest": 0,
+            "topmost": 1,
+            "white_sheet": [
+                {
+                    "mode": "period",
+                    "interval": "2024.2.21 10:00-2024.2.21 10:10"
+                }
+            ],
         }
 
         wx = "500"
@@ -159,9 +199,39 @@ if __name__ == '__main__':
         target_end = ''
         now = ''
         destory = False
+        global block_website
 
+
+        class JsonWriter(Component, Hook):
+            def __init__(self, cls, **kwargs):
+                Hook.__init__(self, cls, **kwargs)
+                super().__init__(name='jsonWriter')
+
+            def start_fish(self):
+                write_configs(False, False)
+                # 做一些热更新
+                #1. block website的网站更新
+                block_website.websites = v_["block_website"]["websites"]
+
+                #2. 白名单更新
+                print(f'已读取新配置config{v_}')
+
+
+
+        jsonWriter = JsonWriter(FileChecker, **{'path': path, 'fish_name': 'config file checker'})
+
+
+        def update_config(key, value):
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)  # 加载我们的数据
+            data[key] = value
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(data, f, indent=3, ensure_ascii=False)
 
         def write_configs(write_all=True, first_read=True):
+
+            print(f'调用write config at {datetime.datetime.now()}')
+            jsonWriter.fish.add()
             data = read_configs(first_read)
             global studyTime
             try:
@@ -175,6 +245,9 @@ if __name__ == '__main__':
                         data['target'] = target.strftime("%Y-%m-%d %H:%M:%S")
                     if target_end != '':
                         data['target_end'] = target_end.strftime("%Y-%m-%d %H:%M:%S")
+                    for str_name, name in g_.items():
+                        data[str_name] = name
+
                     if write_all:
                         data["liver"] = liver
                         data["liver_to"] = liver_to
@@ -214,6 +287,10 @@ if __name__ == '__main__':
                         except:
                             target = ''
                             target_end = ''
+
+                        for str_name, v in g_.items():
+                            g_[str_name] = data.get(str_name, v)
+
                     # 这些不可以实时更新
                     liver = data.get('liver', liver)
                     liver_to = data.get('liver_to', liver_to)
@@ -229,8 +306,11 @@ if __name__ == '__main__':
                 print(f'读错误 first read:{first_read}')
                 return {}
 
-
         write_configs(write_all=True, first_read=True)
+        jsonWriter.start()
+
+
+
         small.set(smallTime)
         big.set(bigTime)
         study.set(studyTime)
@@ -246,11 +326,11 @@ if __name__ == '__main__':
         now_state = ''
         if debug:
             # v_["full_screen"] = 0
-            v_["mouse_lock"] = 0
-
-
-
-
+            # v_["mouse_lock"] = 0
+            # v_["lock_screen_when_start_rest"] = 0
+            # v_["topmost"] = 0
+            # force = 0
+            pass
 
         if v_["auto_boot"]:
             app_path = work_dir + "\\breakTimer.exe"
@@ -315,7 +395,8 @@ if __name__ == '__main__':
                     sub_screen = Toplevel()
                     sub_screen.geometry('%dx%d+%d+%d' % (m.width, m.height, m.x, m.y))
                     create_clock(sub_screen)
-                    sub_screen.attributes('-topmost', 1)
+                    if v_["topmost"]:
+                        sub_screen.attributes('-topmost', 1)
                     sub_screen.overrideredirect(1)
                     sub_screen_array.append(sub_screen)
 
@@ -357,46 +438,50 @@ if __name__ == '__main__':
                 t = t * 60
 
             #这里制定休息模式规则
+            white_sheet_open = False
+
             if name in fullStage:
                 end = False
-                root.attributes('-topmost', 1)
-                if force:
-                    if v_["full_screen"]:
-                        root.attributes('-fullscreen', True)
-                        if v_["split_screen"]:
-                            span()
-                    if v_["block_keyboard"]:
-                        block_keyboard = BlockKeyBoard()
-                        block_keyboard.start()
-                if v_["lock_screen_when_start_rest"]:
-                    ctypes.windll.user32.LockWorkStation()
-
-                root.deiconify()
-                login_button.configure(state='disable')
-                break_now_button.configure(state='disable')
-                reload_button.configure(state='disable')
-
+                whiteSheet = WhiteSheet(v_["white_sheet"])
+                white_list, flag = whiteSheet.get_new_white_sheet()
+                if flag:
+                    v_["white_sheet"] = white_list
+                    update_config("white_sheet", v_["white_sheet"])
+                if not whiteSheet.todo() or name =='养肝阶段':
+                    if v_["topmost"]:
+                        root.attributes('-topmost', 1)
+                    if force:
+                        if v_["full_screen"]:
+                            root.attributes('-fullscreen', True)
+                            if v_["split_screen"]:
+                                span()
+                                time.sleep(1)
+                                print('增加多屏锁定1 full stage开启')
+                        if v_["block_keyboard"]:
+                            block_keyboard = BlockKeyBoard()
+                            block_keyboard.start()
+                    if v_["lock_screen_when_start_rest"]:
+                        ctypes.windll.user32.LockWorkStation()
+                    if v_["topmost"]:
+                        root.deiconify()
+                    login_button.configure(state='disable')
+                    break_now_button.configure(state='disable')
+                    reload_button.configure(state='disable')
+                else:
+                    white_sheet_open = True
             # 保险
             elif root.attributes('-fullscreen'):
                 root.attributes('-topmost', 0)
                 root.attributes('-fullscreen', False)
 
-            if v_['black_list_open'] and name == '学习阶段':
+            if name == '学习阶段':
                 if blackSheet:
                     blackSheet.start()
                 black_lists = v_["black_lists"]
-                black_list = None
-                try:
-                    black_list = black_lists[v_["mode"]]
-                except:
-                    pass
-                if black_list:
-                    # 如果不是always模式，只有按下确认修改按钮后的几轮是有黑名单的
-                    if black_list[-1] == "always" or click_update:
-                        blackSheet = BlackSheet(black_list)
-                        blackSheet.start()
-                        print(f'开启{v_["mode"]}黑名单')
-                        reload_button.configure(state='disable')
+                blackSheet = BlackSheet(black_lists, click=click_update)
+                blackSheet.start()
+                if click_update:
+                    reload_button.configure(state='disable')
 
 
             global stageInfo
@@ -408,7 +493,7 @@ if __name__ == '__main__':
                 if destory:
                     return
                 stageInfoVar.set(stageInfo)
-                if name in fullStage:
+                if name in fullStage and not white_sheet_open:
                     if not end:
                         Thread(name='p1', target=check_window_position, daemon=True).start()
                     else:
@@ -420,7 +505,7 @@ if __name__ == '__main__':
             stageInfoVar.set(f'当前阶段:{name}  剩余时间: 0分 : 0秒')
             if name in fullStage and name != '养肝阶段':
                 exit_full_stage()
-                if not blackSheet:
+                if not click_update:
                     reload_button.configure(state='enable')
                 if name == '大休息阶段' or name == '立刻休息':
                     click_update = False
@@ -442,10 +527,10 @@ if __name__ == '__main__':
         def exit_full_stage():
             global end, block_keyboard
             root.attributes('-fullscreen', False)
-            root.geometry(size)
+            # root.geometry(size)
             root.attributes('-topmost', 0)
             end = True
-            if v_["block_keyboard"]:
+            if v_["block_keyboard"] and block_keyboard:
                 block_keyboard.stop()
                 block_keyboard = None
             login_button.configure(state='enable')
@@ -486,10 +571,10 @@ if __name__ == '__main__':
             else:
                 st = 0
                 before_update = update
-                studyTime_d =8
-                smallTime_d = 8
-                bigTime_d = 10
-                smallNum_d = 2
+                studyTime_d = 20
+                smallTime_d = 10
+                bigTime_d = 15
+                smallNum_d = 3
 
                 for i in range(int(smallNum_d) - 1):
                     t1 = Timer(st, partial(stage, name='学习阶段', t=studyTime_d, before_update=before_update))
@@ -577,7 +662,7 @@ if __name__ == '__main__':
             if debug:
                 gap_time = 15
             if not debug:
-                Timer(gap_time, monitor).start()
+                Timer(gap_time * 60, monitor).start()
             elif not destory:
                 t5 = Timer(gap_time, monitor)
                 t5.name = 't5'
@@ -603,13 +688,18 @@ if __name__ == '__main__':
             if force and now_state in fullStage:
                 if v_["full_screen"] and v_["split_screen"]:
                     monitors = get_monitors()
+                    # print('屏幕检查开启')
+                    # print('当前屏幕：', monitors)
                     if len(monitors) != len(before_monitors):
                         destroy_sub_screen()
+                        print(f'增加多屏锁定2 屏幕数量不一致 before{len(before_monitors)} now:{len(monitors)}')
                         span()
-                    for m1, m2 in zip(monitors, before_monitors):
-                        if m1.width != m2.width or m1.height != m2.height or m1.x != m2.x or m1.y != m2.y:
-                            destroy_sub_screen()
-                            span()
+                    else:
+                        for m1, m2 in zip(monitors, before_monitors):
+                            if m1.width != m2.width or m1.height != m2.height or m1.x != m2.x or m1.y != m2.y:
+                                destroy_sub_screen()
+                                span()
+                                print('增加多屏锁定3 屏幕位置变化')
                 if v_["mouse_lock"]:
                     ui.moveTo(0, 0)
                     ui.click()
@@ -620,12 +710,16 @@ if __name__ == '__main__':
                     root.attributes('-fullscreen', True)
                     print('错位重置')
 
-
         #组件管理
         Thread(name='monitor', target=monitor, daemon=True).start()
-        Thread(name='modify_monitor', target=ModifyMonitor(proxy_block_websites=v_["proxy_block_website"]).start, daemon=True).start()
+        if v_["block_website"]["enable"]:
+            global block_website
+            block_website = BlockWebsite(block_websites=v_["block_website"]["websites"],
+                         dir=v_["block_website"]["proxy_rules_location"])
+            Thread(name='网页阻止', target=block_website.start, daemon=True).start()
+            Thread(name='代理开关修改', target=ModifyProxyOption().start, daemon=True).start()
 
-        # from tools.printThread import show_all_threads
+
         def close():
             if force:
                 return

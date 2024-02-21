@@ -5,22 +5,26 @@ from threading import Thread
 
 
 # 根据进程名查找进程
-class Component:
+from typing import Dict
+from breakTimer.Awake import check
+from breakTimer.Plug import Plug
 
-    def __init__(self, time_gap=5, name=' '):
+
+class Component(Plug):
+    def __init__(self, time_gap=5, name='组件', todo='', awake:Dict[str, str]=None):
         self.time_gap = time_gap
         self.is_end = False
         self.name = name
-
-    def todo(self):
-        pass
-
-    def start(self):
-        Thread(target=self.__start__, daemon=True).start()
+        self.awake = awake
+        if todo != '':
+            self.todo = todo
 
     def __start__(self):
         while not self.is_end:
             try:
+                if self.awake != None:
+                    if not check(self.awake):
+                        continue
                 self.todo()
             except Exception as e:
                 print(f'任务{self.name}错误', e)

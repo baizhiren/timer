@@ -8,7 +8,7 @@ class SystemMusic:
     frequency = 500  # 频率/Hz
     cancel_tmr = False
     time_gap = 3
-    song = ['D:\\work\\python_code\\protect\\dist\\main\\shine.wav']
+    song = ['shine.wav']
 
     def __init__(self, **kw):
         for k, v in kw:
@@ -37,6 +37,6 @@ class SystemMusic:
             threading.Timer(self.time_gap, self.heart_beat).start()
 
 # if __name__ == '__main__':
-#     winsound.Beep(1000, 1000)
+#     # winsound.Beep(1000, 1000)
 #     music = SystemMusic()
-#     music.ring(id=-1)
+#     music.ring(id=0)
