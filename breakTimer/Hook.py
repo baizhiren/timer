@@ -21,9 +21,6 @@ class Hook(Plug):
         self.semaphore.acquire(1)
         self.start_fish()
 
-    def done(self):
-        self.happen.release()
-
     @staticmethod
     def create_object(cls, *args, **kwargs):
         return cls(*args, **kwargs)

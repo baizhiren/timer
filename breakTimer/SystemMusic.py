@@ -8,7 +8,7 @@ class SystemMusic:
     frequency = 500  # 频率/Hz
     cancel_tmr = False
     time_gap = 3
-    song = ['shine.wav']
+    song = ['./_internal/shine.wav']
 
     def __init__(self, **kw):
         for k, v in kw:

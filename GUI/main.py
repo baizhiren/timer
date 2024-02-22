@@ -36,9 +36,8 @@ from breakTimer.BlockWebsite import BlockWebsite
 from breakTimer.ModifyProxyOption import ModifyProxyOption
 from breakTimer.WhiteSheet import WhiteSheet
 
-
-
 ui.FAILSAFE = False
+debug_mode = '学习'
 
 import logging
 
@@ -70,11 +69,6 @@ def redirect_print_to_log(log_file_path):
     sys.stdout = print_to_log
 
 
-
-
-
-
-
 if __name__ == '__main__':
     # multiprocessing.freeze_support()
     try:
@@ -92,10 +86,8 @@ if __name__ == '__main__':
         if not debug:
             redirect_print_to_log(user_dir + "\\output.log")
 
-
         work_dir = os.getcwd()
         print("自动启动时的当前工作目录：", work_dir)
-
 
         config_path = user_dir + '\\location.txt'
         print('config_path: ', config_path)
@@ -110,6 +102,13 @@ if __name__ == '__main__':
             with open(config_path, 'w') as file:
                 path = work_dir + '\\config.json'
                 file.write(path)
+
+        proxy_path = os.environ['USERPROFILE'] + r"//.config/clash/profiles"
+        print(proxy_path)
+        import os
+        # proxy_path
+
+        print('proxy_path', proxy_path)
 
         root = tk.Tk()
         root.resizable(False, False)
@@ -155,24 +154,24 @@ if __name__ == '__main__':
             "black_lists": [
                 {
                     "name": "study",
-                    "list":[
+                    "list": [
                         "msedge.exe",
                         "steam.exe",
                         "chrome.exe"],
-                    "enable": True,
+                    "enable": 0,
                     "time": "click"
                 }
             ],
             "block_website": {
-                "enable": 1,
-                "proxy_rules_location": os.environ['USERPROFILE'] + "/config/clash/profiles",
+                "proxy_rules_location": proxy_path,
                 "websites": [
                     {
                         "name": "zhihu.com",
                         "time": {
                             "mode": "day",
-                            "interval": "18:00-22:25"
-                        }
+                            "interval": "11:00-12:00",
+                        },
+                        "enable": 0
                     }
 
                 ]
@@ -210,12 +209,11 @@ if __name__ == '__main__':
             def start_fish(self):
                 write_configs(False, False)
                 # 做一些热更新
-                #1. block website的网站更新
+                # 1. block website的网站更新
                 block_website.websites = v_["block_website"]["websites"]
 
-                #2. 白名单更新
+                # 2. 白名单更新
                 print(f'已读取新配置config{v_}')
-
 
 
         jsonWriter = JsonWriter(FileChecker, **{'path': path, 'fish_name': 'config file checker'})
@@ -228,8 +226,8 @@ if __name__ == '__main__':
             with open(path, "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=3, ensure_ascii=False)
 
-        def write_configs(write_all=True, first_read=True):
 
+        def write_configs(write_all=True, first_read=True):
             print(f'调用write config at {datetime.datetime.now()}')
             jsonWriter.fish.add()
             data = read_configs(first_read)
@@ -306,10 +304,9 @@ if __name__ == '__main__':
                 print(f'读错误 first read:{first_read}')
                 return {}
 
+
         write_configs(write_all=True, first_read=True)
         jsonWriter.start()
-
-
 
         small.set(smallTime)
         big.set(bigTime)
@@ -437,7 +434,7 @@ if __name__ == '__main__':
             if not debug:
                 t = t * 60
 
-            #这里制定休息模式规则
+            # 这里制定休息模式规则
             white_sheet_open = False
 
             if name in fullStage:
@@ -447,15 +444,16 @@ if __name__ == '__main__':
                 if flag:
                     v_["white_sheet"] = white_list
                     update_config("white_sheet", v_["white_sheet"])
-                if not whiteSheet.todo() or name =='养肝阶段':
+                if not whiteSheet.todo() or name == '养肝阶段':
                     if v_["topmost"]:
                         root.attributes('-topmost', 1)
                     if force:
                         if v_["full_screen"]:
                             root.attributes('-fullscreen', True)
                             if v_["split_screen"]:
-                                span()
-                                time.sleep(1)
+                                # span()
+                                # time.sleep(1)
+                                Thread(name='span in the full stage', target=span, daemon=True).start()
                                 print('增加多屏锁定1 full stage开启')
                         if v_["block_keyboard"]:
                             block_keyboard = BlockKeyBoard()
@@ -482,7 +480,6 @@ if __name__ == '__main__':
                 blackSheet.start()
                 if click_update:
                     reload_button.configure(state='disable')
-
 
             global stageInfo
             for i in range(t):
@@ -527,7 +524,7 @@ if __name__ == '__main__':
         def exit_full_stage():
             global end, block_keyboard
             root.attributes('-fullscreen', False)
-            # root.geometry(size)
+            root.geometry(size)
             root.attributes('-topmost', 0)
             end = True
             if v_["block_keyboard"] and block_keyboard:
@@ -571,10 +568,16 @@ if __name__ == '__main__':
             else:
                 st = 0
                 before_update = update
-                studyTime_d = 20
-                smallTime_d = 10
-                bigTime_d = 15
-                smallNum_d = 3
+                if debug_mode == '正常':
+                    studyTime_d = 15
+                    smallTime_d = 15
+                    bigTime_d = 15
+                    smallNum_d = 3
+                elif debug_mode == '学习':
+                    studyTime_d = 60
+                    smallTime_d = 15
+                    bigTime_d = 15
+                    smallNum_d = 3
 
                 for i in range(int(smallNum_d) - 1):
                     t1 = Timer(st, partial(stage, name='学习阶段', t=studyTime_d, before_update=before_update))
@@ -678,7 +681,7 @@ if __name__ == '__main__':
                 destroy_sub_screen()
                 update = update + 100
                 if isLoop.get():
-                    #等待任意键的输入
+                    # 等待任意键的输入
                     keyboard.read_key()
                     Thread(name='run in 退出养肝阶段', target=run, daemon=True).start()
                 update_target()
@@ -710,14 +713,14 @@ if __name__ == '__main__':
                     root.attributes('-fullscreen', True)
                     print('错位重置')
 
-        #组件管理
+
+        # 组件管理
         Thread(name='monitor', target=monitor, daemon=True).start()
-        if v_["block_website"]["enable"]:
-            global block_website
-            block_website = BlockWebsite(block_websites=v_["block_website"]["websites"],
-                         dir=v_["block_website"]["proxy_rules_location"])
-            Thread(name='网页阻止', target=block_website.start, daemon=True).start()
-            Thread(name='代理开关修改', target=ModifyProxyOption().start, daemon=True).start()
+        # dir=v_["block_website"]["proxy_rules_location"]\
+        global block_website
+        block_website = BlockWebsite(block_websites=v_["block_website"]["websites"], dir=v_["block_website"]["proxy_rules_location"])
+        Thread(name='网页阻止', target=block_website.start, daemon=True).start()
+        Thread(name='代理开关修改', target=ModifyProxyOption().start, daemon=True).start()
 
 
         def close():
@@ -729,12 +732,11 @@ if __name__ == '__main__':
                 blackSheet.stop()
             time.sleep(1)
             destroy_sub_screen()
-            # show_all_threads()
             try:
                 root.destroy()
                 print('主线程结束')
             except Exception as e:
-                print('主线程关闭异常',e)
+                print('主线程关闭异常', e)
                 print(traceback.print_exc())
 
 
@@ -785,6 +787,8 @@ if __name__ == '__main__':
                     title='重置成功',
                     message=msg
                 )
+
+
         def pause_clicked():
             global pause
             pause = not pause
@@ -856,7 +860,7 @@ if __name__ == '__main__':
         loop_button.pack(padx=10, side='left')
 
         count_round = ttk.Label(frame, textvariable=cnt_round)
-        count_round.pack(fill='x', expand=True, side = 'left', padx=10)
+        count_round.pack(fill='x', expand=True, side='left', padx=10)
 
         root.mainloop()
     except Exception as e:

@@ -27,42 +27,48 @@ class FileChecker(Fish):
             self.last_hash = hash
             return False
         elif self.last_hash != hash:
-            time.sleep(20)
-            self.last_hash = self.calculate_file_hash(self.path)
+            while True:
+                time.sleep(5)
+                next_hash = self.calculate_file_hash(self.path)
+                if hash == next_hash:
+                    self.last_hash = hash
+                    break
+                hash = next_hash
             with open(self.path, 'r', encoding='utf-8') as file:
-                file = json.load(file)
-            print(file)
-            print('检测到文件修改')
+                content = file.read()
+            print('检测到文件修改: ', content)
             return True
 
     def add(self):
         self.count += 1
 
-    def calculate_file_hash(self, file_path):
+    @staticmethod
+    def calculate_file_hash(file_path):
         with open(file_path, 'rb') as file:
             content = file.read()
             file_hash = hashlib.md5(content).hexdigest()
         return file_hash
 
+
 # 不可以
 # if __name__ == '__main__':
-    # class JsonWriter(Component, Hook):
-    #     def __init__(self, cls, **kwargs):
-    #         Hook.__init__(self, cls, **kwargs)
-    #         super().__init__(name='jsonWriter')
-    #
-    #     def start_fish(self):
-    #         print('文件被修改！')
-    #
-    #
-    # jsonWriter = JsonWriter(FileChecker, **{'path':'mitmproxy.log', 'fish_name':'file checker'})
-    # print('jsonWriter name:', jsonWriter.name)
-    # print('fish name', jsonWriter.fish.name)
-    # jsonWriter.start()
-    # time.sleep(100000)
-    # with open('', 'r', encoding='utf-8') as file:
-    #     file = json.load(file)
-    # print(file)
+#     class JsonWriter(Component, Hook):
+#         def __init__(self, cls, **kwargs):
+#             Hook.__init__(self, cls, **kwargs)
+#             super().__init__(name='jsonWriter')
+#
+#         def start_fish(self):
+#             print('文件被修改！')
+#
+#
+#     jsonWriter = JsonWriter(FileChecker, **{'path':'../test/temp.txt', 'fish_name':'file checker'})
+#     print('jsonWriter name:', jsonWriter.name)
+#     print('fish name', jsonWriter.fish.name)
+#     jsonWriter.start()
+#     time.sleep(100000)
+#     with open('', 'r', encoding='utf-8') as file:
+#         file = json.load(file)
+#     print(file)
 
 
 

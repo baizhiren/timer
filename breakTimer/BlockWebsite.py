@@ -2,45 +2,12 @@
 #2. 定时检查代理是否正确开启7891端口
 #3. 屏蔽网站 ok
 import json
-import os
 from typing import List, Dict
 
-import yaml
-from mitmproxy import http
-from mitmproxy import ctx
+
 # 定义自己的过滤器和相关处理逻辑
 
-class VPNForwarder:
-
-    def request(self, flow):
-        with open('temp.txt', 'r') as file:
-            filtered_domains = json.load(file)
-        filtered_domains = list(set(filtered_domains + fix_domains))
-
-        ctx.log.info(f'{ctx}')
-        # ctx.log.info(f'当前阻止网站: {filtered_domains}')
-        # 对特定域名请求不进行转发
-        response_body = "滚去学习".encode('utf-8')  # 使用 utf-8 编码
-        if any(domain in flow.request.pretty_host for domain in filtered_domains):
-            ctx.log.info(f'成功阻止网站:{filtered_domains}')
-
-        #     flow.response = http.HTTPResponse.make(
-        #         403,
-        #         #b'forbidden, go to study, be a person',
-        #         response_body,
-        #         {"Content-Type": "text/html; charset=utf-8"}
-        # )
-            flow.response = http.Response.make(
-                403,  # 状态码
-                #b"forbidden, go to study, be a person",  # 响应体
-                response_body,
-                {"Content-Type": "text/html; charset=utf-8"}  # 头部
-            )
-        # 其他请求会自动通过上游代理，无需在这里指定
-
-addons = [
-    VPNForwarder()
-]
+fix_domains = ['madou.club', 'e-hentai.org', 'exhentai.org']
 
 
 
@@ -60,32 +27,46 @@ def is_clash_running(host='localhost', port=7890):
             return False
 
 
-from breakTimer.Awake import  check
+from breakTimer.Awake import *
 
 class BlockWebsite(Component):
-    def __init__(self, block_websites:List[Dict[str, str]], dir='C://Users//chao//.config//clash//profiles'):
+
+    def __init__(self, block_websites:List[Dict[str, str]], dir=''):
         super().__init__(name='禁用网站')
         self.block_process = None
         self.pre_clash_running = None
-        self.websites = block_websites
-        self.filtered_domains = []
+        self.websites = block_websites # 可以在外部改变
+        self.pre_website = -1
+        self.filtered_domains = -1
         self.dir = dir
 
     def todo(self):
-        websites_names = []
+        import yaml
+        import os
+        next_website = []
+        new_website_name = set()
+        if self.pre_website != -1:
+            for website in self.pre_website:
+                if not check_expire(website["time"]):
+                    next_website.append(website)
+                    new_website_name.add(website["name"])
+
         for website in self.websites:
             if "time" in website:
-                if check(website["time"]):
-                    websites_names.append(website["name"])
+                if check(website["time"]) and website.get("enable", 1):
+                   if self.pre_website == -1 or website not in self.pre_website:
+                        next_website.append(website)
+                        new_website_name.add(website["name"])
 
-        #
         path = 'temp.txt'
-        if websites_names != self.filtered_domains:
-            self.filtered_domains = websites_names
-            with open(path, "w", encoding="utf-8") as temp_file:
-                # 父进程准备数据并写入临时文件
-                temp_file.write(json.dumps(websites_names))
-            print(f'todo:阻止网站变化{self.filtered_domains}')
+        if self.pre_website != next_website:
+            self.pre_website = next_website
+            if self.filtered_domains != new_website_name:
+                self.filtered_domains = new_website_name
+                with open(path, "w", encoding="utf-8") as temp_file:
+                    # 父进程准备数据并写入临时文件
+                    temp_file.write(json.dumps(list(new_website_name)))
+                print(f'todo:阻止网站变化{self.filtered_domains}')
 
         key = 'rules'
         if os.path.isdir(self.dir):
@@ -121,12 +102,19 @@ class BlockWebsite(Component):
         if self.block_process != None:
             self.block_process.stop()
 
+        from tools import tool
+        debug = tool.is_debug()
+        if debug:
+            path = '../breakTimer/VPNForwarder.py'
+        else:
+            path = './_internal/source/VPNForwarder.py'
+
         if clash_running:
             # Clash正在运行，设置mitmproxy为upstream模式
             options = [
                 '--mode', 'upstream:http://localhost:7890',  # 设置上游代理模式
                 '-p', '7891',  # 指定监听端口
-                '-s', __file__ ,  # 加载当前脚本作为addon
+                '-s', path,  # 加载当前脚本作为addon
                 '--set', 'connection_timeout=60',
                 '--set', 'stream_large_bodies=3k',
 
@@ -136,7 +124,7 @@ class BlockWebsite(Component):
             options = [
                 '--mode', 'regular',  # 设置普通代理模式
                 '-p', '7891',  # 指定监听端口
-                '-s', __file__ ,  # 加载当前脚本作为addon
+                '-s', path ,  # 加载当前脚本作为addon
                 '--set', 'connection_timeout=60',
                 '--set', 'stream_large_bodies=3k',
             ]
@@ -157,7 +145,7 @@ import socket
 from mitmproxy.tools.main import mitmdump
 import sys
 
-fix_domains = ['madou.club', 'e-hentai.org', 'exhentai.org']
+
 
 import subprocess
 import threading
@@ -174,7 +162,11 @@ class MitmDumpThread(threading.Thread):
         # 使用 subprocess 启动 mitmdump
         #self.process = subprocess.Popen(['mitmdump', '--mode', 'regular'])
         print('argv is ', ['mitmdump'] + self.argv[1:])
-        self.process = subprocess.Popen(['mitmdump'] + self.argv[1:], stdout = logfile, stderr = logfile)
+
+        startupinfo = subprocess.STARTUPINFO()
+        startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+        startupinfo.wShowWindow = subprocess.SW_HIDE
+        self.process = subprocess.Popen(['mitmdump'] + self.argv[1:], stdout = logfile, stderr = logfile,  startupinfo=startupinfo)
         self.process.wait()  # 等待进程结束
 
     def stop(self):
@@ -194,12 +186,26 @@ class MitmDumpThread(threading.Thread):
 #             {
 #                 "name": "zhihu.com",
 #                 "time": {
-#                     "mode": "day",
-#                     "interval": "00:00-8:40"
+#                     "mode": "period",
+#                     "interval": "2024.2.22 10:00-2024.2.22 11:30"
 #                 }
 #             }
 #         ]
 #     }
+#
 #     bw = BlockWebsite(block_websites=map["websites"])
 #     bw.start()
+#     time.sleep(5)
+#     print('20s 已到， 今日起兵！')
+#     map["websites"] = [
+#         {
+#             "name": "bilibili.com",
+#             "time": {
+#                 "mode": "period",
+#                 "interval": "2024.2.22 10:00-2024.2.22 11:26"
+#             }
+#         }
+#
+#     ]
+#     bw.websites = map["websites"]
 #     time.sleep(100000)
