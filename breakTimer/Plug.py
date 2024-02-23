@@ -11,7 +11,7 @@ class Plug:
         pass
 
     def start(self):
-        Thread(target=self.__start__, daemon=True).start()
+        Thread(target=self.__start__, daemon=True, name=self.name).start()
 
     def __start__(self):
         try:
@@ -22,3 +22,11 @@ class Plug:
 
     def stop(self):
         pass
+
+# if __name__ =='__main__':
+#     p = Plug()
+#     p.start()
+#     from tools.printThread import *
+#
+#     show_all_threads()
+

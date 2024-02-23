@@ -1,5 +1,7 @@
 # study_main.exe_xx.exe_...
+import time
 
+from breakTimer.BlackSheet import BlackSheet
 from breakTimer.Plug import Plug
 from breakTimer.Awake import *
 # 根据进程名查找进程
@@ -29,7 +31,3 @@ class WhiteSheet(Plug):
 
 
 # 不可以
-# if __name__ == '__main__':
-#     blackSheet = BlackSheet(['msedge.exe', 'steam.exe'])
-#     blackSheet.start()
-#     time.sleep(100000)

@@ -52,6 +52,10 @@ class BlockKeyBoard(Plug):
 # if __name__ == '__main__':
 #     m = BlockKeyBoard()
 #     m.start()
-#     time.sleep(120)
+#     time.sleep(10)
 #     m.stop()
-
+#     time.sleep(1)
+#     from tools.printThread import *
+#
+#     show_all_threads()
+#

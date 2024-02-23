@@ -1,4 +1,5 @@
 # study_main.exe_xx.exe_...
+import time
 from typing import *
 
 import psutil
@@ -53,6 +54,22 @@ class BlackSheet(Component):
 
 # 不可以
 # if __name__ == '__main__':
-#     blackSheet = BlackSheet(['msedge.exe', 'steam.exe'])
+#     map = [
+#       {
+#          "name": "study",
+#          "list": [
+#             "msedge.exe",
+#             "steam.exe",
+#             "chrome.exe"
+#          ],
+#          "enable": 0,
+#          "time": {
+#             "mode": "click"
+#          }
+#       },
+#    ]
+#     blackSheet = BlackSheet(map)
 #     blackSheet.start()
-#     time.sleep(100000)
+#     time.sleep(1)
+#     from tools.printThread import *
+#     show_all_threads()

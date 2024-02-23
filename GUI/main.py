@@ -8,6 +8,7 @@ from functools import partial
 from threading import Thread, Timer
 from tkinter import ttk
 from tkinter.messagebox import showinfo
+from typing import Dict
 
 import keyboard
 import pyautogui as ui
@@ -21,10 +22,11 @@ import sys
 
 # 要添加到自启动的应用程序名称和路径
 from breakTimer.Component import Component
+from breakTimer.DelayBreak import DelayBreak
 from breakTimer.FileChecker import FileChecker
 from breakTimer.Hook import Hook
 
-app_name = "breakTimer3.9.1"
+app_name = "breakTimer3.9.2"
 
 # 打开注册表键
 
@@ -38,8 +40,8 @@ from breakTimer.WhiteSheet import WhiteSheet
 from breakTimer.LeaveDetect import LeaveDetect
 
 ui.FAILSAFE = False
-['正常', '学习', '短']
-debug_mode = '短'
+['正常', '学习', '短', '休息']
+debug_mode = '学习'
 
 import logging
 
@@ -73,6 +75,7 @@ def redirect_print_to_log(log_file_path):
 
 if __name__ == '__main__':
     # multiprocessing.freeze_support()
+
     try:
         debug = True
         if getattr(sys, 'frozen', False):
@@ -191,7 +194,8 @@ if __name__ == '__main__':
                 }
             ],
             "leave_restart": 1,
-            "pause_current_app_when_break": 1
+            "pause_current_app_when_break": 1,
+            "delay_break": 1
 
 
         }
@@ -221,7 +225,7 @@ if __name__ == '__main__':
                 block_website.websites = v_["block_website"]["websites"]
 
                 # 2. 白名单更新
-                print(f'已读取新配置config{v_}')
+                # print(f'已读取新配置config{v_}')
 
 
         jsonWriter = JsonWriter(FileChecker, **{'path': path, 'fish_name': 'config file checker'})
@@ -253,7 +257,6 @@ if __name__ == '__main__':
                         data['target_end'] = target_end.strftime("%Y-%m-%d %H:%M:%S")
                     for str_name, name in g_.items():
                         data[str_name] = name
-
                     if write_all:
                         data["liver"] = liver
                         data["liver_to"] = liver_to
@@ -329,13 +332,35 @@ if __name__ == '__main__':
         lastEnd = True
         pause = False
         now_state = ''
+        #作弊
         if debug:
             v_["full_screen"] = 0
             v_["mouse_lock"] = 0
             v_["lock_screen_when_start_rest"] = 0
             v_["topmost"] = 0
-            v_["leave_restart"] = 0
-            # force = 0
+            v_["leave_restart"] = 1
+            v_["block_keyboard"] = 0
+            force = 0
+            if debug_mode == '正常':
+                studyTime = 15
+                smallTime = 15
+                bigTime = 15
+                smallNum = 3
+            elif debug_mode == '学习':
+                studyTime = 30
+                smallTime = 5
+                bigTime = 10
+                smallNum = 3
+            elif debug_mode == '短':
+                studyTime = 3
+                smallTime = 3
+                bigTime = 3
+                smallNum = 2
+            elif  debug_mode == '休息':
+                studyTime = 5
+                smallTime = 30
+                bigTime = 10
+                smallNum = 3
             pass
 
         if v_["auto_boot"]:
@@ -418,12 +443,14 @@ if __name__ == '__main__':
         blackSheet = None
         block_keyboard = None
 
-            #暂停时间
 
-
-        def stage(name, t, before_update):
+        def start_stage(stage):
             global end, lastEnd, update, click_update, blackSheet, block_keyboard
-            print(f"hello, this is stage {name}, continue {t}, before update:{before_update}, now update: {update}")
+            name = stage.name
+            t = stage.time
+            before_update = stage.before_update
+
+
 
             if before_update != update and name != '养肝阶段' or destory:
                 print(f"expire {name}, before update:{before_update} now update: {update}")
@@ -454,6 +481,9 @@ if __name__ == '__main__':
                 pause_open = False
                 whiteSheet = WhiteSheet(v_["white_sheet"])
                 white_list, flag = whiteSheet.get_new_white_sheet()
+                func = partial(Execute.now_execute.insert_stage, info={'name': '学习阶段', 'time':5})
+                delayBreak = DelayBreak(func)
+
                 if flag:
                     v_["white_sheet"] = white_list
                     update_config("white_sheet", v_["white_sheet"])
@@ -483,6 +513,9 @@ if __name__ == '__main__':
                     login_button.configure(state='disable')
                     break_now_button.configure(state='disable')
                     reload_button.configure(state='disable')
+                    jump_button.configure(state='disable')
+                    if name == '休息阶段':
+                        delayBreak.start()
                 else:
                     white_sheet_open = True
             # 保险
@@ -501,13 +534,11 @@ if __name__ == '__main__':
                     reload_button.configure(state='disable')
                 if v_["leave_restart"]:
                     def leave():
-                        global update
-                        # 重置时间？
-                        update += 1
+                        Execute.now_execute.stop()
                         keyboard.read_key()
                         Thread(name='在大休息阶段结束、立刻休息结束', target=run, daemon=True).start()
-                    # LeaveDetect(leave, count_down=60 * 10, detect_keyboard_time=60)
-                    leaveDetect = LeaveDetect(leave, count_down=20, detect_keyboard_time=10)
+                    LeaveDetect(leave, count_down=60 * 10, detect_keyboard_time=60)
+                    #leaveDetect = LeaveDetect(leave, count_down=20, detect_keyboard_time=10)
                     leaveDetect.start()
 
             global stageInfo
@@ -531,6 +562,7 @@ if __name__ == '__main__':
             stageInfoVar.set(f'当前阶段:{name}  剩余时间: 0分 : 0秒')
             if name in fullStage and name != '养肝阶段':
                 exit_full_stage()
+                delayBreak.stop()
                 if not click_update:
                     reload_button.configure(state='enable')
                 if name == '大休息阶段' or name == '立刻休息':
@@ -556,18 +588,83 @@ if __name__ == '__main__':
                 if name == '学习阶段':
                     cnt_round.set(f'肝数:{int(cnt_round.get()[3:]) + 1}')
 
+        class Stage:
+            def __init__(self):
+                self.name = ''
+                self.excute = None
+                self.time = -1
+                self.info = {}
+                self.before_update = -1
+
+            def start(self):
+                start_stage(self)
+                self.excute.next_stage_start()
+
+
+            #暂停时间
+
+        class Execute:
+
+            now_execute = None
+
+            def __init__(self, stages):
+                Execute.now_execute = self
+                self.stages = stages
+                self.idx = 0
+                self.before_update = update
+                self.delay_count = 0;
+
+            def next_stage_start(self):
+                if self.idx >= len(self.stages):
+                    return
+                stage = self.new_Stage(self.stages[self.idx], before_update=update)
+                self.idx += 1
+                stage.start()
+
+            def jump(self):
+                global update
+                update = update + 1
+
+            def new_Stage(self, info: Dict[str, str], before_update):
+                s = Stage()
+                s.name = info["name"]
+                s.time = info["time"]
+                s.excute = self
+                s.info = info
+                s.before_update = before_update
+                return s
+
+            # 在当前阶段前插入一个阶段
+            def insert_stage(self, info: Dict[str, str]):
+                if self.delay_count >= 3:
+                    return
+                # 增加三分钟
+                self.stages[self.idx - 1]['time'] += 3 # 休息模式+3
+                self.stages.insert(self.idx - 1, info)
+                self.idx = self.idx - 1
+                self.jump()
+                self.delay_count += 1;
+
+            def stop(self):
+                self.idx = len(self.stages)
+                self.jump()
+
+
+
 
         def exit_full_stage(pause_open=False):
             global end, block_keyboard
             root.attributes('-fullscreen', False)
             root.geometry(size)
             root.attributes('-topmost', 0)
+
             end = True
             if v_["block_keyboard"] and block_keyboard:
                 block_keyboard.stop()
                 block_keyboard = None
             login_button.configure(state='enable')
             break_now_button.configure(state='enable')
+            jump_button.configure(state='enable')
             destroy_sub_screen()
             if pause_open:
                 music.pause()
@@ -580,75 +677,30 @@ if __name__ == '__main__':
 
 
         def run():
-            if not debug:
-                st = 0
-                before_update = update
-                for i in range(int(smallNum) - 1):
-                    t1 = Timer(st * 60, partial(stage, name='学习阶段', t=studyTime, before_update=before_update))
-                    t1.daemon = True
-                    t1.start()
-                    st += int(studyTime)
-                    t2 = Timer(st * 60, partial(stage, name='休息阶段', t=smallTime, before_update=before_update))
-                    t2.daemon = True
-                    t2.start()
+            study_stage = {
+                'name': '学习阶段',
+                'time': studyTime,
+            }
+            break_stage = {
+                'name': '休息阶段',
+                'time': smallTime,
+            }
+            big_break_stage = {
+                'name': '大休息阶段',
+                'time': bigTime,
+            }
 
-                    st += int(smallTime)
+            stages = []
 
-                t3 = Timer(st * 60, partial(stage, name='学习阶段', t=studyTime, before_update=before_update))
-                t3.daemon = True
-                t3.start()
+            for i in range(int(smallNum) - 1):
+                stages.append(study_stage.copy())
+                stages.append(break_stage.copy())
 
-                st += int(studyTime)
-                t4 = Timer(st * 60, partial(stage, name='大休息阶段', t=bigTime, before_update=before_update))
-                t4.daemon = True
-                t4.start()
-                st += int(bigTime)
-                time.sleep(st * 60)
-            else:
-                st = 0
-                before_update = update
-                if debug_mode == '正常':
-                    studyTime_d = 15
-                    smallTime_d = 15
-                    bigTime_d = 15
-                    smallNum_d = 3
-                elif debug_mode == '学习':
-                    studyTime_d = 60
-                    smallTime_d = 15
-                    bigTime_d = 15
-                    smallNum_d = 3
-                elif debug_mode == '短':
-                    studyTime_d = 8
-                    smallTime_d = 8
-                    bigTime_d = 8
-                    smallNum_d = 2
+            stages.append(study_stage.copy())
+            stages.append(big_break_stage.copy())
+            execute = Execute(stages)
 
-
-                for i in range(int(smallNum_d) - 1):
-                    t1 = Timer(st, partial(stage, name='学习阶段', t=studyTime_d, before_update=before_update))
-                    t1.daemon = True
-                    t1.name = 't1'
-                    t1.start()
-
-                    st += int(studyTime_d)
-                    t2 = Timer(st, partial(stage, name='休息阶段', t=smallTime_d, before_update=before_update))
-                    t2.daemon = True
-                    t2.name = 't2'
-                    t2.start()
-                    st += int(smallTime_d)
-
-                t3 = Timer(st, partial(stage, name='学习阶段', t=studyTime_d, before_update=before_update))
-                t3.daemon = True
-                t3.name = 't3'
-                t3.start()
-
-                st += int(studyTime_d)
-                t4 = Timer(st, partial(stage, name='大休息阶段', t=bigTime_d, before_update=before_update))
-                t4.daemon = True
-                t4.name = 't4'
-                t4.start()
-                st += int(bigTime_d)
-                time.sleep(st)
+            Thread(name='run', target=execute.next_stage_start, daemon=True).start()
 
             # show_all_threads()
 
@@ -662,9 +714,16 @@ if __name__ == '__main__':
 
 
         def break_now():
-            t = Timer(3, partial(stage, name='立刻休息', t=v_["break_now_time"], before_update=update))
-            t.name = 'ta'
-            t.start()
+            Execute.now_execute.stop()
+            break_now_stage = {
+                'name': '立刻休息',
+                'time': v_["break_now_time"],
+            }
+            stages = [break_now_stage]
+            execute = Execute(stages)
+
+            Thread(name='立刻休息', target=execute.next_stage_start, daemon=True).start()
+
 
 
         def update_first_time_target():
@@ -709,15 +768,20 @@ if __name__ == '__main__':
             gap_time = 1
             if debug:
                 gap_time = 15
-            if not debug:
-                Timer(gap_time * 60, monitor).start()
-            elif not destory:
-                t5 = Timer(gap_time, monitor)
-                t5.name = 't5'
-                t5.start()
+                Timer(gap_time, monitor).start()
+            else:
+                if not destory:
+                    Timer(gap_time * 60, monitor).start()
 
             if check():
-                stage(name='养肝阶段', t=gap_time, before_update=update)
+                Execute.now_execute.stop()
+                break_now_stage = {
+                    'name': '养肝阶段',
+                    'time': gap_time
+                }
+                stages = [break_now_stage]
+                execute = Execute(stages)
+                Thread(name='立刻休息', target=execute.next_stage_start, daemon=True).start()
             elif now_state == '养肝阶段':
                 print('退出养肝阶段 ...')
                 exit_full_stage()
@@ -730,7 +794,6 @@ if __name__ == '__main__':
                     keyboard.read_key()
                     Thread(name='run in 退出养肝阶段', target=run, daemon=True).start()
                 update_target()
-
 
         def check_window_position():
             if force and now_state in fullStage:
@@ -826,7 +889,9 @@ if __name__ == '__main__':
                     studyTime = st
                     smallNum = sn
                     update = update + 1
-                    Thread(name='p6', target=run, daemon=True).start()
+
+                    Execute.now_execute.stop()
+                    Thread(name='重置start_study', target=run, daemon=True).start()
             if not click_start_discipline:
                 showinfo(
                     title='重置成功',
@@ -900,7 +965,12 @@ if __name__ == '__main__':
         reload_button = ttk.Button(frame, text="重置", command=lambda: start_study(click_start_discipline=False))
         reload_button.pack(side='left', padx=10)
 
-        loop_button = ttk.Checkbutton(frame, text="永无止尽的x月",
+        jump_button = ttk.Button(frame, text="绯红之王", command=lambda: Execute.now_execute.jump())
+        jump_button.pack(side='left', padx=10)
+
+
+
+        loop_button = ttk.Checkbutton(frame, text="永无止尽",
                                       variable=isLoop)
         loop_button.pack(padx=10, side='left')
 
