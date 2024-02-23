@@ -43,6 +43,6 @@ def check_expire(awake: Dict[str, str]):
         raise custom_exception
 
 
-if __name__ == '__main__':
-    check({})
+# if __name__ == '__main__':
+#     check({})
 

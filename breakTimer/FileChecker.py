@@ -44,10 +44,13 @@ class FileChecker(Fish):
 
     @staticmethod
     def calculate_file_hash(file_path):
-        with open(file_path, 'rb') as file:
-            content = file.read()
-            file_hash = hashlib.md5(content).hexdigest()
-        return file_hash
+        try:
+            with open(file_path, 'rb') as file:
+                content = file.read()
+                file_hash = hashlib.md5(content).hexdigest()
+            return file_hash
+        except:
+            return -1
 
 
 # 不可以

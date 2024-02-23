@@ -147,8 +147,8 @@ if __name__ == '__main__':
             force = 1
         else:
             force = 0
-        width = "450"
-        length = "450"
+        width = "500"
+        length = "480"
         g_ = {
         }
 
@@ -159,33 +159,46 @@ if __name__ == '__main__':
             "auto_boot": 1,
             "break_now_time": 20,
             "black_lists": [
-                {
-                    "name": "study",
-                    "list": [
-                        "msedge.exe",
-                        "steam.exe",
-                        "chrome.exe"],
-                    "enable": 0,
-                    "time": "click"
-                }
+              {
+                 "name": "study",
+                 "list": [
+                    "msedge.exe",
+                    "steam.exe",
+                    "chrome.exe"
+                 ],
+                 "enable": 1,
+                 "time": {
+                    "mode": "click"
+                 }
+              },
+              {
+                 "name": "test",
+                 "list": [
+                    "chrome.exe"
+                 ],
+                 "enable": 0,
+                 "time": {
+                    "mode": "day",
+                    "interval": "11:00-12:30"
+                 }
+              }
             ],
             "block_website": {
-                "proxy_rules_location": proxy_path,
-                "websites": [
-                    {
-                        "name": "zhihu.com",
-                        "time": {
-                            "mode": "day",
-                            "interval": "11:00-12:00",
-                        },
-                        "enable": 0
-                    }
-
-                ]
+              "proxy_rules_location": "C:\\Users\\chao//.config/clash/profiles",
+              "websites": [
+                 {
+                    "name": "zhihu.com",
+                    "time": {
+                       "mode": "period",
+                       "interval": "2024.2.22 14:00-2024.2.22 23:00"
+                    },
+                    "enable": 1
+                 }
+              ]
             },
             "block_keyboard": 1,
             "full_screen": 1,
-            "lock_screen_when_start_rest": 0,
+            "lock_screen_when_start_rest": 1,
             "topmost": 1,
             "white_sheet": [
                 {
@@ -196,8 +209,6 @@ if __name__ == '__main__':
             "leave_restart": 1,
             "pause_current_app_when_break": 1,
             "delay_break": 1
-
-
         }
 
         wx = "500"
@@ -450,8 +461,6 @@ if __name__ == '__main__':
             t = stage.time
             before_update = stage.before_update
 
-
-
             if before_update != update and name != '养肝阶段' or destory:
                 print(f"expire {name}, before update:{before_update} now update: {update}")
                 return
@@ -481,9 +490,7 @@ if __name__ == '__main__':
                 pause_open = False
                 whiteSheet = WhiteSheet(v_["white_sheet"])
                 white_list, flag = whiteSheet.get_new_white_sheet()
-                func = partial(Execute.now_execute.insert_stage, info={'name': '学习阶段', 'time':5})
-                delayBreak = DelayBreak(func)
-
+                delayBreak = None
                 if flag:
                     v_["white_sheet"] = white_list
                     update_config("white_sheet", v_["white_sheet"])
@@ -514,7 +521,9 @@ if __name__ == '__main__':
                     break_now_button.configure(state='disable')
                     reload_button.configure(state='disable')
                     jump_button.configure(state='disable')
-                    if name == '休息阶段':
+                    if name != '养肝阶段' and v_["delay_break"]:
+                        func = partial(Execute.now_execute.insert_stage, info={'name': '学习阶段', 'time': 5})
+                        delayBreak = DelayBreak(func)
                         delayBreak.start()
                 else:
                     white_sheet_open = True
@@ -537,8 +546,9 @@ if __name__ == '__main__':
                         Execute.now_execute.stop()
                         keyboard.read_key()
                         Thread(name='在大休息阶段结束、立刻休息结束', target=run, daemon=True).start()
-                    LeaveDetect(leave, count_down=60 * 10, detect_keyboard_time=60)
-                    #leaveDetect = LeaveDetect(leave, count_down=20, detect_keyboard_time=10)
+                    leaveDetect = LeaveDetect(leave, count_down=60 * 10, detect_keyboard_time=60)
+                    if debug:
+                        leaveDetect = LeaveDetect(leave, count_down=20, detect_keyboard_time=5)
                     leaveDetect.start()
 
             global stageInfo
@@ -562,7 +572,8 @@ if __name__ == '__main__':
             stageInfoVar.set(f'当前阶段:{name}  剩余时间: 0分 : 0秒')
             if name in fullStage and name != '养肝阶段':
                 exit_full_stage()
-                delayBreak.stop()
+                if delayBreak:
+                    delayBreak.stop()
                 if not click_update:
                     reload_button.configure(state='enable')
                 if name == '大休息阶段' or name == '立刻休息':
@@ -765,6 +776,7 @@ if __name__ == '__main__':
             global end
             global now_state
             global update
+            print('当前状态：', now_state)
             gap_time = 1
             if debug:
                 gap_time = 15
@@ -968,13 +980,14 @@ if __name__ == '__main__':
         jump_button = ttk.Button(frame, text="绯红之王", command=lambda: Execute.now_execute.jump())
         jump_button.pack(side='left', padx=10)
 
+        frame2 = tk.Frame(clock1)
+        frame2.pack(pady=5)
 
-
-        loop_button = ttk.Checkbutton(frame, text="永无止尽",
+        loop_button = ttk.Checkbutton(frame2, text="永无止尽",
                                       variable=isLoop)
         loop_button.pack(padx=10, side='left')
 
-        count_round = ttk.Label(frame, textvariable=cnt_round)
+        count_round = ttk.Label(frame2, textvariable=cnt_round)
         count_round.pack(fill='x', expand=True, side='left', padx=10)
 
         root.mainloop()

@@ -14,7 +14,7 @@ class WhiteSheet(Plug):
     def get_new_white_sheet(self):
         res = []
         flag = False
-        for time, i in self.white_lists:
+        for time in self.white_lists:
             if not check_expire(time):
                 res += time
             else:

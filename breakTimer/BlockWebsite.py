@@ -178,34 +178,34 @@ class MitmDumpThread(threading.Thread):
 
 
 
-if __name__ == '__main__':
-    map = {
-        "enable": 1,
-        "proxy_rules_location": "C:\\Users\\chao/config/clash/profiles",
-        "websites": [
-            {
-                "name": "zhihu.com",
-                "time": {
-                    "mode": "period",
-                    "interval": "2024.2.22 10:00-2024.2.22 11:30"
-                }
-            }
-        ]
-    }
-
-    bw = BlockWebsite(block_websites=map["websites"])
-    bw.start()
-    # time.sleep(5)
-    # print('20s 已到， 今日起兵！')
-    # map["websites"] = [
-    #     {
-    #         "name": "bilibili.com",
-    #         "time": {
-    #             "mode": "period",
-    #             "interval": "2024.2.22 10:00-2024.2.22 11:26"
-    #         }
-    #     }
-    #
-    # ]
-    # bw.websites = map["websites"]
-    time.sleep(100000)
+# if __name__ == '__main__':
+#     map = {
+#         "enable": 1,
+#         "proxy_rules_location": "C:\\Users\\chao/config/clash/profiles",
+#         "websites": [
+#             {
+#                 "name": "zhihu.com",
+#                 "time": {
+#                     "mode": "period",
+#                     "interval": "2024.2.22 10:00-2024.2.22 11:30"
+#                 }
+#             }
+#         ]
+#     }
+#
+#     bw = BlockWebsite(block_websites=map["websites"])
+#     bw.start()
+#     # time.sleep(5)
+#     # print('20s 已到， 今日起兵！')
+#     # map["websites"] = [
+#     #     {
+#     #         "name": "bilibili.com",
+#     #         "time": {
+#     #             "mode": "period",
+#     #             "interval": "2024.2.22 10:00-2024.2.22 11:26"
+#     #         }
+#     #     }
+#     #
+#     # ]
+#     # bw.websites = map["websites"]
+#     time.sleep(100000)

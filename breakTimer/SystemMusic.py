@@ -78,9 +78,9 @@ class SystemMusic:
 
 
 
-if __name__ == '__main__':
-    # winsound.Beep(1000, 1000)
-    music = SystemMusic()
-    music.ring(id=0)
-    #SystemMusic.pause()
+# if __name__ == '__main__':
+#     # winsound.Beep(1000, 1000)
+#     # music = SystemMusic()
+#     # music.ring(id=0)
+#     SystemMusic.pause()
 
