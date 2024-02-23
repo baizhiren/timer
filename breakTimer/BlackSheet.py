@@ -2,12 +2,15 @@
 from typing import *
 
 import psutil
-import time
 
 from breakTimer.Awake import check
 from breakTimer.Component import Component
 # 根据进程名查找进程
-from exception.exceptions import custom_exception
+from breakTimer.exceptions import custom_exception
+
+
+#todo 改为只进不出的模式，参考BLockWebsite
+
 class BlackSheet(Component):
     def __init__(self, black_lists:List[Dict[str, str]], time_gap=3, click=False):
         super().__init__(time_gap=time_gap, name='黑名单')
@@ -25,7 +28,7 @@ class BlackSheet(Component):
 
                 time = black_list["time"]
 
-                if time == "click":
+                if time["mode"] == "click":
                     if self.click:
                         self.list += list
                 elif check(time):

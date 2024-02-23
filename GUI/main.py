@@ -24,7 +24,7 @@ from breakTimer.Component import Component
 from breakTimer.FileChecker import FileChecker
 from breakTimer.Hook import Hook
 
-app_name = "breakTimer3.9"
+app_name = "breakTimer3.9.1"
 
 # 打开注册表键
 
@@ -35,9 +35,11 @@ from breakTimer.BlockKeyboard import BlockKeyBoard
 from breakTimer.BlockWebsite import BlockWebsite
 from breakTimer.ModifyProxyOption import ModifyProxyOption
 from breakTimer.WhiteSheet import WhiteSheet
+from breakTimer.LeaveDetect import LeaveDetect
 
 ui.FAILSAFE = False
-debug_mode = '学习'
+['正常', '学习', '短']
+debug_mode = '短'
 
 import logging
 
@@ -122,6 +124,8 @@ if __name__ == '__main__':
         pauseVar = tk.StringVar()
 
         music = SystemMusic()
+
+
         isLoop = tk.IntVar()
         cnt_round = tk.StringVar()
         cnt_round.set('肝数:0')
@@ -186,6 +190,10 @@ if __name__ == '__main__':
                     "interval": "2024.2.21 10:00-2024.2.21 10:10"
                 }
             ],
+            "leave_restart": 1,
+            "pause_current_app_when_break": 1
+
+
         }
 
         wx = "500"
@@ -322,10 +330,11 @@ if __name__ == '__main__':
         pause = False
         now_state = ''
         if debug:
-            # v_["full_screen"] = 0
-            # v_["mouse_lock"] = 0
-            # v_["lock_screen_when_start_rest"] = 0
-            # v_["topmost"] = 0
+            v_["full_screen"] = 0
+            v_["mouse_lock"] = 0
+            v_["lock_screen_when_start_rest"] = 0
+            v_["topmost"] = 0
+            v_["leave_restart"] = 0
             # force = 0
             pass
 
@@ -409,6 +418,8 @@ if __name__ == '__main__':
         blackSheet = None
         block_keyboard = None
 
+            #暂停时间
+
 
         def stage(name, t, before_update):
             global end, lastEnd, update, click_update, blackSheet, block_keyboard
@@ -436,9 +447,11 @@ if __name__ == '__main__':
 
             # 这里制定休息模式规则
             white_sheet_open = False
+            pause_open = False
 
             if name in fullStage:
                 end = False
+                pause_open = False
                 whiteSheet = WhiteSheet(v_["white_sheet"])
                 white_list, flag = whiteSheet.get_new_white_sheet()
                 if flag:
@@ -458,10 +471,15 @@ if __name__ == '__main__':
                         if v_["block_keyboard"]:
                             block_keyboard = BlockKeyBoard()
                             block_keyboard.start()
+                        if v_["pause_current_app_when_break"]:
+                            music.pause()
+                            pause_open = True
+
                     if v_["lock_screen_when_start_rest"]:
                         ctypes.windll.user32.LockWorkStation()
                     if v_["topmost"]:
                         root.deiconify()
+
                     login_button.configure(state='disable')
                     break_now_button.configure(state='disable')
                     reload_button.configure(state='disable')
@@ -471,6 +489,7 @@ if __name__ == '__main__':
             elif root.attributes('-fullscreen'):
                 root.attributes('-topmost', 0)
                 root.attributes('-fullscreen', False)
+            leaveDetect = None
 
             if name == '学习阶段':
                 if blackSheet:
@@ -480,6 +499,16 @@ if __name__ == '__main__':
                 blackSheet.start()
                 if click_update:
                     reload_button.configure(state='disable')
+                if v_["leave_restart"]:
+                    def leave():
+                        global update
+                        # 重置时间？
+                        update += 1
+                        keyboard.read_key()
+                        Thread(name='在大休息阶段结束、立刻休息结束', target=run, daemon=True).start()
+                    # LeaveDetect(leave, count_down=60 * 10, detect_keyboard_time=60)
+                    leaveDetect = LeaveDetect(leave, count_down=20, detect_keyboard_time=10)
+                    leaveDetect.start()
 
             global stageInfo
             for i in range(t):
@@ -508,6 +537,13 @@ if __name__ == '__main__':
                     click_update = False
                     reload_button.configure(state='enable')
                     blackSheet = None
+                    if update == before_update:
+                        if not destory and isLoop.get() == 1:
+                            keyboard.read_key()
+                            Thread(name='在大休息阶段结束、立刻休息结束', target=run, daemon=True).start()
+            if name == '学习阶段':
+                if leaveDetect:
+                    leaveDetect.stop()
 
             lastEnd = True
             if blackSheet:
@@ -521,7 +557,7 @@ if __name__ == '__main__':
                     cnt_round.set(f'肝数:{int(cnt_round.get()[3:]) + 1}')
 
 
-        def exit_full_stage():
+        def exit_full_stage(pause_open=False):
             global end, block_keyboard
             root.attributes('-fullscreen', False)
             root.geometry(size)
@@ -533,6 +569,9 @@ if __name__ == '__main__':
             login_button.configure(state='enable')
             break_now_button.configure(state='enable')
             destroy_sub_screen()
+            if pause_open:
+                music.pause()
+
 
 
         def check():
@@ -578,6 +617,12 @@ if __name__ == '__main__':
                     smallTime_d = 15
                     bigTime_d = 15
                     smallNum_d = 3
+                elif debug_mode == '短':
+                    studyTime_d = 8
+                    smallTime_d = 8
+                    bigTime_d = 8
+                    smallNum_d = 2
+
 
                 for i in range(int(smallNum_d) - 1):
                     t1 = Timer(st, partial(stage, name='学习阶段', t=studyTime_d, before_update=before_update))
@@ -607,9 +652,9 @@ if __name__ == '__main__':
 
             # show_all_threads()
 
-            if update == before_update:
-                if not destory and isLoop.get() == 1:
-                    Thread(name='p2', target=run, daemon=True).start()
+            # if update == before_update:
+            #     if not destory and isLoop.get() == 1:
+            #         Thread(name='p2', target=run, daemon=True).start()
 
 
         if auto_start:

@@ -1,0 +1,1528 @@
+[23:04:00.823] Loading script ../breakTimer/VPNForwarder.py
+[23:04:00.825] HTTP(S) proxy (upstream mode) listening at *:7891.
+[23:04:01.134][127.0.0.1:62967] client connect
+[23:04:03.171][127.0.0.1:62967] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:62967 -> tcp -> mtalk.google.com:5228
+127.0.0.1:62967 <- tcp <- mtalk.google.com:5228
+127.0.0.1:62967 <- tcp <- mtalk.google.com:5228
+127.0.0.1:62967 <- tcp <- mtalk.google.com:5228
+[23:04:06.498][127.0.0.1:62976] client connect
+[23:04:06.514][127.0.0.1:62978] client connect
+[23:04:06.533][127.0.0.1:62980] client connect
+[23:04:08.534][127.0.0.1:62978] server connect localhost:7890 (127.0.0.1:7890)
+[23:04:08.535][127.0.0.1:62976] server connect localhost:7890 (127.0.0.1:7890)
+[23:04:08.565][127.0.0.1:62980] server connect localhost:7890 (127.0.0.1:7890)
+[23:04:08.678] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:04:08.699][127.0.0.1:62976] Streaming request to data.bilibili.com.
+[23:04:08.699] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:62976: POST https://data.bilibili.com/v2/log/web?content_type=pbreq… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:04:08.807][127.0.0.1:62978] Streaming response from api.vc.bilibili.com.
+127.0.0.1:62978: GET https://api.vc.bilibili.com/session_svr/v1/session_svr/… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:04:08.809] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:04:08.874][127.0.0.1:62978] Streaming response from api.vc.bilibili.com.
+127.0.0.1:62978: GET https://api.vc.bilibili.com/session_svr/v1/session_svr/… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:04:09.134] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:04:09.384][127.0.0.1:62980] Streaming response from liaobots.com.
+127.0.0.1:62980: POST https://liaobots.com/api/models HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:04:28.648][127.0.0.1:62993] client connect
+[23:04:30.671][127.0.0.1:62993] server connect localhost:7890 (127.0.0.1:7890)
+[23:04:31.016][127.0.0.1:62993] Server TLS handshake failed. Certificate verify failed: unable to get local issuer certificate
+[23:04:31.017][127.0.0.1:62993] Unable to establish TLS connection with server (Certificate verify failed: unable to get local issuer certificate). Trying to establish TLS with client anyway. If you plan to redirect requests away from this server, consider setting `connection_strategy` to `lazy` to suppress early connections.
+[23:04:31.021][127.0.0.1:62993] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:04:36.155][127.0.0.1:63000] client connect
+[23:04:36.155][127.0.0.1:63001] client connect
+[23:04:36.159] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:04:36.407][127.0.0.1:62980] Streaming response from liaobots.com.
+127.0.0.1:62980: GET https://liaobots.com/ HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:04:36.758] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:04:36.759] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:04:36.791] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:04:36.793] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:04:36.840][127.0.0.1:62980] Streaming request to liaobots.com.
+[23:04:36.841] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:04:36.920][127.0.0.1:62980] Streaming response from liaobots.com.
+127.0.0.1:62980: POST https://liaobots.com/api/models HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:62980: POST https://liaobots.com/cdn-cgi/rum? HTTP/2.0
+     << HTTP/2.0 204 No Content 0b
+[23:04:37.043][127.0.0.1:62980] Streaming response from liaobots.com.
+127.0.0.1:62980: GET https://liaobots.com/api/site HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:04:37.055][127.0.0.1:62980] Streaming response from liaobots.com.
+127.0.0.1:62980: POST https://liaobots.com/api/user HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:04:37.087][127.0.0.1:62980] Streaming response from liaobots.com.
+127.0.0.1:62980: GET https://liaobots.com/api/prompts HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:04:37.208] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:04:37.568][127.0.0.1:62980] Streaming response from liaobots.com.
+127.0.0.1:62980: POST https://liaobots.com/api/user HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:04:38.182][127.0.0.1:63000] server connect localhost:7890 (127.0.0.1:7890)
+[23:04:38.183][127.0.0.1:63001] server connect localhost:7890 (127.0.0.1:7890)
+[23:04:41.195][127.0.0.1:62980] Streaming request to liaobots.com.
+[23:04:41.195] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:04:43.748][127.0.0.1:62980] Streaming response from liaobots.com.
+[23:04:47.431][127.0.0.1:63011] client connect
+[23:04:49.472][127.0.0.1:63011] server connect localhost:7890 (127.0.0.1:7890)
+[23:04:50.015][127.0.0.1:63011] Streaming request to clients4.google.com.
+[23:04:50.015] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:04:50.195][127.0.0.1:63011] Streaming response from clients4.google.com.
+127.0.0.1:63011: POST https://clients4.google.com/chrome-sync/command/?client… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:04:56.522] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:04:56.741][127.0.0.1:62980] Streaming response from liaobots.com.
+127.0.0.1:62980: POST https://liaobots.com/api/models HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:62980: POST https://liaobots.com/api/chat HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:05:07.060][127.0.0.1:62980] Streaming request to liaobots.com.
+[23:05:07.061] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:62980: POST https://liaobots.com/api/recommend HTTP/2.0
+     << HTTP/2.0 200 OK 6b
+[23:05:07.562] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:05:07.810][127.0.0.1:62980] Streaming response from liaobots.com.
+127.0.0.1:62980: POST https://liaobots.com/api/user HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:05:08.287][127.0.0.1:63001] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:05:23.505] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:05:23.714][127.0.0.1:62980] Streaming response from liaobots.com.
+127.0.0.1:62980: POST https://liaobots.com/api/models HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:05:28.091][127.0.0.1:62980] Streaming request to liaobots.com.
+[23:05:28.091] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:62980: POST https://liaobots.com/cdn-cgi/rum? HTTP/2.0
+     << HTTP/2.0 204 No Content 0b
+[23:05:35.916][127.0.0.1:62993] client disconnect
+[23:06:03.036][127.0.0.1:63036] client connect
+[23:06:05.072][127.0.0.1:63036] server connect localhost:7890 (127.0.0.1:7890)
+[23:06:05.984][127.0.0.1:63036] Server TLS handshake failed. Certificate verify failed: unable to get local issuer certificate
+[23:06:05.985][127.0.0.1:63036] Unable to establish TLS connection with server (Certificate verify failed: unable to get local issuer certificate). Trying to establish TLS with client anyway. If you plan to redirect requests away from this server, consider setting `connection_strategy` to `lazy` to suppress early connections.
+[23:06:05.987][127.0.0.1:63036] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:06:06.503] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:06:06.573][127.0.0.1:62978] Streaming response from api.vc.bilibili.com.
+[23:06:06.575] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:62978: GET https://api.vc.bilibili.com/session_svr/v1/session_svr/… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:06:06.685][127.0.0.1:62978] Streaming response from api.vc.bilibili.com.
+127.0.0.1:62978: GET https://api.vc.bilibili.com/session_svr/v1/session_svr/… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:09.501][127.0.0.1:63001] client disconnect
+[23:07:09.502][127.0.0.1:63000] client disconnect
+[23:07:09.502][127.0.0.1:63063] client connect
+[23:07:09.503][127.0.0.1:63000] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:11.544][127.0.0.1:63063] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:12.089] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63063: POST https://accounts.google.com/RotateCookies HTTP/2.0
+     << HTTP/2.0 200 OK 65b
+[23:07:24.261] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0133241708614444245ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:07:25.468] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:25.474] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:25.483] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:25.487] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0133241708614445456ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000171708614445461ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0133241708614445466ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0133241708614445468ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:07:25.918][127.0.0.1:63036] client disconnect
+[23:07:26.926][127.0.0.1:63077] client connect
+[23:07:27.004][127.0.0.1:63079] client connect
+[23:07:27.008] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:27.036][127.0.0.1:63081] client connect
+[23:07:27.046] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:27.052] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000171708614447004ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000171708614447034ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0133241708614447037ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:07:28.969][127.0.0.1:63077] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:29.047][127.0.0.1:63079] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:29.062][127.0.0.1:63081] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:29.135] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:29.171] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:29.257][127.0.0.1:63077] Streaming response from www.bilibili.com.
+127.0.0.1:63077: GET https://www.bilibili.com/video/BV1UF4m1L7jN?spm_id_from… HTTP/2.0
+     << HTTP/2.0 301 Moved Permanently (content missing)
+[23:07:29.261] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63079: GET https://cm.bilibili.com/cm/api/receive/content/pc/clk?m… HTTP/2.0
+     << HTTP/2.0 200 OK 30b
+[23:07:29.571][127.0.0.1:63077] Streaming response from www.bilibili.com.
+[23:07:29.630] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63081: GET https://s1.hdslb.com/bfs/seed/jinkela/short/b-mirror/bi… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+[23:07:29.655][127.0.0.1:63089] client connect
+[23:07:29.655][127.0.0.1:63090] client connect
+127.0.0.1:63077: GET https://www.bilibili.com/video/BV1UF4m1L7jN/?spm_id_fro… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:29.665][127.0.0.1:63093] client connect
+[23:07:29.667] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63081: GET https://s1.hdslb.com/bfs/seed/jinkela/short/reporter-pb… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+[23:07:29.721][127.0.0.1:63095] client connect
+[23:07:29.760][127.0.0.1:63097] client connect
+[23:07:29.763] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63081: GET https://s1.hdslb.com/bfs/seed/jinkela/risk-captcha-sdk/… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+[23:07:29.815] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63081: GET https://s1.hdslb.com/bfs/seed/jinkela/short/reporter-pb… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+[23:07:29.979][127.0.0.1:63099] client connect
+[23:07:30.059][127.0.0.1:63101] client connect
+[23:07:30.862][127.0.0.1:62976] Streaming request to data.bilibili.com.
+[23:07:30.862] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:62976: POST https://data.bilibili.com/v2/log/web?content_type=pbreq… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:07:31.682][127.0.0.1:63090] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:31.682][127.0.0.1:63089] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:31.697][127.0.0.1:63093] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:31.743][127.0.0.1:63095] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:31.777][127.0.0.1:63113] client connect
+[23:07:31.790][127.0.0.1:63097] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:31.827] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:31.842] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:31.900][127.0.0.1:63097] Streaming response from s1.hdslb.com.
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/seed/log/report/log-reporter.j… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:31.925] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:31.930] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:31.931] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:31.932] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:31.937][127.0.0.1:63095] Streaming response from api.bilibili.com.
+127.0.0.1:63095: GET https://api.bilibili.com/x/player/wbi/v2?aid=1200936194… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/seed/log/report/950.ee096.func… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/seed/log/report/512.65972.func… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+[23:07:31.957][127.0.0.1:63097] Streaming response from s1.hdslb.com.
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/seed/log/report/86.fd3f7.funct… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:32.003][127.0.0.1:63099] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000141708614451914ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:07:32.081][127.0.0.1:63119] client connect
+[23:07:32.082][127.0.0.1:63101] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:32.114] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:32.127][127.0.0.1:63099] client disconnect
+[23:07:32.128] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:32.132] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:32.135][127.0.0.1:63099] server disconnect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:63093: OPTIONS https://api.bilibili.com/x/internal/gaia-gateway/ExClim… HTTP/2.0
+     << HTTP/2.0 200 OK 0b
+[23:07:32.189][127.0.0.1:63095] Streaming request to api.bilibili.com.
+[23:07:32.190] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0133241708614452105ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0133241708614452116ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63095: POST https://api.bilibili.com/x/internal/gaia-gateway/ExClim… HTTP/2.0
+     << HTTP/2.0 200 OK 40b
+[23:07:32.677][127.0.0.1:62976] Streaming request to data.bilibili.com.
+[23:07:32.678] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:32.680][127.0.0.1:62976] Streaming request to data.bilibili.com.
+[23:07:32.680] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:32.682][127.0.0.1:62976] Streaming request to data.bilibili.com.
+[23:07:32.683] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:32.719] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:62976: POST https://data.bilibili.com/v2/log/web?content_type=pbreq… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/v2/log/web?content_type=pbreq… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/v2/log/web?content_type=pbreq… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:07:32.797][127.0.0.1:63095] Streaming response from api.bilibili.com.
+[23:07:32.806][127.0.0.1:63123] client connect
+127.0.0.1:63095: GET https://api.bilibili.com/x/v2/dm/web/view?type=1&oid=14… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:33.109][127.0.0.1:63125] client connect
+[23:07:33.109][127.0.0.1:63126] client connect
+[23:07:33.110][127.0.0.1:63127] client connect
+[23:07:33.111][127.0.0.1:63128] client connect
+[23:07:33.113][127.0.0.1:63129] client connect
+[23:07:33.163] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:33.210] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:33.225][127.0.0.1:63135] client connect
+[23:07:33.228] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:33.236] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:33.239] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:33.242] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:33.246] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:33.249][127.0.0.1:63136] client connect
+[23:07:33.257][127.0.0.1:63095] Streaming response from api.bilibili.com.
+[23:07:33.258][127.0.0.1:63139] client connect
+[23:07:33.258][127.0.0.1:63140] client connect
+[23:07:33.263] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:33.277][127.0.0.1:63093] Streaming response from api.bilibili.com.
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000161708614452101ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: GET https://data.bilibili.com/log/web?001111170861445322217… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: GET https://data.bilibili.com/log/web?001111170861445322217… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: GET https://data.bilibili.com/log/web?001111170861445322317… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000151708614453225ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63095: GET https://api.bilibili.com/x/v2/dm/wbi/web/seg.so?type=1&… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:62976: GET https://data.bilibili.com/log/web?001114170861445325917… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:07:33.346] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:33.352] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:33.354] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63093: GET https://api.bilibili.com/x/web-interface/broadcast/serv… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:33.361][127.0.0.1:63143] client connect
+[23:07:33.363] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:62976: GET https://data.bilibili.com/log/web?001114170861445334017… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: GET https://data.bilibili.com/log/web?001114170861445334117… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: GET https://data.bilibili.com/log/web?001111170861445334217… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63095: GET https://api.bilibili.com/x/player/online/total?aid=1200… HTTP/2.0
+     << HTTP/2.0 200 OK 90b
+[23:07:33.822][127.0.0.1:63113] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:33.982] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:33.984] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.032][127.0.0.1:63113] Streaming response from upos-sz-mirrorali.bilivideo.com.
+127.0.0.1:63113: GET https://upos-sz-mirrorali.bilivideo.com/upgcxcode/21/33… HTTP/2.0
+     << HTTP/2.0 206 Partial Content (content missing)
+[23:07:34.041][127.0.0.1:63113] Streaming response from upos-sz-mirrorali.bilivideo.com.
+127.0.0.1:63113: GET https://upos-sz-mirrorali.bilivideo.com/upgcxcode/21/33… HTTP/2.0
+     << HTTP/2.0 206 Partial Content (content missing)
+[23:07:34.051][127.0.0.1:63101] client disconnect
+[23:07:34.054] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.056] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.056][127.0.0.1:63101] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:34.094][127.0.0.1:63089] Streaming response from cn-tj-cu-01-05.bilivideo.com.
+127.0.0.1:63089: GET https://cn-tj-cu-01-05.bilivideo.com/upgcxcode/21/33/14… HTTP/2.0
+     << HTTP/2.0 206 Partial Content (content missing)
+[23:07:34.096][127.0.0.1:63089] Streaming response from cn-tj-cu-01-05.bilivideo.com.
+127.0.0.1:63089: GET https://cn-tj-cu-01-05.bilivideo.com/upgcxcode/21/33/14… HTTP/2.0
+     << HTTP/2.0 206 Partial Content (content missing)
+[23:07:34.102] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.104] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.108] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.132][127.0.0.1:63119] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:34.136] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.140] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.148][127.0.0.1:63089] Streaming response from cn-tj-cu-01-05.bilivideo.com.
+[23:07:34.225][127.0.0.1:63089] Streaming response from cn-tj-cu-01-05.bilivideo.com.
+[23:07:34.230][127.0.0.1:63095] Streaming response from api.bilibili.com.
+[23:07:34.234][127.0.0.1:63119] client disconnect
+[23:07:34.235][127.0.0.1:63119] server disconnect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:62976: GET https://data.bilibili.com/log/web?001111170861445413117… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: GET https://data.bilibili.com/log/web?001111170861445413117… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63089: GET https://cn-tj-cu-01-05.bilivideo.com/upgcxcode/21/33/14… HTTP/2.0
+     << HTTP/2.0 206 Partial Content (content missing)
+127.0.0.1:63089: GET https://cn-tj-cu-01-05.bilivideo.com/upgcxcode/21/33/14… HTTP/2.0
+     << HTTP/2.0 206 Partial Content (content missing)
+127.0.0.1:63095: GET https://api.bilibili.com/x/web-interface/wbi/view/detai… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:34.275] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.277] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.316][127.0.0.1:63089] Streaming response from cn-tj-cu-01-05.bilivideo.com.
+[23:07:34.361][127.0.0.1:63089] Streaming response from cn-tj-cu-01-05.bilivideo.com.
+127.0.0.1:63089: GET https://cn-tj-cu-01-05.bilivideo.com/upgcxcode/21/33/14… HTTP/2.0
+     << HTTP/2.0 206 Partial Content (content missing)
+[23:07:34.430] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63089: GET https://cn-tj-cu-01-05.bilivideo.com/upgcxcode/21/33/14… HTTP/2.0
+     << HTTP/2.0 206 Partial Content (content missing)
+127.0.0.1:63081: GET https://s1.hdslb.com/bfs/cm/cm-sdk/static/js/bili-colle… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+[23:07:34.479] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.484] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.485] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.505] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.506] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.508] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.508] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.509] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.510] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.510] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.512] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.512] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.513] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.514] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.515] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.523] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.524] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.525] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.527] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.527] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.528] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.529] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.529] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.530] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.531] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.532] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.533] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.533] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.534] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.535] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.536] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.536] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.537] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.538] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.539] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.540] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.541] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.541] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.542] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.543] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.544] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.545] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.546] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.547] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.548] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.548] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.550] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.550] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.551] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.551] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.552] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+[23:07:34.571] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+[23:07:34.588][127.0.0.1:63149] client connect
+[23:07:34.590] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+[23:07:34.601][127.0.0.1:63081] Streaming response from s1.hdslb.com.
+127.0.0.1:63081: GET https://s1.hdslb.com/bfs/seed/bplus-common/icon-font/2.… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+[23:07:34.676][127.0.0.1:63152] client connect
+[23:07:34.677] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.679] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.679] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.686][127.0.0.1:63095] Streaming response from api.bilibili.com.
+[23:07:34.687][127.0.0.1:63153] client connect
+[23:07:34.692] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63081: GET https://s1.hdslb.com/bfs/seed/laputa-header/bili-header… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63081: GET https://s1.hdslb.com/bfs/seed/jinkela/commentpc/comment… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+[23:07:34.736][127.0.0.1:63089] Streaming response from cn-tj-cu-01-05.bilivideo.com.
+127.0.0.1:63095: GET https://api.bilibili.com/x/web-interface/nav HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000161708614454626ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:07:34.834] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.841] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.844] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.849][127.0.0.1:63123] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:34.849] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.862] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.865] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.868] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.871] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.875][127.0.0.1:63157] client connect
+[23:07:34.877] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.881][127.0.0.1:63158] client connect
+[23:07:34.884] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.889] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.894] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.897] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.900] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.906] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.916] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.918] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.919] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.921] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000161708614454829ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63093: GET https://api.bilibili.com/x/kv-frontend/namespace/data?a… HTTP/2.0
+     << HTTP/2.0 200 OK 43b
+[23:07:34.933] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.935] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000161708614454832ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000161708614454834ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000161708614454836ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000161708614454839ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:07:34.942] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.948][127.0.0.1:63160] client connect
+[23:07:34.955] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.959] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.972] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.976] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.980] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:34.991][127.0.0.1:63095] Streaming response from api.bilibili.com.
+[23:07:34.992] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000161708614454841ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000161708614454843ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000161708614454845ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000161708614454847ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000171708614454873ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000151708614454875ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0133241708614454878ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0133241708614454884ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63095: GET https://api.bilibili.com/x/activity/subject/info?sid=40… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:35.004][127.0.0.1:63163] client connect
+[23:07:35.013][127.0.0.1:63164] client connect
+[23:07:35.018][127.0.0.1:63089] Streaming response from cn-tj-cu-01-05.bilivideo.com.
+[23:07:35.019][127.0.0.1:63165] client connect
+[23:07:35.020] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.021] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.022] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.023] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.024] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.025] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.026] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.027] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.028] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.028] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.029] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.030] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.031] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.033] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63095: GET https://api.bilibili.com/x/web-interface/view/conclusio… HTTP/2.0
+     << HTTP/2.0 200 OK 47b
+127.0.0.1:63095: GET https://api.bilibili.com/x/web-interface/archive/relati… HTTP/2.0
+     << HTTP/2.0 200 OK 83b
+127.0.0.1:63095: GET https://api.bilibili.com/x/web-interface/view/cards?bvi… HTTP/2.0
+     << HTTP/2.0 200 OK 91b
+127.0.0.1:63095: GET https://api.bilibili.com/x/web-interface/view/uplikeimg… HTTP/2.0
+     << HTTP/2.0 200 OK 54b
+127.0.0.1:63095: GET https://api.bilibili.com/x/note/is_forbid?aid=120093619… HTTP/2.0
+     << HTTP/2.0 200 OK 69b
+127.0.0.1:63095: GET https://api.bilibili.com/x/web-interface/relation?mid=1… HTTP/2.0
+     << HTTP/2.0 200 OK 90b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000161708614454931ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000171708614454935ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000171708614454937ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000171708614454939ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000171708614454943ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000171708614454946ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:07:35.074] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.084] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.085] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.090] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.094][127.0.0.1:63123] Streaming response from i0.hdslb.com.
+[23:07:35.096][127.0.0.1:63123] Streaming response from i0.hdslb.com.
+[23:07:35.098][127.0.0.1:63123] Streaming response from i0.hdslb.com.
+[23:07:35.099][127.0.0.1:63123] Streaming response from i0.hdslb.com.
+127.0.0.1:63123: GET https://i0.hdslb.com/bfs/archive/ed52c4f2992a024e33f3cd… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63123: GET https://i0.hdslb.com/bfs/archive/19a456b0ea0fcfc26f3b04… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63123: GET https://i0.hdslb.com/bfs/vchapter/1446933321_438.jpg@36… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63123: GET https://i0.hdslb.com/bfs/vchapter/1446933321_233.jpg@36… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:62976: GET https://data.bilibili.com/log/web?001111170861445498717… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:07:35.112][127.0.0.1:63123] Streaming response from i0.hdslb.com.
+[23:07:35.114][127.0.0.1:63123] Streaming response from i0.hdslb.com.
+[23:07:35.115][127.0.0.1:63123] Streaming response from i0.hdslb.com.
+[23:07:35.117][127.0.0.1:63123] Streaming response from i0.hdslb.com.
+127.0.0.1:63123: GET https://i0.hdslb.com/bfs/vchapter/1446933321_334.jpg@36… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63123: GET https://i0.hdslb.com/bfs/archive/7d68700462e412ab5c5858… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63123: GET https://i0.hdslb.com/bfs/vchapter/1446933321_499.jpg@36… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63123: GET https://i0.hdslb.com/bfs/archive/e4409bd8722557e39e4345… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:35.125][127.0.0.1:63123] Streaming response from i0.hdslb.com.
+[23:07:35.126][127.0.0.1:63123] Streaming response from i0.hdslb.com.
+[23:07:35.127][127.0.0.1:63123] Streaming response from i0.hdslb.com.
+[23:07:35.128][127.0.0.1:63123] Streaming response from i0.hdslb.com.
+[23:07:35.129][127.0.0.1:63123] Streaming response from i0.hdslb.com.
+127.0.0.1:63089: GET https://cn-tj-cu-01-05.bilivideo.com/upgcxcode/21/33/14… HTTP/2.0
+     << HTTP/2.0 206 Partial Content (content missing)
+127.0.0.1:63123: GET https://i0.hdslb.com/bfs/archive/dc666b52cf47349b5e23d3… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63123: GET https://i0.hdslb.com/bfs/vchapter/1446933321_601.jpg@36… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63123: GET https://i0.hdslb.com/bfs/archive/ee932118bbb241409036df… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63123: GET https://i0.hdslb.com/bfs/vchapter/1446933321_0.jpg@360w… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63123: GET https://i0.hdslb.com/bfs/vchapter/1446933321_69.jpg@360… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:35.157][127.0.0.1:63170] client connect
+[23:07:35.160][127.0.0.1:63125] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:35.161][127.0.0.1:63126] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:35.162][127.0.0.1:63128] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:35.162][127.0.0.1:63127] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:35.162][127.0.0.1:63129] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:35.167][127.0.0.1:63176] client connect
+[23:07:35.201][127.0.0.1:63180] client connect
+[23:07:35.203] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63095: GET https://api.bilibili.com/x/v2/reply/subject/interaction… HTTP/2.0
+     << HTTP/2.0 200 OK 94b
+[23:07:35.208][127.0.0.1:63095] Streaming response from api.bilibili.com.
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0133241708614455067ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:07:35.212][127.0.0.1:63183] client connect
+127.0.0.1:63095: GET https://api.bilibili.com/x/emote/user/panel/web?busines… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:35.233][127.0.0.1:63127] client disconnect
+[23:07:35.233][127.0.0.1:63126] client disconnect
+[23:07:35.233][127.0.0.1:63128] client disconnect
+[23:07:35.235][127.0.0.1:63127] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:35.235][127.0.0.1:63126] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:35.235][127.0.0.1:63128] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:35.236][127.0.0.1:63188] client connect
+[23:07:35.240][127.0.0.1:63189] client connect
+[23:07:35.244][127.0.0.1:63190] client connect
+[23:07:35.246][127.0.0.1:63191] client connect
+[23:07:35.248][127.0.0.1:63192] client connect
+[23:07:35.250][127.0.0.1:63129] client disconnect
+[23:07:35.250][127.0.0.1:63125] client disconnect
+127.0.0.1:63089: GET https://cn-tj-cu-01-05.bilivideo.com/upgcxcode/21/33/14… HTTP/2.0
+     << HTTP/2.0 206 Partial Content (content missing)
+[23:07:35.255][127.0.0.1:63129] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:35.255][127.0.0.1:63125] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:35.257][127.0.0.1:63193] client connect
+[23:07:35.258][127.0.0.1:63090] client disconnect
+[23:07:35.259][127.0.0.1:63194] client connect
+[23:07:35.262][127.0.0.1:63090] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:35.268] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.280][127.0.0.1:63135] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:35.281][127.0.0.1:63136] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:35.286] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.289] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.293] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63081: GET https://s1.hdslb.com/bfs/seed/laputa-header/style.css?v… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+[23:07:35.300] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.303] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.307][127.0.0.1:63139] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:35.307][127.0.0.1:63140] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:35.313] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63095: GET https://api.bilibili.com/x/click-interface/click/now HTTP/2.0
+     << HTTP/2.0 200 OK 54b
+127.0.0.1:63097: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+[23:07:35.321] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.324][127.0.0.1:63095] Streaming response from api.bilibili.com.
+127.0.0.1:63095: GET https://api.bilibili.com/x/note/list/archive?csrf=d1cb3… HTTP/2.0
+     << HTTP/2.0 200 OK 53b
+127.0.0.1:63095: GET https://api.bilibili.com/x/v2/reply/wbi/main?oid=120093… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:35.367][127.0.0.1:63095] Streaming response from api.bilibili.com.
+127.0.0.1:63095: GET https://api.bilibili.com/x/note/publish/list/archive?cs… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:35.386][127.0.0.1:63143] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:62976: GET https://data.bilibili.com/log/web?001111170861445528817… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: GET https://data.bilibili.com/log/web?001111170861445528917… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:62976: POST https://data.bilibili.com/log/web?0000161708614455308ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63095: GET https://api.bilibili.com/x/click-interface/click/now HTTP/2.0
+     << HTTP/2.0 200 OK 54b
+[23:07:35.455] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.456] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.460] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.464] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.470] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.477][127.0.0.1:63113] client disconnect
+[23:07:35.478][127.0.0.1:63213] client connect
+[23:07:35.479][127.0.0.1:63123] client disconnect
+[23:07:35.481][127.0.0.1:63113] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:35.482][127.0.0.1:62978] client disconnect
+[23:07:35.482][127.0.0.1:62976] client disconnect
+[23:07:35.483][127.0.0.1:63089] client disconnect
+[23:07:35.484][127.0.0.1:63077] client disconnect
+[23:07:35.484][127.0.0.1:63079] client disconnect
+[23:07:35.485][127.0.0.1:63097] client disconnect
+[23:07:35.485][127.0.0.1:63081] client disconnect
+[23:07:35.485][127.0.0.1:63123] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:35.486][127.0.0.1:63214] client connect
+[23:07:35.488][127.0.0.1:62978] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:35.488][127.0.0.1:62976] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:35.490][127.0.0.1:63089] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:35.491][127.0.0.1:63077] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:35.491][127.0.0.1:63079] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:35.491][127.0.0.1:63097] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:35.491][127.0.0.1:63081] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:35.493] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63093: GET https://api.bilibili.com/x/kv-frontend/namespace/data?a… HTTP/2.0
+     << HTTP/2.0 200 OK 43b
+127.0.0.1:63139: GET https://hw-v2-web-player-tracker.biliapi.net/socket.io/…
+              << 101 Switching Protocols 0b
+127.0.0.1:63136: GET https://hw-v2-web-player-tracker.biliapi.net/socket.io/…
+              << 101 Switching Protocols 0b
+[23:07:35.503][127.0.0.1:63215] client connect
+127.0.0.1:63139 <- WebSocket text message <- hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+[23:07:35.510] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63136 <- WebSocket text message <- hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=1.2.0%3Aseeder&sessionid=ra2F72kAv4mgoxTgxTsl0&mid=16290950&EIO=4&transport=websocket
+[23:07:35.515] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.518] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.522] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.528][127.0.0.1:63095] Streaming request to api.bilibili.com.
+[23:07:35.529] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.532] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.534][127.0.0.1:63095] Streaming response from api.bilibili.com.
+[23:07:35.536] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63093: GET https://api.bilibili.com/x/kv-frontend/namespace/data?a… HTTP/2.0
+     << HTTP/2.0 200 OK 43b
+127.0.0.1:63095: GET https://api.bilibili.com/x/vip/ads/materials?position=5… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:35.551][127.0.0.1:63219] client connect
+[23:07:35.557][127.0.0.1:63095] Streaming request to api.bilibili.com.
+[23:07:35.557] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63093: GET https://api.bilibili.com/x/kv-frontend/namespace/data?a… HTTP/2.0
+     << HTTP/2.0 200 OK 43b
+127.0.0.1:63143: GET https://broadcast.chat.bilibili.com:7826/sub?platform=w…
+              << 101 Switching Protocols 0b
+[23:07:35.574][127.0.0.1:63095] Streaming request to api.bilibili.com.
+[23:07:35.575] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.580][127.0.0.1:63095] Streaming request to api.bilibili.com.
+[23:07:35.580] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.583][127.0.0.1:63095] Streaming response from api.bilibili.com.
+127.0.0.1:63095: GET https://api.bilibili.com/x/web-show/wbi/res/locs?pf=0&i… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63140: GET https://ali-web-player-tracker.biliapi.net/socket.io/?b…
+              << 101 Switching Protocols 0b
+127.0.0.1:63140 <- WebSocket text message <- ali-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=1.2.0%3Aseeder&sessionid=ra2F72kAv4mgoxTgxTsl0&mid=16290950&EIO=4&transport=websocket
+[23:07:35.603][127.0.0.1:63095] Streaming response from api.bilibili.com.
+127.0.0.1:63095: GET https://api.bilibili.com/x/web-interface/bgroup/member/… HTTP/2.0
+     << HTTP/2.0 200 OK 89b
+127.0.0.1:63095: POST https://api.bilibili.com/x/click-interface/web/heartbea… HTTP/2.0
+     << HTTP/2.0 200 OK 33b
+127.0.0.1:63095: GET https://api.bilibili.com/x/web-interface/wbi/search/def… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:35.606][127.0.0.1:63221] client connect
+[23:07:35.606][127.0.0.1:63222] client connect
+[23:07:35.622][127.0.0.1:63095] Streaming response from api.bilibili.com.
+127.0.0.1:63095: GET https://api.bilibili.com/x/web-interface/dynamic/entran… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63095: POST https://api.bilibili.com/x/web-frontend/data/collector HTTP/2.0
+     << HTTP/2.0 200 OK 10b
+[23:07:35.664] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:35.666] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63095: POST https://api.bilibili.com/x/click-interface/click/web/h5… HTTP/2.0
+     << HTTP/2.0 200 OK 33b
+127.0.0.1:63095: POST https://api.bilibili.com/x/web-frontend/data/collector HTTP/2.0
+     << HTTP/2.0 200 OK 10b
+[23:07:35.779][127.0.0.1:63135] Streaming response from edge.microsoft.com.
+[23:07:35.779][127.0.0.1:63135] Streaming response from edge.microsoft.com.
+127.0.0.1:63135: GET https://edge.microsoft.com/autofillservice/core/page/18… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63135: GET https://edge.microsoft.com/autofillservice/core/page/18… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:35.781][127.0.0.1:63225] client connect
+[23:07:35.784][127.0.0.1:63226] client connect
+[23:07:35.801][127.0.0.1:63229] client connect
+[23:07:35.804][127.0.0.1:63230] client connect
+[23:07:35.862][127.0.0.1:63135] client disconnect
+[23:07:35.863][127.0.0.1:63233] client connect
+[23:07:35.865][127.0.0.1:63093] client disconnect
+[23:07:35.865][127.0.0.1:63234] client connect
+[23:07:35.866][127.0.0.1:63135] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:35.867][127.0.0.1:63095] client disconnect
+[23:07:35.867][127.0.0.1:63235] client connect
+[23:07:35.869][127.0.0.1:63093] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:35.870][127.0.0.1:63095] server disconnect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:63143 -> WebSocket binary message -> broadcast.chat.bilibili.com:7826/sub?platform=web
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63136 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=1.2.0%3Aseeder&sessionid=ra2F72kAv4mgoxTgxTsl0&mid=16290950&EIO=4&transport=websocket
+127.0.0.1:63139 <- WebSocket binary message <- hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63136 <- WebSocket binary message <- hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=1.2.0%3Aseeder&sessionid=ra2F72kAv4mgoxTgxTsl0&mid=16290950&EIO=4&transport=websocket
+127.0.0.1:63139 <- WebSocket binary message <- hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 <- WebSocket binary message <- hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63136 <- WebSocket binary message <- hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=1.2.0%3Aseeder&sessionid=ra2F72kAv4mgoxTgxTsl0&mid=16290950&EIO=4&transport=websocket
+127.0.0.1:63136 <- WebSocket binary message <- hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=1.2.0%3Aseeder&sessionid=ra2F72kAv4mgoxTgxTsl0&mid=16290950&EIO=4&transport=websocket
+127.0.0.1:63143 <- WebSocket binary message <- broadcast.chat.bilibili.com:7826/sub?platform=web
+127.0.0.1:63140 -> WebSocket binary message -> ali-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=1.2.0%3Aseeder&sessionid=ra2F72kAv4mgoxTgxTsl0&mid=16290950&EIO=4&transport=websocket
+127.0.0.1:63143 -> WebSocket binary message -> broadcast.chat.bilibili.com:7826/sub?platform=web
+127.0.0.1:63143 -> WebSocket binary message -> broadcast.chat.bilibili.com:7826/sub?platform=web
+127.0.0.1:63143 <- WebSocket binary message <- broadcast.chat.bilibili.com:7826/sub?platform=web
+127.0.0.1:63143 <- WebSocket binary message <- broadcast.chat.bilibili.com:7826/sub?platform=web
+127.0.0.1:63140 <- WebSocket binary message <- ali-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=1.2.0%3Aseeder&sessionid=ra2F72kAv4mgoxTgxTsl0&mid=16290950&EIO=4&transport=websocket
+127.0.0.1:63140 <- WebSocket binary message <- ali-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=1.2.0%3Aseeder&sessionid=ra2F72kAv4mgoxTgxTsl0&mid=16290950&EIO=4&transport=websocket
+127.0.0.1:63140 <- WebSocket binary message <- ali-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=1.2.0%3Aseeder&sessionid=ra2F72kAv4mgoxTgxTsl0&mid=16290950&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 <- WebSocket binary message <- hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 <- WebSocket binary message <- hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 <- WebSocket binary message <- hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 <- WebSocket binary message <- hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+[23:07:36.618][127.0.0.1:63240] client connect
+[23:07:36.623][127.0.0.1:63149] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:36.734][127.0.0.1:63152] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:36.734][127.0.0.1:63153] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:36.736][127.0.0.1:63246] client connect
+[23:07:36.739] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:36.741] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63149: GET https://s1.hdslb.com/bfs/seed/jinkela/short/cols/iframe… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+[23:07:36.786][127.0.0.1:63250] client connect
+[23:07:36.790][127.0.0.1:63251] client connect
+[23:07:36.791][127.0.0.1:63252] client connect
+[23:07:36.792] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:36.794] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:36.796] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:36.797] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63153: GET https://i0.hdslb.com/bfs/svg-next/BDC/playdata_square_l… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63153: GET https://i0.hdslb.com/bfs/svg-next/BDC/headset_customer_… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63153: GET https://i0.hdslb.com/bfs/svg-next/BDC/arrow_up_triangle… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63153: GET https://i0.hdslb.com/bfs/svg-next/BDC/arrow_play_next_l… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+[23:07:36.830][127.0.0.1:63153] client disconnect
+[23:07:36.832][127.0.0.1:63256] client connect
+[23:07:36.832][127.0.0.1:63153] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:36.844][127.0.0.1:63149] Streaming response from s1.hdslb.com.
+127.0.0.1:63149: GET https://s1.hdslb.com/bfs/seed/jinkela/short/leader-elec… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:36.851][127.0.0.1:63258] client connect
+[23:07:36.851][127.0.0.1:63149] client disconnect
+[23:07:36.855][127.0.0.1:63149] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:36.855][127.0.0.1:63259] client connect
+[23:07:36.861] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:36.864] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63152: GET https://api.live.bilibili.com/xlive/web-room/v1/index/g… HTTP/2.0
+     << HTTP/2.0 200 OK 62b
+127.0.0.1:63152: GET https://api.live.bilibili.com/xlive/web-interface/v1/we… HTTP/2.0
+     << HTTP/2.0 200 OK 51b
+[23:07:36.967][127.0.0.1:63157] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:36.969][127.0.0.1:63152] client disconnect
+[23:07:36.970][127.0.0.1:63263] client connect
+[23:07:36.970][127.0.0.1:63152] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:36.979][127.0.0.1:63158] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.045][127.0.0.1:63268] client connect
+[23:07:37.046][127.0.0.1:63269] client connect
+[23:07:37.049][127.0.0.1:63270] client connect
+[23:07:37.052][127.0.0.1:63271] client connect
+[23:07:37.053] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.054] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.055] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.055] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.056] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.057] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.072] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.074] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.074] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.075] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.083][127.0.0.1:63157] Streaming response from i1.hdslb.com.
+127.0.0.1:63157: GET https://i1.hdslb.com/bfs/archive/81fa98559c13a88f69621e… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:37.086][127.0.0.1:63157] Streaming response from i1.hdslb.com.
+127.0.0.1:63157: GET https://i1.hdslb.com/bfs/archive/33fbafba2c2de00d8652bf… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:37.089][127.0.0.1:63157] Streaming response from i1.hdslb.com.
+127.0.0.1:63157: GET https://i1.hdslb.com/bfs/archive/f16ec4e370810679a78ff8… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:37.090][127.0.0.1:63160] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.097][127.0.0.1:63157] Streaming response from i1.hdslb.com.
+127.0.0.1:63157: GET https://i1.hdslb.com/bfs/archive/255242af57b80f32b76b21… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:37.100][127.0.0.1:63157] Streaming response from i1.hdslb.com.
+127.0.0.1:63157: GET https://i1.hdslb.com/bfs/face/7b8cce70b0937a5c158d29732… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:37.103][127.0.0.1:63157] Streaming response from i1.hdslb.com.
+127.0.0.1:63157: GET https://i1.hdslb.com/bfs/face/7b8cce70b0937a5c158d29732… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:37.105][127.0.0.1:63165] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.105][127.0.0.1:63164] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.106][127.0.0.1:63163] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.158][127.0.0.1:63164] client disconnect
+[23:07:37.158][127.0.0.1:63163] client disconnect
+[23:07:37.160][127.0.0.1:63164] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:37.160][127.0.0.1:63163] server disconnect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:63158: OPTIONS https://cm.bilibili.com/cm/api/fees/pc HTTP/2.0
+     << HTTP/2.0 200 OK 0b
+127.0.0.1:63158: OPTIONS https://cm.bilibili.com/cm/api/fees/pc HTTP/2.0
+     << HTTP/2.0 200 OK 0b
+127.0.0.1:63158: OPTIONS https://cm.bilibili.com/cm/api/fees/pc HTTP/2.0
+     << HTTP/2.0 200 OK 0b
+127.0.0.1:63158: OPTIONS https://cm.bilibili.com/cm/api/fees/pc HTTP/2.0
+     << HTTP/2.0 200 OK 0b
+[23:07:37.167][127.0.0.1:63284] client connect
+[23:07:37.185][127.0.0.1:63165] client disconnect
+[23:07:37.185][127.0.0.1:63165] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:37.220] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.221] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.222] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.222] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.223] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.257][127.0.0.1:63170] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.257][127.0.0.1:63176] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.258][127.0.0.1:63180] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.258][127.0.0.1:63183] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.291][127.0.0.1:63160] Streaming response from i2.hdslb.com.
+[23:07:37.291][127.0.0.1:63160] Streaming response from i2.hdslb.com.
+[23:07:37.292][127.0.0.1:63160] Streaming response from i2.hdslb.com.
+[23:07:37.293][127.0.0.1:63160] Streaming response from i2.hdslb.com.
+[23:07:37.294][127.0.0.1:63160] Streaming response from i2.hdslb.com.
+127.0.0.1:63160: GET https://i2.hdslb.com/bfs/archive/43b440885894c49014c067… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63160: GET https://i2.hdslb.com/bfs/archive/b5edf511f42754331d35be… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63160: GET https://i2.hdslb.com/bfs/archive/770147b03830d0d97937d4… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63160: GET https://i2.hdslb.com/bfs/archive/43b440885894c49014c067… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63160: GET https://i2.hdslb.com/bfs/archive/077f510cffac4998f85fc7… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:37.301][127.0.0.1:63183] client disconnect
+[23:07:37.302][127.0.0.1:63183] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:37.303][127.0.0.1:63189] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.303][127.0.0.1:63190] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.303][127.0.0.1:63191] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.303][127.0.0.1:63194] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.304][127.0.0.1:63192] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.307][127.0.0.1:63188] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.308][127.0.0.1:63193] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.336][127.0.0.1:63170] client disconnect
+[23:07:37.336][127.0.0.1:63170] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:37.352][127.0.0.1:63190] client disconnect
+[23:07:37.353][127.0.0.1:63191] client disconnect
+[23:07:37.354][127.0.0.1:63193] client disconnect
+[23:07:37.354][127.0.0.1:63188] client disconnect
+[23:07:37.354][127.0.0.1:63190] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:37.354][127.0.0.1:63191] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:37.355][127.0.0.1:63193] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:37.355][127.0.0.1:63188] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:37.363][127.0.0.1:63192] client disconnect
+[23:07:37.364][127.0.0.1:63192] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:37.387] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.391][127.0.0.1:63194] client disconnect
+[23:07:37.392] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.395][127.0.0.1:63194] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:37.407][127.0.0.1:63189] client disconnect
+[23:07:37.408][127.0.0.1:63189] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:37.469][127.0.0.1:63308] client connect
+[23:07:37.470][127.0.0.1:63309] client connect
+[23:07:37.471][127.0.0.1:63310] client connect
+[23:07:37.507][127.0.0.1:63180] Streaming response from bvc.bilivideo.com.
+127.0.0.1:63180: GET https://bvc.bilivideo.com/pbp/data?aid=1200936194&cid=1… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63176: GET https://interface.bilibili.com/serverdate.js HTTP/2.0
+     << HTTP/2.0 200 OK 57b
+[23:07:37.530][127.0.0.1:63213] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.563][127.0.0.1:63214] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.564][127.0.0.1:63215] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:63136 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=1.2.0%3Aseeder&sessionid=ra2F72kAv4mgoxTgxTsl0&mid=16290950&EIO=4&transport=websocket
+127.0.0.1:63140 -> WebSocket binary message -> ali-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=1.2.0%3Aseeder&sessionid=ra2F72kAv4mgoxTgxTsl0&mid=16290950&EIO=4&transport=websocket
+[23:07:37.591][127.0.0.1:63219] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.644][127.0.0.1:63222] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.645][127.0.0.1:63221] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.649] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.681] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.682] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.683] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.683] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.684] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.685] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.686] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.686] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.687] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.688] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.689] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.689] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.689] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.690] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.690] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.691] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.691] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.692] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.692] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.693] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.694] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.694] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.695] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.695] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.696] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.696] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.697] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.697] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.698] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.698] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.699] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.700] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.701] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.701] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.702] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.702] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.702] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.703] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.703] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.704] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.704] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.705] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.705] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.706] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.706] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.707] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.707] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.708] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.708] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.709] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.710] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.733] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.735] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63213: GET https://passport.bilibili.com/x/passport-login/web/cook… HTTP/2.0
+     << HTTP/2.0 200 OK 69b
+[23:07:37.744][127.0.0.1:63221] client disconnect
+[23:07:37.745][127.0.0.1:63221] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:37.760][127.0.0.1:63214] Streaming request to data.bilibili.com.
+[23:07:37.762][127.0.0.1:63214] Streaming request to data.bilibili.com.
+[23:07:37.762][127.0.0.1:63214] Streaming request to data.bilibili.com.
+[23:07:37.763][127.0.0.1:63214] Streaming request to data.bilibili.com.
+[23:07:37.769] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.770] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.770] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.773] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.774] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.775] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.779] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.779] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.782] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.786] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.788] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.789] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.789] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.792] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.793] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:37.793] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+[23:07:37.853][127.0.0.1:63215] Streaming response from api.vc.bilibili.com.
+[23:07:37.854][127.0.0.1:63215] Streaming response from api.vc.bilibili.com.
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63219: GET https://s1.hdslb.com/bfs/static/jinkela/long/font/Harmo… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+127.0.0.1:63215: GET https://api.vc.bilibili.com/session_svr/v1/session_svr/… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63215: GET https://api.vc.bilibili.com/link_setting/v1/link_settin… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:37.916][127.0.0.1:63327] client connect
+127.0.0.1:63214: GET https://data.bilibili.com/log/web?0000241708614453000ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63214: POST https://data.bilibili.com/v2/log/web?content_type=pbreq… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63214: GET https://data.bilibili.com/log/web?001114170861445757117… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63214: POST https://data.bilibili.com/v2/log/web?content_type=pbreq… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63214: POST https://data.bilibili.com/v2/log/web?content_type=pbreq… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63214: GET https://data.bilibili.com/log/web?001114170861445633217… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63214: POST https://data.bilibili.com/v2/log/web?content_type=pbreq… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63214: POST https://data.bilibili.com/log/web?0000161708614455564ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63214: POST https://data.bilibili.com/log/web?0000171708614456122ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63214: POST https://data.bilibili.com/log/web?0133241708614455935ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63214: POST https://data.bilibili.com/log/web?0000161708614455486ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:07:37.927][127.0.0.1:63225] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.927][127.0.0.1:63226] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.927][127.0.0.1:63229] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.928][127.0.0.1:63230] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:63214: POST https://data.bilibili.com/log/web?0000161708614456225ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63214: POST https://data.bilibili.com/log/web?0000161708614456201ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63214: POST https://data.bilibili.com/log/web?0133241708614455480ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63214: POST https://data.bilibili.com/log/web?0000161708614455562ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63214: POST https://data.bilibili.com/log/web?0000161708614455476ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:07:37.936][127.0.0.1:63233] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.936][127.0.0.1:63234] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.936][127.0.0.1:63235] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:37.984][127.0.0.1:63230] client disconnect
+[23:07:37.984][127.0.0.1:63225] client disconnect
+[23:07:37.986][127.0.0.1:63230] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:37.986][127.0.0.1:63225] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:37.988][127.0.0.1:63233] client disconnect
+[23:07:37.990][127.0.0.1:63233] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:38.000][127.0.0.1:63226] client disconnect
+[23:07:38.001][127.0.0.1:63226] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:38.013][127.0.0.1:63234] client disconnect
+[23:07:38.014][127.0.0.1:63234] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:38.062][127.0.0.1:63235] client disconnect
+[23:07:38.065][127.0.0.1:63235] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:38.065][127.0.0.1:63222] client disconnect
+[23:07:38.066][127.0.0.1:63222] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:38.108][127.0.0.1:63229] client disconnect
+[23:07:38.111][127.0.0.1:63229] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:38.112] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63214: GET https://data.bilibili.com/log/web?001111170861445810617… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:07:38.254][127.0.0.1:63344] client connect
+[23:07:38.259] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:38.265][127.0.0.1:63345] client connect
+127.0.0.1:63214: GET https://data.bilibili.com/log/web?001111170861445825317… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+[23:07:38.449][127.0.0.1:63348] client connect
+[23:07:38.657][127.0.0.1:63240] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:38.781][127.0.0.1:63246] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:38.819][127.0.0.1:63240] Streaming request to ldc.lenovo.com.cn.
+[23:07:38.820] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:38.830][127.0.0.1:63250] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:38.830][127.0.0.1:63251] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:38.830][127.0.0.1:63246] client disconnect
+[23:07:38.832][127.0.0.1:63246] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:38.844][127.0.0.1:63252] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:38.860][127.0.0.1:63256] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:38.882][127.0.0.1:63250] client disconnect
+[23:07:38.883][127.0.0.1:63251] client disconnect
+[23:07:38.884][127.0.0.1:63250] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:38.884][127.0.0.1:63251] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:38.893][127.0.0.1:63252] client disconnect
+[23:07:38.893][127.0.0.1:63252] server disconnect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:63240: POST https://ldc.lenovo.com.cn/api/v5/micro/pcm/sts/bl
+              << 200 OK 54b
+[23:07:38.905][127.0.0.1:63259] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:38.906][127.0.0.1:63258] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:38.910] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:38.939][127.0.0.1:63256] client disconnect
+[23:07:38.940][127.0.0.1:63256] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:38.940][127.0.0.1:63240] client disconnect
+[23:07:38.942][127.0.0.1:63240] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:38.979][127.0.0.1:63258] client disconnect
+[23:07:38.980][127.0.0.1:63258] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:38.988] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63214: POST https://data.bilibili.com/log/web?0000161708614458905ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:07:39.013][127.0.0.1:63263] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:39.029][127.0.0.1:63259] Streaming response from cn-tj-cu-01-05.bilivideo.com.
+[23:07:39.105][127.0.0.1:63269] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:39.106][127.0.0.1:63270] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:39.108][127.0.0.1:63268] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:39.109][127.0.0.1:63271] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:63259: GET https://cn-tj-cu-01-05.bilivideo.com/upgcxcode/21/33/14… HTTP/2.0
+     << HTTP/2.0 206 Partial Content (content missing)
+[23:07:39.140][127.0.0.1:63263] client disconnect
+[23:07:39.140][127.0.0.1:63263] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:39.161] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:39.163] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63269: GET https://i0.hdslb.com/bfs/activity-plat/static/69f9e4f3a… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+[23:07:39.191][127.0.0.1:63269] Streaming response from i0.hdslb.com.
+127.0.0.1:63269: GET https://i0.hdslb.com/bfs/baselabs/op/5824047fc012a31e81… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:39.207][127.0.0.1:63268] client disconnect
+[23:07:39.209][127.0.0.1:63268] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:39.213][127.0.0.1:63284] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:39.279] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:39.281] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:39.305][127.0.0.1:63284] Streaming request to cm.bilibili.com.
+[23:07:39.306][127.0.0.1:63284] Streaming request to cm.bilibili.com.
+[23:07:39.310][127.0.0.1:63284] Streaming request to cm.bilibili.com.
+[23:07:39.310][127.0.0.1:63284] Streaming request to cm.bilibili.com.
+[23:07:39.312] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:39.313] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:39.314] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:39.315] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:39.338][127.0.0.1:63270] Streaming response from edge.microsoft.com.
+127.0.0.1:63270: GET https://edge.microsoft.com/autofillservice/v1/pages/ChV… HTTP/2.0
+     << HTTP/2.0 200 OK 20b
+127.0.0.1:63270: GET https://edge.microsoft.com/autofillservice/core/page/18… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:39.343][127.0.0.1:63270] Streaming request to edge.microsoft.com.
+[23:07:39.344] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63140 -> WebSocket binary message -> ali-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=1.2.0%3Aseeder&sessionid=ra2F72kAv4mgoxTgxTsl0&mid=16290950&EIO=4&transport=websocket
+127.0.0.1:63284: POST https://cm.bilibili.com/cm/api/fees/pc HTTP/2.0
+     << HTTP/2.0 200 OK 30b
+127.0.0.1:63284: POST https://cm.bilibili.com/cm/api/fees/pc HTTP/2.0
+     << HTTP/2.0 200 OK 30b
+127.0.0.1:63284: POST https://cm.bilibili.com/cm/api/fees/pc HTTP/2.0
+     << HTTP/2.0 200 OK 30b
+127.0.0.1:63284: POST https://cm.bilibili.com/cm/api/fees/pc HTTP/2.0
+     << HTTP/2.0 200 OK 30b
+[23:07:39.509][127.0.0.1:63271] client disconnect
+[23:07:39.510][127.0.0.1:63271] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:39.524][127.0.0.1:63310] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:39.524][127.0.0.1:63308] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:39.524][127.0.0.1:63309] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:39.573][127.0.0.1:63270] Streaming response from edge.microsoft.com.
+127.0.0.1:63270: POST https://edge.microsoft.com/autofillservice/core/fieldPr… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:39.595][127.0.0.1:63310] client disconnect
+[23:07:39.596][127.0.0.1:63310] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:39.600][127.0.0.1:63309] client disconnect
+[23:07:39.601][127.0.0.1:63309] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:39.604][127.0.0.1:63308] client disconnect
+[23:07:39.605][127.0.0.1:63308] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:39.630][127.0.0.1:63384] client connect
+[23:07:39.913][127.0.0.1:63214] Streaming request to data.bilibili.com.
+[23:07:39.913] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:39.992][127.0.0.1:63327] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:63214: POST https://data.bilibili.com/v2/log/web?content_type=pbreq… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:07:40.042][127.0.0.1:63327] client disconnect
+[23:07:40.042][127.0.0.1:63327] server disconnect localhost:7890 (127.0.0.1:7890)
+[23:07:40.061] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:40.138] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:40.141] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:40.295][127.0.0.1:63270] Streaming response from edge.microsoft.com.
+127.0.0.1:63270: GET https://edge.microsoft.com/autofillservice/core/page/18… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:40.320][127.0.0.1:63344] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:40.320][127.0.0.1:63345] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:63214: GET https://data.bilibili.com/log/web?001114170861446013117… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63214: GET https://data.bilibili.com/log/web?001114170861446013117… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:07:40.509][127.0.0.1:63348] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:40.514] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:40.517] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:40.535] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:40.559] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63344: POST https://api.bilibili.com/x/v2/dm/web/config HTTP/2.0
+     << HTTP/2.0 200 OK 33b
+127.0.0.1:63344: GET https://api.bilibili.com/x/msgfeed/unread?build=0&mobi_… HTTP/2.0
+     << HTTP/2.0 200 OK 82b
+[23:07:40.877] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:40.893][127.0.0.1:63345] Streaming response from upos-sz-mirrorali.bilivideo.com.
+[23:07:40.953][127.0.0.1:63215] Streaming response from api.vc.bilibili.com.
+127.0.0.1:63214: GET https://data.bilibili.com/log/web?001114170861446053017… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63215: GET https://api.vc.bilibili.com/session_svr/v1/session_svr/… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63345: GET https://upos-sz-mirrorali.bilivideo.com/upgcxcode/21/33… HTTP/2.0
+     << HTTP/2.0 206 Partial Content (content missing)
+ << stream reset by client (CANCEL)
+[23:07:41.136] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:41.140] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:41.184][127.0.0.1:63345] Streaming response from upos-sz-mirrorali.bilivideo.com.
+127.0.0.1:63214: GET https://data.bilibili.com/log/web?001111170861446113417… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:07:41.338] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:41.344] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:41.363][127.0.0.1:63214] Streaming request to data.bilibili.com.
+[23:07:41.364] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63214: POST https://data.bilibili.com/log/web?0000161708614461333ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63214: POST https://data.bilibili.com/log/web?0133241708614461335ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63214: POST https://data.bilibili.com/v2/log/web?content_type=pbreq… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:07:41.683][127.0.0.1:63384] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:41.757] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:41.875][127.0.0.1:63384] Streaming response from api.bilibili.com.
+127.0.0.1:63384: GET https://api.bilibili.com/x/player/videoshot?aid=1200936… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:41.879][127.0.0.1:63398] client connect
+127.0.0.1:63345: GET https://upos-sz-mirrorali.bilivideo.com/upgcxcode/21/33… HTTP/2.0
+     << HTTP/2.0 206 Partial Content (content missing)
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 <- WebSocket binary message <- hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 <- WebSocket binary message <- hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 <- WebSocket binary message <- hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 <- WebSocket binary message <- hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 <- WebSocket binary message <- hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 <- WebSocket binary message <- hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 <- WebSocket binary message <- hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+[23:07:42.352][127.0.0.1:63214] Streaming request to data.bilibili.com.
+[23:07:42.353] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63139 <- WebSocket binary message <- hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 <- WebSocket binary message <- hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63214: POST https://data.bilibili.com/v2/log/web?content_type=pbreq… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+[23:07:43.937][127.0.0.1:63398] server connect localhost:7890 (127.0.0.1:7890)
+[23:07:44.036] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:44.079][127.0.0.1:63398] Streaming response from boss.hdslb.com.
+127.0.0.1:63398: GET https://boss.hdslb.com/videoshotpvhdboss/1446933321_blh… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[23:07:44.083][127.0.0.1:63402] client connect
+[23:07:44.138] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:44.142] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63214: GET https://data.bilibili.com/log/web?001114170861446413117… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63214: GET https://data.bilibili.com/log/web?001114170861446413217… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+[23:07:44.895] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63214: POST https://data.bilibili.com/log/web?0133241708614464890ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+[23:07:45.897][127.0.0.1:63214] Streaming request to data.bilibili.com.
+[23:07:45.898] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63214: POST https://data.bilibili.com/v2/log/web?content_type=pbreq… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[23:07:46.116][127.0.0.1:63402] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+[23:07:46.266] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[23:07:46.360][127.0.0.1:63402] Streaming response from bimp.hdslb.com.
+127.0.0.1:63402: GET https://bimp.hdslb.com/videoshotpvhdboss/1446933321_blh… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+[23:07:50.519][127.0.0.1:63344] Streaming request to api.bilibili.com.
+[23:07:50.520] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:63344: POST https://api.bilibili.com/x/click-interface/web/heartbea… HTTP/2.0
+     << HTTP/2.0 200 OK 33b
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket
+127.0.0.1:63139 -> WebSocket binary message -> hw-v2-web-player-tracker.biliapi.net:443/socket.io/?buvid=5A89DE04-FF50-E76B-A869-4D870D6A1D0611931infoc&sdkVersion=2.13.0%3Aleecher&aid=1200936194&cid=1446933321&sessionid=i0dhtbzL002zM1cfOaVDf&mid=16290950&duration=751&testID=0&EIO=4&transport=websocket

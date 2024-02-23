@@ -19,7 +19,6 @@ def check(awake: Dict[str, str]):
             interval = awake["interval"]
             st, ed = parsePeriod(interval)
             return checkPeriod(st, ed)
-
         elif awake["mode"] == 'always':
             return True
         else:
@@ -43,4 +42,7 @@ def check_expire(awake: Dict[str, str]):
         print(traceback.print_exc())
         raise custom_exception
 
+
+if __name__ == '__main__':
+    check({})
 
