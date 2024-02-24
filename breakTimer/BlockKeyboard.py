@@ -48,14 +48,23 @@ class BlockKeyBoard(Plug):
         keyboard.unhook_all()
 
 
-# 不可以
+# # 不可以
 # if __name__ == '__main__':
 #     m = BlockKeyBoard()
 #     m.start()
-#     time.sleep(10)
+#     time.sleep(3)
+#     m.stop()
+#     print('第一次禁用结束')
+#     time.sleep(5)
+#
+#
+#
+#     print('第二次禁用')
+#     m.start()
+#     time.sleep(5)
 #     m.stop()
 #     time.sleep(1)
-#     from tools.printThread import *
 #
-#     show_all_threads()
+#
+#
 #

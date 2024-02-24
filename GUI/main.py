@@ -26,7 +26,7 @@ from breakTimer.DelayBreak import DelayBreak
 from breakTimer.FileChecker import FileChecker
 from breakTimer.Hook import Hook
 
-app_name = "breakTimer3.9.2"
+app_name = "breakTimer3.9.3"
 
 # 打开注册表键
 
@@ -40,8 +40,8 @@ from breakTimer.WhiteSheet import WhiteSheet
 from breakTimer.LeaveDetect import LeaveDetect
 
 ui.FAILSAFE = False
-['正常', '学习', '短', '休息']
-debug_mode = '学习'
+['正常', '学习', '短', '休息', '超短']
+debug_mode = '短'
 
 import logging
 
@@ -208,7 +208,8 @@ if __name__ == '__main__':
             ],
             "leave_restart": 1,
             "pause_current_app_when_break": 1,
-            "delay_break": 1
+            "delay_break": 1,
+            "check_window_position": 1
         }
 
         wx = "500"
@@ -347,11 +348,11 @@ if __name__ == '__main__':
         if debug:
             v_["full_screen"] = 0
             v_["mouse_lock"] = 0
-            v_["lock_screen_when_start_rest"] = 0
-            v_["topmost"] = 0
-            v_["leave_restart"] = 1
-            v_["block_keyboard"] = 0
-            force = 0
+            # v_["lock_screen_when_start_rest"] = 0
+            # v_["topmost"] = 0
+            # v_["leave_restart"] = 1
+            # v_["block_keyboard"] = 0
+            # force = 0
             if debug_mode == '正常':
                 studyTime = 15
                 smallTime = 15
@@ -362,7 +363,7 @@ if __name__ == '__main__':
                 smallTime = 5
                 bigTime = 10
                 smallNum = 3
-            elif debug_mode == '短':
+            elif debug_mode == '超短':
                 studyTime = 3
                 smallTime = 3
                 bigTime = 3
@@ -372,6 +373,12 @@ if __name__ == '__main__':
                 smallTime = 30
                 bigTime = 10
                 smallNum = 3
+            elif debug_mode == '短':
+                studyTime = 8
+                smallTime = 8
+                bigTime = 8
+                smallNum = 3
+
             pass
 
         if v_["auto_boot"]:
@@ -453,10 +460,11 @@ if __name__ == '__main__':
         click_update = False
         blackSheet = None
         block_keyboard = None
+        lock_screen_flag = False
 
 
         def start_stage(stage):
-            global end, lastEnd, update, click_update, blackSheet, block_keyboard
+            global end, lastEnd, update, click_update, blackSheet, block_keyboard, lock_screen_flag
             name = stage.name
             t = stage.time
             before_update = stage.before_update
@@ -501,8 +509,6 @@ if __name__ == '__main__':
                         if v_["full_screen"]:
                             root.attributes('-fullscreen', True)
                             if v_["split_screen"]:
-                                # span()
-                                # time.sleep(1)
                                 Thread(name='span in the full stage', target=span, daemon=True).start()
                                 print('增加多屏锁定1 full stage开启')
                         if v_["block_keyboard"]:
@@ -510,10 +516,11 @@ if __name__ == '__main__':
                             block_keyboard.start()
                         if v_["pause_current_app_when_break"]:
                             music.pause()
-                            pause_open = True
+                            # pause_open = True
 
-                    if v_["lock_screen_when_start_rest"]:
+                    if v_["lock_screen_when_start_rest"] and not lock_screen_flag:
                         ctypes.windll.user32.LockWorkStation()
+                        lock_screen_flag = True
                     if v_["topmost"]:
                         root.deiconify()
 
@@ -527,10 +534,14 @@ if __name__ == '__main__':
                         delayBreak.start()
                 else:
                     white_sheet_open = True
+
             # 保险
-            elif root.attributes('-fullscreen'):
+            else:
+                lock_screen_flag = False
                 root.attributes('-topmost', 0)
                 root.attributes('-fullscreen', False)
+                if block_keyboard:
+                    block_keyboard.stop()
             leaveDetect = None
 
             if name == '学习阶段':
@@ -562,7 +573,8 @@ if __name__ == '__main__':
                 stageInfoVar.set(stageInfo)
                 if name in fullStage and not white_sheet_open:
                     if not end:
-                        Thread(name='p1', target=check_window_position, daemon=True).start()
+                        if v_["check_window_position"] and i < t - 2:
+                            Thread(name='p1', target=check_window_position, daemon=True).start()
                     else:
                         break
                 time.sleep(1)
@@ -779,7 +791,7 @@ if __name__ == '__main__':
             print('当前状态：', now_state)
             gap_time = 1
             if debug:
-                gap_time = 15
+                gap_time = 60
                 Timer(gap_time, monitor).start()
             else:
                 if not destory:
@@ -840,7 +852,7 @@ if __name__ == '__main__':
         global block_website
         block_website = BlockWebsite(block_websites=v_["block_website"]["websites"], dir=v_["block_website"]["proxy_rules_location"])
         Thread(name='网页阻止', target=block_website.start, daemon=True).start()
-        Thread(name='代理开关修改', target=ModifyProxyOption().start, daemon=True).start()
+
 
 
         def close():

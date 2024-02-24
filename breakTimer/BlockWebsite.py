@@ -6,6 +6,7 @@ from typing import List, Dict
 
 
 # 定义自己的过滤器和相关处理逻辑
+from breakTimer.ModifyProxyOption import ModifyProxyOption
 
 fix_domains = ['madou.club', 'e-hentai.org', 'exhentai.org']
 
@@ -39,6 +40,8 @@ class BlockWebsite(Component):
         self.pre_website = -1
         self.filtered_domains = -1
         self.dir = dir
+        self.success = True
+        self.modify_proxy_option = None
 
     def todo(self):
         import yaml
@@ -138,6 +141,15 @@ class BlockWebsite(Component):
         mitm_thread.start()
         self.block_process = mitm_thread
 
+        time.sleep(0.5)
+        if mitm_thread.success:
+            mp = ModifyProxyOption()
+            threading.Thread(name='代理开关修改', target=mp.start, daemon=True).start()
+            self.modify_proxy_option = mp
+
+    def error(self):
+        if self.modify_proxy_option:
+            self.modify_proxy_option.stop()
 
 
 
@@ -156,8 +168,21 @@ class MitmDumpThread(threading.Thread):
         super().__init__()
         self.process = None  # 用来保留 subprocess.Popen 对象
         self.argv = argv
+        self.success = True
 
     def run(self):
+        import os
+
+        # 替换为你要检查的文件的路径
+        file_path = os.environ['USERPROFILE'] + "/.mitmproxy/mitmproxy-ca-cert.cer"
+
+        if os.path.exists(file_path):
+            print(f"mitmproxy 证书文件 {file_path} 存在。")
+        else:
+            print(f"mitmproxy 证书文件 {file_path} 不存在。")
+            self.success = False
+            return
+
         logfile = open('mitmproxy.log', 'w')
         # 使用 subprocess 启动 mitmdump
         #self.process = subprocess.Popen(['mitmdump', '--mode', 'regular'])
@@ -168,6 +193,8 @@ class MitmDumpThread(threading.Thread):
         startupinfo.wShowWindow = subprocess.SW_HIDE
         self.process = subprocess.Popen(['mitmdump'] + self.argv[1:], stdout = logfile, stderr = logfile,  startupinfo=startupinfo)
         self.process.wait()  # 等待进程结束
+        self.success = False
+        print('mitmproxy进程结束')
 
     def stop(self):
         if self.process:
@@ -177,35 +204,37 @@ class MitmDumpThread(threading.Thread):
 # 创建并启动线程
 
 
+from tools.tool import is_debug
 
-# if __name__ == '__main__':
-#     map = {
-#         "enable": 1,
-#         "proxy_rules_location": "C:\\Users\\chao/config/clash/profiles",
-#         "websites": [
-#             {
-#                 "name": "zhihu.com",
-#                 "time": {
-#                     "mode": "period",
-#                     "interval": "2024.2.22 10:00-2024.2.22 11:30"
-#                 }
-#             }
-#         ]
-#     }
-#
-#     bw = BlockWebsite(block_websites=map["websites"])
-#     bw.start()
-#     # time.sleep(5)
-#     # print('20s 已到， 今日起兵！')
-#     # map["websites"] = [
-#     #     {
-#     #         "name": "bilibili.com",
-#     #         "time": {
-#     #             "mode": "period",
-#     #             "interval": "2024.2.22 10:00-2024.2.22 11:26"
-#     #         }
-#     #     }
-#     #
-#     # ]
-#     # bw.websites = map["websites"]
-#     time.sleep(100000)
+if is_debug():
+    if __name__ == '__main__':
+        map = {
+            "enable": 1,
+            "proxy_rules_location": "C:\\Users\\chao/config/clash/profiles",
+            "websites": [
+                {
+                    "name": "zhihu.com",
+                    "time": {
+                        "mode": "period",
+                        "interval": "2024.2.24 10:00-2024.2.24 11:30"
+                    }
+                }
+            ]
+        }
+
+        bw = BlockWebsite(block_websites=map["websites"])
+        bw.start()
+    #     # time.sleep(5)
+    #     # print('20s 已到， 今日起兵！')
+    #     # map["websites"] = [
+    #     #     {
+    #     #         "name": "bilibili.com",
+    #     #         "time": {
+    #     #             "mode": "period",
+    #     #             "interval": "2024.2.22 10:00-2024.2.22 11:26"
+    #     #         }
+    #     #     }
+    #     #
+    #     # ]
+    #     # bw.websites = map["websites"]
+        time.sleep(100000)

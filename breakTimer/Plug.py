@@ -17,10 +17,14 @@ class Plug:
         try:
             self.todo()
         except Exception as e:
+            self.error()
             print(f'任务{self.name}错误', e)
             print(traceback.print_exc())
 
     def stop(self):
+        pass
+
+    def error(self):
         pass
 
 # if __name__ =='__main__':

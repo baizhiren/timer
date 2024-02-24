@@ -27,9 +27,12 @@ class Component(Plug):
                         continue
                 self.todo()
             except Exception as e:
+                self.error()
                 print(f'任务{self.name}错误', e)
                 print(traceback.print_exc())
+                break
             time.sleep(self.time_gap)
 
     def stop(self):
         self.is_end = True
+

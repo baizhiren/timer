@@ -1,3 +1,88 @@
-[21:43:33.184] Loading script ../breakTimer/VPNForwarder.py
-[21:43:33.186] [Errno 10048] HTTP(S) proxy (upstream mode) failed to listen on *:7891 with [Errno 10048] error while attempting to bind on address ('0.0.0.0', 7891): 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
-Try specifying a different port by using `--mode upstream:http://localhost:7890@7892`.
+[11:24:58.544] Loading script ../breakTimer/VPNForwarder.py
+[11:24:58.546] HTTP(S) proxy (upstream mode) listening at *:7891.
+[11:24:59.186][127.0.0.1:53882] client connect
+[11:25:00.138][127.0.0.1:53884] client connect
+[11:25:01.229][127.0.0.1:53882] server connect localhost:7890 (127.0.0.1:7890)
+[11:25:02.145] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[11:25:02.156][127.0.0.1:53884] server connect localhost:7890 (127.0.0.1:7890)
+[11:25:02.181][127.0.0.1:56846] client connect
+[11:25:02.325][127.0.0.1:56848] client connect
+[11:25:02.326][127.0.0.1:56849] client connect
+[11:25:02.327][127.0.0.1:53884] Streaming request to data.bilibili.com.
+[11:25:02.328] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:53884: POST https://data.bilibili.com/v2/log/web?content_type=pbreq…
+              << 200 OK 2b
+[11:25:02.407][127.0.0.1:53884] Streaming request to data.bilibili.com.
+[11:25:02.407] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:53884: POST https://data.bilibili.com/v2/log/web?content_type=pbreq…
+              << 200 OK 2b
+[11:25:02.455][127.0.0.1:53884] Streaming request to data.bilibili.com.
+[11:25:02.455] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:53884: POST https://data.bilibili.com/v2/log/web?content_type=pbreq…
+              << 200 OK 2b
+127.0.0.1:53882: GET https://alive.github.com/_sockets/u/30487483/ws?session…
+              << 101 Switching Protocols 0b
+Error in WebSocket connection to alive.github.com:443: WebSocket Error: POLICY_VIOLATION (reason: authentication failed)
+[11:25:02.513][127.0.0.1:53882] client disconnect
+[11:25:02.513][127.0.0.1:53882] server disconnect localhost:7890 (127.0.0.1:7890)
+[11:25:02.514][127.0.0.1:56852] client connect
+[11:25:04.205][127.0.0.1:56846] server connect localhost:7890 (127.0.0.1:7890)
+[11:25:04.207][127.0.0.1:56846] client disconnect
+[11:25:04.207][127.0.0.1:56846] Server TLS handshake failed. connection closed
+[11:25:04.207][127.0.0.1:56846] Unable to establish TLS connection with server (connection closed). Trying to establish TLS with client anyway. If you plan to redirect requests away from this server, consider setting `connection_strategy` to `lazy` to suppress early connections.
+[11:25:04.211][127.0.0.1:56846] server disconnect localhost:7890 (127.0.0.1:7890)
+[11:25:04.361][127.0.0.1:56848] server connect localhost:7890 (127.0.0.1:7890)
+[11:25:04.362][127.0.0.1:56849] server connect localhost:7890 (127.0.0.1:7890)
+[11:25:04.533][127.0.0.1:56852] server connect localhost:7890 (127.0.0.1:7890)
+[11:25:05.047] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[11:25:05.505][127.0.0.1:56852] Streaming response from github.com.
+127.0.0.1:56852: GET https://github.com/_alive HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[11:25:05.512] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[11:25:05.968][127.0.0.1:56852] Streaming response from github.com.
+127.0.0.1:56852: POST https://github.com/_alive HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[11:25:05.971][127.0.0.1:56868] client connect
+[11:25:06.126] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[11:25:06.130][127.0.0.1:56870] client connect
+[11:25:06.135][127.0.0.1:56848] Streaming request to data.bilibili.com.
+[11:25:06.136] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:53884: GET https://data.bilibili.com/log/web?001114170874510612417…
+              << 200 OK 2b
+127.0.0.1:56848: POST https://data.bilibili.com/v2/log/web?content_type=pbreq…
+              << 200 OK 2b
+[11:25:08.000][127.0.0.1:56868] server connect localhost:7890 (127.0.0.1:7890)
+[11:25:08.129][127.0.0.1:56848] Streaming request to data.bilibili.com.
+[11:25:08.129] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:56848: POST https://data.bilibili.com/v2/log/web?content_type=pbreq…
+              << 200 OK 2b
+[11:25:08.174][127.0.0.1:56870] server connect localhost:7890 (127.0.0.1:7890)
+[11:25:08.264] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[11:25:08.414][127.0.0.1:56870] Streaming response from api.vc.bilibili.com.
+127.0.0.1:56870: GET https://api.vc.bilibili.com/session_svr/v1/session_svr/… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[11:25:08.417] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[11:25:08.483][127.0.0.1:56870] Streaming response from api.vc.bilibili.com.
+[11:25:08.485] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:56870: GET https://api.vc.bilibili.com/session_svr/v1/session_svr/… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[11:25:08.577][127.0.0.1:56870] Streaming response from api.vc.bilibili.com.
+127.0.0.1:56870: GET https://api.vc.bilibili.com/session_svr/v1/session_svr/… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[11:25:08.580] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[11:25:08.683][127.0.0.1:56870] Streaming response from api.vc.bilibili.com.
+127.0.0.1:56870: GET https://api.vc.bilibili.com/session_svr/v1/session_svr/… HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+[11:25:08.809] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:56868: GET https://alive.github.com/_sockets/u/30487483/ws?session…
+              << 101 Switching Protocols 0b
+127.0.0.1:56868 -> WebSocket text message -> alive.github.com:443/_sockets/u/30487483/ws?session=eyJ2IjoiVjMiLCJ1IjozMDQ4NzQ4MywicyI6MTMwNjg1NzEzMSwiYyI6Mjc0NzYzMDg2NiwidCI6MTcwODc0NTEwNX0%3D--eb4c74844ba32f0cf475e040bdc2fa92cb4b913a7e2965379c6091a5b276385d&shared=true&p=946626318_1708737825.56
+127.0.0.1:56868 <- WebSocket text message <- alive.github.com:443/_sockets/u/30487483/ws?session=eyJ2IjoiVjMiLCJ1IjozMDQ4NzQ4MywicyI6MTMwNjg1NzEzMSwiYyI6Mjc0NzYzMDg2NiwidCI6MTcwODc0NTEwNX0%3D--eb4c74844ba32f0cf475e040bdc2fa92cb4b913a7e2965379c6091a5b276385d&shared=true&p=946626318_1708737825.56
+[11:25:11.173][127.0.0.1:53884] server disconnect localhost:7890 (127.0.0.1:7890)
+[11:25:12.609][127.0.0.1:57886] client connect
+[11:25:13.166][127.0.0.1:56848] server disconnect localhost:7890 (127.0.0.1:7890)
+[11:25:14.632][127.0.0.1:57886] server connect localhost:7890 (127.0.0.1:7890)
+[11:25:14.634][127.0.0.1:57886] client disconnect
+[11:25:14.634][127.0.0.1:57886] Server TLS handshake failed. connection closed
+[11:25:14.634][127.0.0.1:57886] Unable to establish TLS connection with server (connection closed). Trying to establish TLS with client anyway. If you plan to redirect requests away from this server, consider setting `connection_strategy` to `lazy` to suppress early connections.
+[11:25:14.635][127.0.0.1:57886] server disconnect localhost:7890 (127.0.0.1:7890)

@@ -13,6 +13,11 @@ class ModifyProxyOption(Component):
         modify("ProxyServer", r'SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings', winreg.REG_SZ, f'127.0.0.1:{self.port}')
         modify("ProxyEnable", r'SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings', winreg.REG_DWORD, 1)
 
+    def stop(self):
+        modify("ProxyEnable", r'SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings', winreg.REG_DWORD, 0)
+
+
+
 # if __name__ == '__main__':
 #     mpo = ModifyProxyOption()
 #     mpo.start()

@@ -24,6 +24,8 @@ class WhiteSheet(Plug):
 
     def todo(self):
         for time in self.white_lists:
+            if time["mode"] == 'always':
+                continue
             if check(time):
                 return True
         return False
