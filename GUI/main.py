@@ -26,7 +26,7 @@ from breakTimer.DelayBreak import DelayBreak
 from breakTimer.FileChecker import FileChecker
 from breakTimer.Hook import Hook
 
-app_name = "breakTimer3.9.3"
+app_name = "breakTimer3.9.4"
 
 # 打开注册表键
 
@@ -348,7 +348,7 @@ if __name__ == '__main__':
         if debug:
             v_["full_screen"] = 0
             v_["mouse_lock"] = 0
-            # v_["lock_screen_when_start_rest"] = 0
+            v_["lock_screen_when_start_rest"] = 0
             # v_["topmost"] = 0
             # v_["leave_restart"] = 1
             # v_["block_keyboard"] = 0
@@ -594,6 +594,7 @@ if __name__ == '__main__':
                     blackSheet = None
                     if update == before_update:
                         if not destory and isLoop.get() == 1:
+                            print('大休息阶段 或者 立刻休息结束, 等待键盘输入')
                             keyboard.read_key()
                             Thread(name='在大休息阶段结束、立刻休息结束', target=run, daemon=True).start()
             if name == '学习阶段':

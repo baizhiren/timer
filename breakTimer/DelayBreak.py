@@ -28,13 +28,12 @@ class DelayBreak(Plug):
         while not self.is_end and not self.enter_pressed:
             time.sleep(5)  # 睡眠一小段时间，避免 CPU 资源的浪费
 
-        keyboard.unhook_all()  # 关闭键盘监听
-
         if not self.is_end:
             self.func()
 
     def stop(self):
         self.is_end = True
+        keyboard.unhook_all()  # 关闭键盘监听
 
 
 
