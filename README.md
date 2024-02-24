@@ -1,19 +1,17 @@
 # BreakTimer 休息定时器
 
+## 休息模式：
+
+<img src="https://user-images.githubusercontent.com/30487483/214987725-7ce7976c-08e0-422f-ad97-0e9c3f9bb444.png" width="600">
+
 ## 学习模式：
 <img src="https://github.com/baizhiren/timer/assets/30487483/949311ed-37cf-41ff-832b-d92ffa581e60" width="300">
 
 
-
-## 休息模式：
-
-![image](https://user-images.githubusercontent.com/30487483/214987725-7ce7976c-08e0-422f-ad97-0e9c3f9bb444.png)
-
 ## 主要功能：
 1. 点击“开始自律”，程序会按照 学习 小休息 学习 小休息 .... 学习 大休息 运行（更加灵活的番茄钟），可以根据自己的需求自定义时间
 
-休息模式会全屏显示，无法更改时间，如果此时为强制模式，会同时全屏显示并置于最上层，锁定鼠标和键盘
-非常适合沉迷代码\久坐人士
+   休息模式会全屏显示，无法更改时间，如果此时为强制模式，会同时全屏显示并置于最上层，锁定鼠标和键盘, 非常适合沉迷代码\久坐人士
 
 2. 点击立刻休息，会立即进入休息阶段，可在config中配置break_now_time时间长度
 
