@@ -155,7 +155,9 @@
             "chrome.exe"
          ],
          "enable": true, # 是否开启
-         "time": "click" # 时间模式
+         'time':{
+             'mode': 'click',
+          }
       }
    ],
 
