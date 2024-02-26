@@ -33,7 +33,7 @@ from breakTimer.Awake import *
 class BlockWebsite(Component):
 
     def __init__(self, block_websites:List[Dict[str, str]], dir=''):
-        super().__init__(name='禁用网站')
+        super().__init__(name='禁用网站', retry=True)
         self.block_process = None
         self.pre_clash_running = None
         self.websites = block_websites # 可以在外部改变
@@ -119,8 +119,7 @@ class BlockWebsite(Component):
                 '-p', '7891',  # 指定监听端口
                 '-s', path,  # 加载当前脚本作为addon
                 '--set', 'connection_timeout=60',
-                '--set', 'stream_large_bodies=100',
-
+                '--set', 'stream_large_bodies=100'
             ]
         else:
             # Clash未运行，设置mitmproxy为正常（regular）模式
@@ -129,11 +128,8 @@ class BlockWebsite(Component):
                 '-p', '7891',  # 指定监听端口
                 '-s', path ,  # 加载当前脚本作为addon
                 '--set', 'connection_timeout=60',
-                '--set', 'stream_large_bodies=100',
+                '--set', 'stream_large_bodies=100'
             ]
-
-        # 根据需求可能还需要其他参数
-        # '-s', 'path_to_your_script.py',  # 加载当前脚本作为addon等
 
         sys.argv = [sys.argv[0]] + options  # 重构命令行参数以模拟命令行输入
 
@@ -203,38 +199,38 @@ class MitmDumpThread(threading.Thread):
 
 # 创建并启动线程
 
-
-from tools.tool import is_debug
-
-if is_debug():
-    if __name__ == '__main__':
-        map = {
-            "enable": 1,
-            "proxy_rules_location": "C:\\Users\\chao/config/clash/profiles",
-            "websites": [
-                {
-                    "name": "zhihu.com",
-                    "time": {
-                        "mode": "period",
-                        "interval": "2024.2.24 10:00-2024.2.24 11:30"
-                    }
-                }
-            ]
-        }
-
-        bw = BlockWebsite(block_websites=map["websites"])
-        bw.start()
-    #     # time.sleep(5)
-    #     # print('20s 已到， 今日起兵！')
-    #     # map["websites"] = [
-    #     #     {
-    #     #         "name": "bilibili.com",
-    #     #         "time": {
-    #     #             "mode": "period",
-    #     #             "interval": "2024.2.22 10:00-2024.2.22 11:26"
-    #     #         }
-    #     #     }
-    #     #
-    #     # ]
-    #     # bw.websites = map["websites"]
-        time.sleep(100000)
+#
+# from tools.tool import is_debug
+#
+# if is_debug():
+#     if __name__ == '__main__':
+#         map = {
+#             "enable": 1,
+#             "proxy_rules_location": "C:\\Users\\chao/config/clash/profiles",
+#             "websites": [
+#                 {
+#                     "name": "zhihu.com",
+#                     "time": {
+#                         "mode": "period",
+#                         "interval": "2024.2.24 10:00-2024.2.24 11:30"
+#                     }
+#                 }
+#             ]
+#         }
+#
+#         bw = BlockWebsite(block_websites=map["websites"])
+#         bw.start()
+#     #     # time.sleep(5)
+#     #     # print('20s 已到， 今日起兵！')
+#     #     # map["websites"] = [
+#     #     #     {
+#     #     #         "name": "bilibili.com",
+#     #     #         "time": {
+#     #     #             "mode": "period",
+#     #     #             "interval": "2024.2.22 10:00-2024.2.22 11:26"
+#     #     #         }
+#     #     #     }
+#     #     #
+#     #     # ]
+#     #     # bw.websites = map["websites"]
+#         time.sleep(100000)

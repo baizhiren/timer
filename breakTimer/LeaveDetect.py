@@ -54,7 +54,7 @@ class LeaveDetect:
         while not self.end:
             current_position = self.get_mouse_position()
             if current_position != last_position:
-                print("鼠标移动了")
+                # print("鼠标移动了")
                 self.count_down = self.init_count_down
 
             last_position = current_position

@@ -26,7 +26,7 @@ from breakTimer.DelayBreak import DelayBreak
 from breakTimer.FileChecker import FileChecker
 from breakTimer.Hook import Hook
 
-app_name = "breakTimer3.9.4"
+app_name = "breakTimer3.9.5"
 
 # 打开注册表键
 
@@ -84,6 +84,7 @@ if __name__ == '__main__':
             debug = False
         else:
             print('debug模式启动')
+        # debug = True
 
         # print("自动启动时的环境变量：", os.environ)
         # print("自动启动时的环境变量：", os.environ.get('PYTHONPATH'))
@@ -166,7 +167,7 @@ if __name__ == '__main__':
                     "steam.exe",
                     "chrome.exe"
                  ],
-                 "enable": 1,
+                 "enable": 0,
                  "time": {
                     "mode": "click"
                  }
@@ -184,6 +185,7 @@ if __name__ == '__main__':
               }
             ],
             "block_website": {
+              "enable": 0,
               "proxy_rules_location": "C:\\Users\\chao//.config/clash/profiles",
               "websites": [
                  {
@@ -209,7 +211,8 @@ if __name__ == '__main__':
             "leave_restart": 1,
             "pause_current_app_when_break": 1,
             "delay_break": 1,
-            "check_window_position": 1
+            "check_window_position": 1,
+            "monitor_gap": 1
         }
 
         wx = "500"
@@ -349,10 +352,10 @@ if __name__ == '__main__':
             v_["full_screen"] = 0
             v_["mouse_lock"] = 0
             v_["lock_screen_when_start_rest"] = 0
-            # v_["topmost"] = 0
-            # v_["leave_restart"] = 1
-            # v_["block_keyboard"] = 0
-            # force = 0
+            v_["topmost"] = 0
+            v_["leave_restart"] = 1
+            v_["block_keyboard"] = 0
+            force = 0
             if debug_mode == '正常':
                 studyTime = 15
                 smallTime = 15
@@ -529,7 +532,7 @@ if __name__ == '__main__':
                     reload_button.configure(state='disable')
                     jump_button.configure(state='disable')
                     if name != '养肝阶段' and v_["delay_break"]:
-                        func = partial(Execute.now_execute.insert_stage, info={'name': '学习阶段', 'time': 5})
+                        func = partial(Execute.now_execute.insert_stage, info={'name': '学习阶段_临时', 'time': 5})
                         delayBreak = DelayBreak(func)
                         delayBreak.start()
                 else:
@@ -543,8 +546,13 @@ if __name__ == '__main__':
                 if block_keyboard:
                     block_keyboard.stop()
             leaveDetect = None
+            if name == '学习阶段_临时':
+                login_button.configure(state='disable')
+                reload_button.configure(state='disable')
 
-            if name == '学习阶段':
+
+
+            if '学习阶段' in name:
                 if blackSheet:
                     blackSheet.start()
                 black_lists = v_["black_lists"]
@@ -563,25 +571,25 @@ if __name__ == '__main__':
                     leaveDetect.start()
 
             global stageInfo
-            for i in range(t):
+            for i in range(t, 0, -1):
                 if before_update != update and name != '养肝阶段':
                     print(f"expire {name} in the loop, before update:{before_update} now update: {update}")
                     break
-                stageInfo = f'当前阶段:{name}  剩余时间:  {t // 60}分 : {t % 60}秒'
+                stageInfo = f'当前阶段:{name}  剩余时间:  {i // 60}分 : {i % 60}秒'
                 if destory:
                     return
                 stageInfoVar.set(stageInfo)
                 if name in fullStage and not white_sheet_open:
                     if not end:
-                        if v_["check_window_position"] and i < t - 2:
+                        if v_["check_window_position"] and i > 2:
+                            # print(f'check window position i={i}')
                             Thread(name='p1', target=check_window_position, daemon=True).start()
                     else:
                         break
                 time.sleep(1)
-                t = t - 1
                 while pause:
                     time.sleep(1)
-            stageInfoVar.set(f'当前阶段:{name}  剩余时间: 0分 : 0秒')
+            # stageInfoVar.set(f'当前阶段:{name}  剩余时间: 0分 : 0秒')
             if name in fullStage and name != '养肝阶段':
                 exit_full_stage()
                 if delayBreak:
@@ -681,7 +689,6 @@ if __name__ == '__main__':
             root.attributes('-fullscreen', False)
             root.geometry(size)
             root.attributes('-topmost', 0)
-
             end = True
             if v_["block_keyboard"] and block_keyboard:
                 block_keyboard.stop()
@@ -779,20 +786,24 @@ if __name__ == '__main__':
 
         update_first_time_target()
 
-
+        monitor_cnt = 0
         # 实时监控
         def monitor():
-            print(f'monitor 启动: '
-                  f'target start:{target.strftime("%Y-%m-%d %H:%M:%S")}\n'
-                  f'target end:{target_end.strftime("%Y-%m-%d %H:%M:%S")}\n'
-                  f'now:{datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
+            global  monitor_cnt
             global end
             global now_state
             global update
-            print('当前状态：', now_state)
-            gap_time = 1
+            monitor_cnt += 1
+            if monitor_cnt % 5 == 0:
+                print(f'monitor 启动: '
+                      f'target start:{target.strftime("%Y-%m-%d %H:%M:%S")}\n'
+                      f'target end:{target_end.strftime("%Y-%m-%d %H:%M:%S")}\n'
+                      f'now:{datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
+                print('当前状态：', now_state)
+
+            gap_time = v_["monitor_gap"]
             if debug:
-                gap_time = 60
+                gap_time = 15
                 Timer(gap_time, monitor).start()
             else:
                 if not destory:
@@ -821,11 +832,11 @@ if __name__ == '__main__':
                 update_target()
 
         def check_window_position():
+            #print('**check position start **')
             if force and now_state in fullStage:
+                monitors = get_monitors()
+                print('当前屏幕：', monitors)
                 if v_["full_screen"] and v_["split_screen"]:
-                    monitors = get_monitors()
-                    # print('屏幕检查开启')
-                    # print('当前屏幕：', monitors)
                     if len(monitors) != len(before_monitors):
                         destroy_sub_screen()
                         print(f'增加多屏锁定2 屏幕数量不一致 before{len(before_monitors)} now:{len(monitors)}')
@@ -850,9 +861,10 @@ if __name__ == '__main__':
         # 组件管理
         Thread(name='monitor', target=monitor, daemon=True).start()
         # dir=v_["block_website"]["proxy_rules_location"]\
-        global block_website
-        block_website = BlockWebsite(block_websites=v_["block_website"]["websites"], dir=v_["block_website"]["proxy_rules_location"])
-        Thread(name='网页阻止', target=block_website.start, daemon=True).start()
+        if v_["block_website"]["enable"]:
+            block_website = BlockWebsite(block_websites=v_["block_website"]["websites"], dir=v_["block_website"]["proxy_rules_location"])
+            Thread(name='网页阻止', target=block_website.start, daemon=True).start()
+            print('代理服务器开启')
 
 
 

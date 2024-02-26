@@ -26,7 +26,7 @@ class DelayBreak(Plug):
         keyboard.on_press(self.on_enter_press)  # 注册按键回调函数
 
         while not self.is_end and not self.enter_pressed:
-            time.sleep(5)  # 睡眠一小段时间，避免 CPU 资源的浪费
+            time.sleep(2)  # 睡眠一小段时间，避免 CPU 资源的浪费
 
         if not self.is_end:
             self.func()

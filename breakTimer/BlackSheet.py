@@ -38,8 +38,10 @@ class BlackSheet(Component):
             raise custom_exception
 
     def todo(self):
+        if len(self.list) == 0:
+            return
         for proc in psutil.process_iter(['pid', 'name']):
-            #print(proc)
+            print(proc)
             for process_name in self.list:
                 if process_name.lower() == proc.info['name'].lower():
                     print(f'黑名单{proc.info["name"]}')
@@ -62,14 +64,12 @@ class BlackSheet(Component):
 #             "steam.exe",
 #             "chrome.exe"
 #          ],
-#          "enable": 0,
+#          "enable": 1,
 #          "time": {
-#             "mode": "click"
+#             "mode": "always"
 #          }
 #       },
 #    ]
 #     blackSheet = BlackSheet(map)
 #     blackSheet.start()
-#     time.sleep(1)
-#     from tools.printThread import *
-#     show_all_threads()
+#     time.sleep(1000000)

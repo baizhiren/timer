@@ -1,8 +1,1435 @@
-[15:02:29.099] Loading script ../breakTimer/VPNForwarder.py
-[15:02:29.101] HTTP(S) proxy (upstream mode) listening at *:7891.
-[15:03:06.173][127.0.0.1:61431] client connect
-[15:03:08.211][127.0.0.1:61431] server connect localhost:7890 (127.0.0.1:7890)
-[15:03:08.515][127.0.0.1:61431] Streaming request to update.pan.baidu.com.
-[15:03:08.516] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
-127.0.0.1:61431: POST https://update.pan.baidu.com/statistics?clienttype=8&de…
-              << 200 OK 11b
+[12:12:57.432] Loading script ../breakTimer/VPNForwarder.py
+[12:12:57.435] HTTP(S) proxy (upstream mode) listening at *:7891.
+[12:12:57.847][127.0.0.1:51626] client connect
+[12:12:58.339][127.0.0.1:51631] client connect
+[12:12:58.389][127.0.0.1:51634] client connect
+[12:12:58.390][127.0.0.1:51635] client connect
+[12:12:58.773][127.0.0.1:51638] client connect
+[12:12:59.883][127.0.0.1:51626] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:00.204][127.0.0.1:51626] Streaming request to data.bilibili.com.
+[12:13:00.205] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51626: POST https://data.bilibili.com/v2/log/web?content_type=pbreq… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[12:13:00.378][127.0.0.1:51631] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:00.426][127.0.0.1:51634] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:00.427][127.0.0.1:51635] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:00.450] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51631: POST https://analysis.leetcode.cn/i/event HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[12:13:00.536] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51634: GET https://leetcode.cn/problemset/
+              << 304 Not Modified 0b
+[12:13:00.649][127.0.0.1:51648] client connect
+[12:13:00.651][127.0.0.1:51649] client connect
+[12:13:00.651][127.0.0.1:51650] client connect
+[12:13:00.673] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:00.675][127.0.0.1:51654] client connect
+127.0.0.1:51635: GET https://static.leetcode.cn/cn-frontendx-assets/producti…
+              << 304 Not Modified 0b
+[12:13:00.698][127.0.0.1:51635] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:00.698][127.0.0.1:51635] client disconnect
+[12:13:00.770][127.0.0.1:51626] Streaming request to data.bilibili.com.
+[12:13:00.771] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:00.815][127.0.0.1:51638] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:51626: POST https://data.bilibili.com/v2/log/web?content_type=pbreq… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[12:13:00.985][127.0.0.1:51658] client connect
+[12:13:01.063][127.0.0.1:51660] client connect
+[12:13:02.677][127.0.0.1:51650] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:02.677][127.0.0.1:51648] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:02.678][127.0.0.1:51649] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:02.708][127.0.0.1:51654] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:02.861] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:02.863][127.0.0.1:51649] Streaming request to sentry1.lingkou.xyz.
+[12:13:02.863] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51654: GET https://static.leetcode.cn/cn-frontendx-assets/producti…
+              << 304 Not Modified 0b
+[12:13:02.889][127.0.0.1:51654] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:02.894][127.0.0.1:51654] client disconnect
+[12:13:02.896] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51649: POST https://sentry1.lingkou.xyz/api/2/envelope/?sentry_key=…
+              << 200 OK 2b
+[12:13:02.910][127.0.0.1:51649] Streaming request to sentry1.lingkou.xyz.
+[12:13:02.910] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51650: GET https://hm.baidu.com/hm.gif?hca=58E2DF4A64CC7E28&cc=1&c…
+              << 200 OK 43b
+127.0.0.1:51649: POST https://sentry1.lingkou.xyz/api/2/envelope/?sentry_key=…
+              << 200 OK 2b
+[12:13:03.032][127.0.0.1:51658] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:03.087] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:03.092][127.0.0.1:51660] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:51658: GET https://static.leetcode.cn/cn-frontendx-assets/producti…
+              << 304 Not Modified 0b
+[12:13:03.107][127.0.0.1:51658] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:03.107][127.0.0.1:51658] client disconnect
+[12:13:03.218] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:03.224][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:03.225] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:03.225][127.0.0.1:51681] client connect
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK 30b
+[12:13:03.361][127.0.0.1:51683] client connect
+[12:13:03.362][127.0.0.1:51684] client connect
+[12:13:03.363][127.0.0.1:51685] client connect
+[12:13:03.367][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:03.368][127.0.0.1:51686] client connect
+[12:13:03.370] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51648: POST https://analytics.google.com/g/collect?v=2&tid=G-PDVPZY… HTTP/2.0
+     << HTTP/2.0 204 No Content 0b
+[12:13:03.458][127.0.0.1:51634] Streaming response from leetcode.cn.
+127.0.0.1:51634: POST https://leetcode.cn/graphql/noj-go/
+              << 200 OK (content missing)
+[12:13:03.460][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:03.460] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK 40b
+[12:13:03.585][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:03.586] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:03.593][127.0.0.1:51691] client connect
+[12:13:03.685] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:03.717][127.0.0.1:51634] Streaming response from leetcode.cn.
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:03.719][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:03.719] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:03.725][127.0.0.1:51694] client connect
+[12:13:03.730][127.0.0.1:51696] client connect
+127.0.0.1:51650: GET https://hm.baidu.com/hm.js?f0faad39bcf8471e3ab3ef701251…
+              << 304 Not Modified 0b
+[12:13:03.754][127.0.0.1:51698] client connect
+[12:13:03.761] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:03.763][127.0.0.1:51700] client connect
+[12:13:03.767][127.0.0.1:51702] client connect
+[12:13:03.769] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51650: GET https://hm.baidu.com/hm.gif?cc=1&ck=1&cl=24-bit&ds=2560…
+              << 200 OK 43b
+[12:13:03.850] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:03.851][127.0.0.1:51634] Streaming response from leetcode.cn.
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:03.853][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:03.853] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:03.879][127.0.0.1:51704] client connect
+[12:13:03.888][127.0.0.1:51706] client connect
+127.0.0.1:51648: POST https://analytics.google.com/g/collect?v=2&tid=G-PDVPZY… HTTP/2.0
+     << HTTP/2.0 204 No Content 0b
+127.0.0.1:51650: GET https://hm.baidu.com/hm.gif?hca=58E2DF4A64CC7E28&cc=1&c…
+              << 200 OK 43b
+[12:13:03.988][127.0.0.1:51634] Streaming response from leetcode.cn.
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:03.990][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:03.990] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:04.044][127.0.0.1:51708] client connect
+[12:13:04.044][127.0.0.1:51709] client connect
+[12:13:04.045][127.0.0.1:51710] client connect
+[12:13:04.075][127.0.0.1:51714] client connect
+[12:13:04.128][127.0.0.1:51634] Streaming response from leetcode.cn.
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:04.135][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:04.136] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:04.171][127.0.0.1:51716] client connect
+[12:13:04.171][127.0.0.1:51718] client connect
+[12:13:04.187][127.0.0.1:51722] client connect
+[12:13:04.187][127.0.0.1:51723] client connect
+[12:13:04.188][127.0.0.1:51724] client connect
+[12:13:04.201][127.0.0.1:51728] client connect
+[12:13:04.295][127.0.0.1:51730] client connect
+[12:13:04.296][127.0.0.1:51638] client disconnect
+[12:13:04.296][127.0.0.1:51731] client connect
+[12:13:04.297][127.0.0.1:51650] client disconnect
+[12:13:04.297][127.0.0.1:51732] client connect
+[12:13:04.298][127.0.0.1:51649] client disconnect
+[12:13:04.298][127.0.0.1:51660] client disconnect
+[12:13:04.299][127.0.0.1:51733] client connect
+[12:13:04.299][127.0.0.1:51638] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:04.302][127.0.0.1:51734] client connect
+[12:13:04.302][127.0.0.1:51650] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:04.303][127.0.0.1:51649] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:04.303][127.0.0.1:51660] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:04.389][127.0.0.1:51634] Streaming response from leetcode.cn.
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:04.487][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:04.488] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:04.615][127.0.0.1:51634] Streaming response from leetcode.cn.
+127.0.0.1:51634: POST https://leetcode.cn/graphql/noj-go/
+              << 200 OK (content missing)
+[12:13:04.617] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:04.778][127.0.0.1:51634] Streaming response from leetcode.cn.
+127.0.0.1:51634: GET https://leetcode.cn/problems/api/favorites/
+              << 200 OK (content missing)
+[12:13:04.780][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:04.780] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:04.818][127.0.0.1:51631] Streaming request to analysis.leetcode.cn.
+[12:13:04.819] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51631: POST https://analysis.leetcode.cn/i/event HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[12:13:05.008][127.0.0.1:51634] Streaming response from leetcode.cn.
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:05.011][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:05.011] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:05.145][127.0.0.1:51634] Streaming response from leetcode.cn.
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:05.148][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:05.148] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:05.242][127.0.0.1:51681] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK 90b
+[12:13:05.299][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:05.299] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:05.420][127.0.0.1:51681] Streaming request to leetcode.cn.
+[12:13:05.420] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:05.428][127.0.0.1:51684] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:05.428][127.0.0.1:51685] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:05.429][127.0.0.1:51683] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:05.429][127.0.0.1:51686] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:05.455][127.0.0.1:51634] Streaming response from leetcode.cn.
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:05.457][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:05.457] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:05.592][127.0.0.1:51681] Streaming response from leetcode.cn.
+127.0.0.1:51681: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:05.594][127.0.0.1:51684] Streaming request to leetcode.cn.
+[12:13:05.596] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:05.597][127.0.0.1:51681] Streaming request to leetcode.cn.
+[12:13:05.598][127.0.0.1:51683] Streaming request to leetcode.cn.
+[12:13:05.598] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:05.599] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:05.608][127.0.0.1:51634] Streaming response from leetcode.cn.
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:05.610][127.0.0.1:51685] Streaming request to leetcode.cn.
+[12:13:05.611] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:05.613][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:05.614][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:05.614] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:05.615] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:05.615][127.0.0.1:51750] client connect
+[12:13:05.616][127.0.0.1:51626] client disconnect
+[12:13:05.616][127.0.0.1:51648] client disconnect
+[12:13:05.617][127.0.0.1:51631] client disconnect
+[12:13:05.619][127.0.0.1:51626] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:05.619][127.0.0.1:51648] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:05.620][127.0.0.1:51631] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:05.625][127.0.0.1:51752] client connect
+[12:13:05.629][127.0.0.1:51691] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:05.702] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51683: POST https://leetcode.cn/graphql/
+              << 200 OK 37b
+[12:13:05.709][127.0.0.1:51683] Streaming request to leetcode.cn.
+[12:13:05.709] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51681: POST https://leetcode.cn/graphql/
+              << 200 OK 71b
+[12:13:05.740][127.0.0.1:51684] Streaming response from leetcode.cn.
+[12:13:05.741][127.0.0.1:51685] Streaming response from leetcode.cn.
+127.0.0.1:51684: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+127.0.0.1:51685: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:05.752][127.0.0.1:51694] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:05.763][127.0.0.1:51634] Streaming response from leetcode.cn.
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+127.0.0.1:51691: GET https://assets.leetcode.cn/aliyun-lc-upload/study_plan_…
+              << 304 Not Modified 0b
+[12:13:05.766][127.0.0.1:51691] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:05.766][127.0.0.1:51691] client disconnect
+[12:13:05.767][127.0.0.1:51759] client connect
+[12:13:05.769][127.0.0.1:51696] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:05.800][127.0.0.1:51698] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:05.800][127.0.0.1:51702] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:05.815][127.0.0.1:51700] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:51683: POST https://leetcode.cn/graphql/im/
+              << 200 OK 37b
+[12:13:05.868][127.0.0.1:51686] Streaming response from leetcode.cn.
+127.0.0.1:51686: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:05.875][127.0.0.1:51694] Streaming request to api.growingio.com.
+[12:13:05.876] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:05.922][127.0.0.1:51704] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:05.937][127.0.0.1:51706] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:05.953] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:05.999] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51698: POST https://stats.g.doubleclick.net/j/collect?t=dc&aip=1&_r… HTTP/2.0
+     << HTTP/2.0 200 OK 1b
+127.0.0.1:51706: GET https://pic.leetcode-cn.com/1631072932-aldbWv-%E5%B9%B6…
+              << 304 Not Modified 0b
+[12:13:06.020][127.0.0.1:51706] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:06.020][127.0.0.1:51706] client disconnect
+127.0.0.1:51694: POST https://api.growingio.com/v2/a2873925c34ecbd2/web/actio…
+              << 200 OK 0b
+[12:13:06.029][127.0.0.1:51694] Streaming request to api.growingio.com.
+[12:13:06.030] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:06.030] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51704: GET https://pic.leetcode.cn/1679560797-qgkqyL-%E9%A2%98%E5%…
+              << 304 Not Modified 0b
+[12:13:06.048][127.0.0.1:51704] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:06.048][127.0.0.1:51704] client disconnect
+127.0.0.1:51694: POST https://api.growingio.com/v2/a2873925c34ecbd2/web/pv?st…
+              << 200 OK 0b
+[12:13:06.085][127.0.0.1:51694] Streaming request to api.growingio.com.
+[12:13:06.086] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:06.093][127.0.0.1:51709] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:06.093][127.0.0.1:51708] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:06.093][127.0.0.1:51710] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:06.125][127.0.0.1:51714] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:51694: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+[12:13:06.140][127.0.0.1:51694] Streaming request to api.growingio.com.
+[12:13:06.140] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51694: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+[12:13:06.224][127.0.0.1:51694] Streaming request to api.growingio.com.
+[12:13:06.225] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:06.225][127.0.0.1:51716] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:06.225][127.0.0.1:51718] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:06.226][127.0.0.1:51710] Streaming request to api.growingio.com.
+[12:13:06.228] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:06.229][127.0.0.1:51709] Streaming request to api.growingio.com.
+[12:13:06.229] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:06.235][127.0.0.1:51722] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:06.235][127.0.0.1:51724] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:06.235][127.0.0.1:51723] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:06.245][127.0.0.1:51708] Streaming request to api.growingio.com.
+[12:13:06.245] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:06.254][127.0.0.1:51728] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:06.264] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:06.265] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:06.268] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51710: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+127.0.0.1:51694: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+[12:13:06.280][127.0.0.1:51710] Streaming request to api.growingio.com.
+[12:13:06.281] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51709: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+[12:13:06.315] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51708: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+127.0.0.1:51710: POST https://api.growingio.com/v2/a2873925c34ecbd2/web/actio…
+              << 200 OK 0b
+[12:13:06.362] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:06.363] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:06.364][127.0.0.1:51730] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:06.365][127.0.0.1:51732] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:06.365][127.0.0.1:51733] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:06.365][127.0.0.1:51734] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:06.366][127.0.0.1:51731] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:51696: GET https://www.google-analytics.com/collect?v=1&_v=j101&a=… HTTP/2.0
+     << HTTP/2.0 200 OK 35b
+127.0.0.1:51696: POST https://www.google-analytics.com/j/collect?v=1&_v=j101&… HTTP/2.0
+     << HTTP/2.0 200 OK 3b
+[12:13:06.384] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51728: GET https://pic.leetcode-cn.com/1663238583-liTQKl-%E6%BB%91…
+              << 304 Not Modified 0b
+[12:13:06.392][127.0.0.1:51728] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:06.393][127.0.0.1:51728] client disconnect
+127.0.0.1:51723: GET https://pic.leetcode.cn/1681889436-PUCPnR-%E9%A2%98%E5%…
+              << 304 Not Modified 0b
+[12:13:06.397][127.0.0.1:51723] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:06.397][127.0.0.1:51723] client disconnect
+127.0.0.1:51700: GET https://www.google.com.hk/ads/ga-audiences?v=1&t=sr&slf… HTTP/2.0
+     << HTTP/2.0 200 OK 42b
+127.0.0.1:51724: GET https://pic.leetcode.cn/1671678398-xNhIaY-%E9%A2%98%E5%…
+              << 304 Not Modified 0b
+[12:13:06.404][127.0.0.1:51724] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:06.405][127.0.0.1:51724] client disconnect
+127.0.0.1:51722: GET https://pic.leetcode.cn/1680175999-ZPMKSx-%E9%A2%98%E5%…
+              << 304 Not Modified 0b
+[12:13:06.406][127.0.0.1:51722] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:06.407][127.0.0.1:51722] client disconnect
+[12:13:06.500] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:06.501] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:06.502] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:06.503] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:06.511] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51734: GET https://assets.leetcode.cn/aliyun-lc-upload/study_plan_…
+              << 304 Not Modified 0b
+[12:13:06.530][127.0.0.1:51734] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:06.530][127.0.0.1:51734] client disconnect
+127.0.0.1:51730: GET https://assets.leetcode.cn/aliyun-lc-upload/study_plan_…
+              << 304 Not Modified 0b
+[12:13:06.531][127.0.0.1:51730] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:06.531][127.0.0.1:51730] client disconnect
+127.0.0.1:51732: GET https://assets.leetcode.cn/medals/2024/lg/02lg.png?x-os…
+              << 304 Not Modified 0b
+[12:13:06.551][127.0.0.1:51732] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:06.551][127.0.0.1:51732] client disconnect
+127.0.0.1:51731: GET https://assets.leetcode.cn/aliyun-lc-upload/study_plan_…
+              << 304 Not Modified 0b
+[12:13:06.573][127.0.0.1:51731] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:06.573][127.0.0.1:51731] client disconnect
+[12:13:06.609][127.0.0.1:51714] client disconnect
+[12:13:06.609][127.0.0.1:51714] server disconnect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:51733: GET https://assets.leetcode.cn/aliyun-lc-upload/study_plan_…
+              << 304 Not Modified 0b
+[12:13:06.613][127.0.0.1:51733] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:06.614][127.0.0.1:51733] client disconnect
+[12:13:07.180][127.0.0.1:51710] Streaming request to api.growingio.com.
+[12:13:07.180] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:07.181][127.0.0.1:51708] Streaming request to api.growingio.com.
+[12:13:07.181] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:07.206] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:07.209][127.0.0.1:51803] client connect
+127.0.0.1:51710: POST https://api.growingio.com/v2/a2873925c34ecbd2/web/actio…
+              << 200 OK 0b
+127.0.0.1:51708: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+[12:13:07.352][127.0.0.1:51686] Streaming response from leetcode.cn.
+127.0.0.1:51686: GET https://leetcode.cn/problems/range-sum-of-bst/?envType=…
+              << 200 OK (content missing)
+[12:13:07.641][127.0.0.1:51750] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:07.657][127.0.0.1:51752] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:07.703][127.0.0.1:51807] client connect
+[12:13:07.704][127.0.0.1:51808] client connect
+[12:13:07.752] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:07.759] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:07.764][127.0.0.1:51813] client connect
+127.0.0.1:51752: GET https://static.leetcode.cn/fonts/Typo_Round_Bold.otf
+              << 304 Not Modified 0b
+[12:13:07.769][127.0.0.1:51752] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:07.769][127.0.0.1:51752] client disconnect
+127.0.0.1:51750: GET https://static.leetcode.cn/cn-frontendx-assets/producti…
+              << 304 Not Modified 0b
+[12:13:07.785][127.0.0.1:51750] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:07.785][127.0.0.1:51750] client disconnect
+[12:13:07.810][127.0.0.1:51759] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:07.934] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51759: GET https://assets.leetcode.cn/aliyun-lc-upload/users/baizh…
+              << 304 Not Modified 0b
+[12:13:07.953][127.0.0.1:51759] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:07.953][127.0.0.1:51759] client disconnect
+[12:13:08.769][127.0.0.1:51820] client connect
+[12:13:08.770][127.0.0.1:51821] client connect
+[12:13:09.236][127.0.0.1:51803] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:09.518][127.0.0.1:51826] client connect
+[12:13:09.519][127.0.0.1:51827] client connect
+[12:13:09.634][127.0.0.1:51803] Streaming request to sentry1.lingkou.xyz.
+[12:13:09.635] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:09.720][127.0.0.1:51808] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:51803: POST https://sentry1.lingkou.xyz/api/2/envelope/?sentry_key=…
+              << 200 OK 2b
+[12:13:09.728][127.0.0.1:51803] Streaming request to sentry1.lingkou.xyz.
+[12:13:09.728] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:09.736][127.0.0.1:51807] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:09.798][127.0.0.1:51813] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:51803: POST https://sentry1.lingkou.xyz/api/2/envelope/?sentry_key=…
+              << 200 OK 2b
+[12:13:09.863] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:09.865] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:09.907][127.0.0.1:51836] client connect
+127.0.0.1:51807: GET https://static.leetcode.cn/cn-frontendx-assets/producti…
+              << 304 Not Modified 0b
+127.0.0.1:51808: GET https://static.leetcode.cn/cn-frontendx-assets/producti…
+              << 304 Not Modified 0b
+[12:13:09.984][127.0.0.1:51807] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:09.984][127.0.0.1:51808] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:09.985][127.0.0.1:51807] client disconnect
+[12:13:09.985][127.0.0.1:51808] client disconnect
+[12:13:10.325][127.0.0.1:51838] client connect
+[12:13:10.333][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:10.333] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.335][127.0.0.1:51683] Streaming request to leetcode.cn.
+[12:13:10.335][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:10.335] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.336] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.339][127.0.0.1:51685] Streaming request to leetcode.cn.
+[12:13:10.339][127.0.0.1:51684] Streaming request to leetcode.cn.
+[12:13:10.339][127.0.0.1:51681] Streaming request to leetcode.cn.
+[12:13:10.340] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.340] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.341] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.346][127.0.0.1:51840] client connect
+[12:13:10.596][127.0.0.1:51683] Streaming response from leetcode.cn.
+[12:13:10.597][127.0.0.1:51684] Streaming response from leetcode.cn.
+[12:13:10.599][127.0.0.1:51685] Streaming response from leetcode.cn.
+[12:13:10.599][127.0.0.1:51681] Streaming response from leetcode.cn.
+127.0.0.1:51683: POST https://leetcode.cn/graphql/noj-go/
+              << 200 OK (content missing)
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK 40b
+127.0.0.1:51684: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+127.0.0.1:51686: POST https://leetcode.cn/graphql/
+              << 200 OK 30b
+127.0.0.1:51685: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+127.0.0.1:51681: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:10.609][127.0.0.1:51683] Streaming request to leetcode.cn.
+[12:13:10.609][127.0.0.1:51684] Streaming request to leetcode.cn.
+[12:13:10.610][127.0.0.1:51685] Streaming request to leetcode.cn.
+[12:13:10.611][127.0.0.1:51681] Streaming request to leetcode.cn.
+[12:13:10.612] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.612] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.613] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.614] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.620][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:10.621] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.623][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:10.623] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.650] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.657][127.0.0.1:51708] Streaming request to api.growingio.com.
+[12:13:10.658] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.659][127.0.0.1:51710] Streaming request to api.growingio.com.
+[12:13:10.659] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.662] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.686] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.780][127.0.0.1:51842] client connect
+[12:13:10.803][127.0.0.1:51684] Streaming response from leetcode.cn.
+127.0.0.1:51710: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+127.0.0.1:51681: POST https://leetcode.cn/graphql/
+              << 200 OK 72b
+127.0.0.1:51702: GET https://hm.baidu.com/hm.js?f0faad39bcf8471e3ab3ef701251…
+              << 304 Not Modified 0b
+127.0.0.1:51708: POST https://api.growingio.com/v2/a2873925c34ecbd2/web/pv?st…
+              << 200 OK 0b
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK 65b
+127.0.0.1:51683: POST https://leetcode.cn/graphql/
+              << 200 OK 42b
+127.0.0.1:51686: POST https://leetcode.cn/graphql/
+              << 200 OK 37b
+127.0.0.1:51684: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+127.0.0.1:51696: POST https://www.google-analytics.com/j/collect?v=1&_v=j101&… HTTP/2.0
+     << HTTP/2.0 200 OK 3b
+[12:13:10.809][127.0.0.1:51685] Streaming response from leetcode.cn.
+[12:13:10.813] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.824][127.0.0.1:51820] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:10.825][127.0.0.1:51821] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:51685: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+127.0.0.1:51702: GET https://hm.baidu.com/hm.gif?cc=1&ck=1&cl=24-bit&ds=2560…
+              << 200 OK 43b
+[12:13:10.901][127.0.0.1:51685] Streaming request to leetcode.cn.
+[12:13:10.902] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.903][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:10.904][127.0.0.1:51683] Streaming request to leetcode.cn.
+[12:13:10.905] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.906] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.907][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:10.907][127.0.0.1:51681] Streaming request to leetcode.cn.
+[12:13:10.907][127.0.0.1:51684] Streaming request to leetcode.cn.
+[12:13:10.908] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.908] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.909] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.989][127.0.0.1:51848] client connect
+[12:13:10.995][127.0.0.1:51708] Streaming request to api.growingio.com.
+[12:13:10.996] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:10.999][127.0.0.1:51803] Streaming request to sentry1.lingkou.xyz.
+[12:13:10.999] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.002][127.0.0.1:51813] Streaming request to sentry1.lingkou.xyz.
+[12:13:11.002] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.008][127.0.0.1:51710] Streaming request to api.growingio.com.
+[12:13:11.008] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.009][127.0.0.1:51709] Streaming request to api.growingio.com.
+[12:13:11.010] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.011][127.0.0.1:51694] Streaming request to api.growingio.com.
+[12:13:11.011] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51696: GET https://www.google-analytics.com/collect?v=1&_v=j101&a=… HTTP/2.0
+     << HTTP/2.0 200 OK 35b
+[12:13:11.023][127.0.0.1:51820] Streaming request to analysis.leetcode.cn.
+[12:13:11.024] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51813: POST https://sentry1.lingkou.xyz/api/2/envelope/?sentry_key=…
+              << 200 OK 2b
+127.0.0.1:51708: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+127.0.0.1:51803: POST https://sentry1.lingkou.xyz/api/2/envelope/?sentry_key=…
+              << 200 OK 2b
+[12:13:11.052][127.0.0.1:51851] client connect
+[12:13:11.071][127.0.0.1:51708] Streaming request to api.growingio.com.
+[12:13:11.072] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51710: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+127.0.0.1:51820: POST https://analysis.leetcode.cn/i/event HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[12:13:11.108][127.0.0.1:51853] client connect
+127.0.0.1:51709: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+127.0.0.1:51694: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+[12:13:11.211][127.0.0.1:51681] Streaming response from leetcode.cn.
+127.0.0.1:51684: POST https://leetcode.cn/graphql/
+              << 200 OK 66b
+127.0.0.1:51683: POST https://leetcode.cn/graphql/
+              << 200 OK 52b
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK 60b
+127.0.0.1:51708: POST https://api.growingio.com/v2/a2873925c34ecbd2/web/pv?st…
+              << 200 OK 0b
+127.0.0.1:51685: POST https://leetcode.cn/graphql/
+              << 200 OK 71b
+127.0.0.1:51681: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+127.0.0.1:51686: POST https://leetcode.cn/graphql/
+              << 200 OK 35b
+[12:13:11.216][127.0.0.1:51681] Streaming request to leetcode.cn.
+[12:13:11.217] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.220][127.0.0.1:51684] Streaming request to leetcode.cn.
+[12:13:11.220][127.0.0.1:51683] Streaming request to leetcode.cn.
+[12:13:11.220][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:11.221][127.0.0.1:51685] Streaming request to leetcode.cn.
+[12:13:11.221][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:11.222] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.222] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.223] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.223] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.224] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.304][127.0.0.1:51855] client connect
+[12:13:11.416][127.0.0.1:51634] Streaming response from leetcode.cn.
+[12:13:11.417][127.0.0.1:51684] Streaming response from leetcode.cn.
+127.0.0.1:51686: POST https://leetcode.cn/graphql/
+              << 200 OK 37b
+127.0.0.1:51681: POST https://leetcode.cn/graphql/
+              << 200 OK 33b
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+127.0.0.1:51684: POST https://leetcode.cn/graphql/noj-go/
+              << 200 OK (content missing)
+127.0.0.1:51685: POST https://leetcode.cn/graphql/
+              << 200 OK 41b
+[12:13:11.421][127.0.0.1:51683] Streaming response from leetcode.cn.
+127.0.0.1:51683: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:11.423][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:11.424][127.0.0.1:51684] Streaming request to leetcode.cn.
+[12:13:11.424] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.425] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.429][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:11.430][127.0.0.1:51681] Streaming request to leetcode.cn.
+[12:13:11.431][127.0.0.1:51685] Streaming request to leetcode.cn.
+[12:13:11.431][127.0.0.1:51683] Streaming request to leetcode.cn.
+[12:13:11.432] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.432] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.433] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.433] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.542][127.0.0.1:51827] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:11.558][127.0.0.1:51826] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:11.617][127.0.0.1:51634] Streaming response from leetcode.cn.
+127.0.0.1:51684: POST https://leetcode.cn/graphql/
+              << 200 OK 46b
+127.0.0.1:51683: POST https://leetcode.cn/graphql/
+              << 200 OK 47b
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:11.620][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:11.621] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.622][127.0.0.1:51684] Streaming request to leetcode.cn.
+[12:13:11.623] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.623][127.0.0.1:51683] Streaming request to leetcode.cn.
+[12:13:11.623] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.626][127.0.0.1:51681] Streaming response from leetcode.cn.
+127.0.0.1:51681: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+127.0.0.1:51685: POST https://leetcode.cn/graphql/
+              << 200 OK 43b
+127.0.0.1:51686: POST https://leetcode.cn/graphql/
+              << 200 OK 34b
+[12:13:11.630][127.0.0.1:51681] Streaming request to leetcode.cn.
+[12:13:11.631] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.632][127.0.0.1:51685] Streaming request to leetcode.cn.
+[12:13:11.632] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.633][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:11.633] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:11.828][127.0.0.1:51820] Streaming request to analysis.leetcode.cn.
+[12:13:11.828] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51820: POST https://analysis.leetcode.cn/i/event HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[12:13:11.947][127.0.0.1:51836] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:12.033][127.0.0.1:51683] Streaming response from leetcode.cn.
+127.0.0.1:51683: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+127.0.0.1:51686: POST https://leetcode.cn/graphql/noj-go/
+              << 200 OK 29b
+[12:13:12.035][127.0.0.1:51683] Streaming request to leetcode.cn.
+[12:13:12.036] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:12.037][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:12.037] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:12.038][127.0.0.1:51684] Streaming response from leetcode.cn.
+127.0.0.1:51684: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:12.040][127.0.0.1:51684] Streaming request to leetcode.cn.
+[12:13:12.040] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK 38b
+[12:13:12.046][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:12.047] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51685: POST https://leetcode.cn/graphql/noj-go/
+              << 200 OK 42b
+[12:13:12.055][127.0.0.1:51685] Streaming request to leetcode.cn.
+[12:13:12.055] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:12.189][127.0.0.1:51708] Streaming request to api.growingio.com.
+[12:13:12.189] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:12.232][127.0.0.1:51686] Streaming response from leetcode.cn.
+[12:13:12.232][127.0.0.1:51683] Streaming response from leetcode.cn.
+127.0.0.1:51684: POST https://leetcode.cn/graphql/
+              << 200 OK 46b
+127.0.0.1:51686: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK 46b
+127.0.0.1:51685: POST https://leetcode.cn/graphql/
+              << 200 OK 46b
+127.0.0.1:51683: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:12.237][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:12.238][127.0.0.1:51683] Streaming request to leetcode.cn.
+[12:13:12.238] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:12.239] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:12.277][127.0.0.1:51826] Streaming request to mobile.pipe.aria.microsoft.com.
+[12:13:12.277] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:12.306][127.0.0.1:51681] Streaming response from leetcode.cn.
+127.0.0.1:51681: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:12.318][127.0.0.1:51863] client connect
+[12:13:12.364][127.0.0.1:51838] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:12.381][127.0.0.1:51840] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:51708: POST https://api.growingio.com/v2/a2873925c34ecbd2/web/actio…
+              << 200 OK 0b
+127.0.0.1:51683: POST https://leetcode.cn/graphql/
+              << 200 OK 49b
+[12:13:12.444][127.0.0.1:51686] Streaming response from leetcode.cn.
+127.0.0.1:51686: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+127.0.0.1:51826: POST https://mobile.pipe.aria.microsoft.com/Collector/3.0/
+              << 200 OK 0b
+[12:13:12.634] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:12.637] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:12.644][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:12.644] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51838: GET https://static.leetcode.cn/cn-frontendx-assets/producti…
+              << 304 Not Modified 0b
+[12:13:12.659][127.0.0.1:51838] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:12.659][127.0.0.1:51838] client disconnect
+127.0.0.1:51840: GET https://ff-proxy.leetcode.cn/api/features/sdk-8iOC11xvk… HTTP/2.0
+     << HTTP/2.0 304 Not Modified 0b
+[12:13:12.803][127.0.0.1:51842] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:12.819][127.0.0.1:51686] Streaming response from leetcode.cn.
+127.0.0.1:51686: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:12.828][127.0.0.1:51708] Streaming request to api.growingio.com.
+[12:13:12.829] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:12.830][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:12.830] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:12.833][127.0.0.1:51820] Streaming request to analysis.leetcode.cn.
+[12:13:12.833] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:12.847][127.0.0.1:51803] Streaming request to sentry1.lingkou.xyz.
+[12:13:12.848] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:12.849][127.0.0.1:51813] Streaming request to sentry1.lingkou.xyz.
+[12:13:12.849] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51820: POST https://analysis.leetcode.cn/i/event HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[12:13:12.878][127.0.0.1:51694] Streaming request to api.growingio.com.
+[12:13:12.879] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51708: POST https://api.growingio.com/v2/a2873925c34ecbd2/web/actio…
+              << 200 OK 0b
+[12:13:12.892] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51813: POST https://sentry1.lingkou.xyz/api/2/envelope/?sentry_key=…
+              << 200 OK 2b
+127.0.0.1:51803: POST https://sentry1.lingkou.xyz/api/2/envelope/?sentry_key=…
+              << 200 OK 2b
+[12:13:12.909][127.0.0.1:51871] client connect
+127.0.0.1:51694: POST https://api.growingio.com/v2/a2873925c34ecbd2/web/pv?st…
+              << 200 OK 0b
+[12:13:12.974][127.0.0.1:51821] Streaming request to analytics.google.com.
+[12:13:12.975][127.0.0.1:51821] Streaming request to analytics.google.com.
+[12:13:12.976] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:12.977] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:12.978] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:12.979] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:12.985] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:13.000][127.0.0.1:51686] Streaming response from leetcode.cn.
+127.0.0.1:51686: POST https://leetcode.cn/problems/range-sum-of-bst/interpret…
+              << 200 OK (content missing)
+[12:13:13.004] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:13.030][127.0.0.1:51848] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:13.031][127.0.0.1:51874] client connect
+[12:13:13.032][127.0.0.1:51875] client connect
+[12:13:13.032][127.0.0.1:51876] client connect
+[12:13:13.034][127.0.0.1:51877] client connect
+[12:13:13.036][127.0.0.1:51878] client connect
+[12:13:13.092][127.0.0.1:51851] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:51821: POST https://analytics.google.com/g/collect?v=2&tid=G-PDVPZY… HTTP/2.0
+     << HTTP/2.0 204 No Content 0b
+127.0.0.1:51821: POST https://analytics.google.com/g/collect?v=2&tid=G-PDVPZY… HTTP/2.0
+     << HTTP/2.0 204 No Content 0b
+127.0.0.1:51842: POST https://data.bilibili.com/log/web?0133241708920790777ht… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:51821: POST https://analytics.google.com/g/collect?v=2&tid=G-PDVPZY… HTTP/2.0
+     << HTTP/2.0 204 No Content 0b
+127.0.0.1:51821: POST https://analytics.google.com/g/collect?v=2&tid=G-PDVPZY… HTTP/2.0
+     << HTTP/2.0 204 No Content 0b
+127.0.0.1:51686: GET https://leetcode.cn/submissions/detail/runcode_17089207…
+              << 200 OK 20b
+[12:13:13.143][127.0.0.1:51853] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:13.148][127.0.0.1:51827] Streaming request to mobile.pipe.aria.microsoft.com.
+[12:13:13.148] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:13.155] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51851: GET https://assets.leetcode.cn/aliyun-lc-upload/users/baizh…
+              << 304 Not Modified 0b
+[12:13:13.177][127.0.0.1:51851] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:13.178][127.0.0.1:51851] client disconnect
+[12:13:13.178][127.0.0.1:51888] client connect
+[12:13:13.283] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51853: GET https://static.leetcode-cn.com/cn-legacy-assets/images/…
+              << 304 Not Modified 0b
+[12:13:13.306][127.0.0.1:51853] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:13.306][127.0.0.1:51853] client disconnect
+127.0.0.1:51827: POST https://mobile.pipe.aria.microsoft.com/Collector/3.0/
+              << 200 OK 0b
+[12:13:13.337] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:13.342][127.0.0.1:51855] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:13.483][127.0.0.1:51686] Streaming response from leetcode.cn.
+127.0.0.1:51686: GET https://leetcode.cn/submissions/detail/runcode_17089207…
+              << 200 OK (content missing)
+[12:13:13.487][127.0.0.1:51694] Streaming request to api.growingio.com.
+[12:13:13.487] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:13.490] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:13.514][127.0.0.1:51708] Streaming request to api.growingio.com.
+[12:13:13.514] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:13.517][127.0.0.1:51709] Streaming request to api.growingio.com.
+[12:13:13.517] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:13.520][127.0.0.1:51710] Streaming request to api.growingio.com.
+[12:13:13.520] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51709: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+127.0.0.1:51710: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+127.0.0.1:51708: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+127.0.0.1:51694: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+[12:13:13.596][127.0.0.1:51848] client disconnect
+[12:13:13.597][127.0.0.1:51848] server disconnect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:51821: POST https://analytics.google.com/g/collect?v=2&tid=G-PDVPZY… HTTP/2.0
+     << HTTP/2.0 204 No Content 0b
+[12:13:13.852][127.0.0.1:51821] Streaming request to analytics.google.com.
+[12:13:13.852] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:13.909][127.0.0.1:51855] client disconnect
+[12:13:13.910][127.0.0.1:51855] server disconnect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:51821: POST https://analytics.google.com/g/collect?v=2&tid=G-PDVPZY… HTTP/2.0
+     << HTTP/2.0 204 No Content 0b
+[12:13:14.360][127.0.0.1:51820] Streaming request to analysis.leetcode.cn.
+[12:13:14.360] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:14.361][127.0.0.1:51863] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:51820: POST https://analysis.leetcode.cn/i/event HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[12:13:14.853][127.0.0.1:51863] client disconnect
+[12:13:14.854][127.0.0.1:51863] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:14.953][127.0.0.1:51871] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:15.064][127.0.0.1:51874] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:15.065][127.0.0.1:51875] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:15.065][127.0.0.1:51878] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:15.066][127.0.0.1:51876] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:15.066][127.0.0.1:51877] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:15.067] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:15.092][127.0.0.1:51871] Streaming response from assets.leetcode-cn.com.
+127.0.0.1:51871: GET https://assets.leetcode-cn.com/contest/level/Knight_sm.…
+              << 200 OK (content missing)
+[12:13:15.116] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:15.121] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:15.124] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:15.135][127.0.0.1:51878] Streaming response from assets.leetcode.cn.
+127.0.0.1:51878: GET https://assets.leetcode.cn/aliyun-lc-upload/users/wei-j…
+              << 200 OK (content missing)
+[12:13:15.137] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:15.144][127.0.0.1:51874] Streaming response from assets.leetcode.cn.
+127.0.0.1:51874: GET https://assets.leetcode.cn/aliyun-lc-upload/users/jiino…
+              << 200 OK (content missing)
+[12:13:15.145] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:15.149][127.0.0.1:51875] Streaming response from assets.leetcode.cn.
+127.0.0.1:51875: GET https://assets.leetcode.cn/aliyun-lc-upload/users/shan-…
+              << 200 OK (content missing)
+[12:13:15.154] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:15.159] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:15.160][127.0.0.1:51878] Streaming response from assets.leetcode.cn.
+127.0.0.1:51878: GET https://assets.leetcode.cn/aliyun-lc-upload/users/shuff…
+              << 200 OK (content missing)
+[12:13:15.161] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:15.163] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:15.168][127.0.0.1:51874] Streaming response from assets.leetcode.cn.
+127.0.0.1:51874: GET https://assets.leetcode.cn/aliyun-lc-upload/users/i3usy…
+              << 200 OK (content missing)
+[12:13:15.169] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:15.178][127.0.0.1:51875] Streaming response from assets.leetcode.cn.
+127.0.0.1:51875: GET https://assets.leetcode.cn/aliyun-lc-upload/users/xiaox…
+              << 200 OK (content missing)
+127.0.0.1:51878: GET https://assets.leetcode.cn/aliyun-lc-upload/users/price…
+              << 304 Not Modified 0b
+[12:13:15.186][127.0.0.1:51878] server disconnect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:51877: GET https://assets.leetcode.cn/aliyun-lc-upload/default_ava…
+              << 304 Not Modified 0b
+[12:13:15.187][127.0.0.1:51877] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:15.187][127.0.0.1:51878] client disconnect
+[12:13:15.188][127.0.0.1:51876] Streaming response from assets.leetcode.cn.
+[12:13:15.188][127.0.0.1:51877] client disconnect
+127.0.0.1:51876: GET https://assets.leetcode.cn/aliyun-lc-upload/users/mrz-h…
+              << 200 OK (content missing)
+127.0.0.1:51874: GET https://assets.leetcode.cn/aliyun-lc-upload/medal/medal…
+              << 304 Not Modified 0b
+[12:13:15.196][127.0.0.1:51874] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:15.196][127.0.0.1:51874] client disconnect
+[12:13:15.215][127.0.0.1:51888] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:15.344][127.0.0.1:51694] Streaming request to api.growingio.com.
+[12:13:15.345] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:15.346][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:15.346] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:15.348][127.0.0.1:51820] Streaming request to analysis.leetcode.cn.
+[12:13:15.348] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51820: POST https://analysis.leetcode.cn/i/event HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:51694: POST https://api.growingio.com/v2/a2873925c34ecbd2/web/actio…
+              << 200 OK 0b
+[12:13:15.511][127.0.0.1:51686] Streaming response from leetcode.cn.
+127.0.0.1:51686: POST https://leetcode.cn/problems/range-sum-of-bst/interpret…
+              << 200 OK (content missing)
+[12:13:15.524] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51686: GET https://leetcode.cn/submissions/detail/runcode_17089207…
+              << 200 OK 20b
+[12:13:15.781] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:15.873] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:15.917][127.0.0.1:51910] client connect
+127.0.0.1:51842: GET https://data.bilibili.com/log/web?001114170892079577717… HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:51686: GET https://leetcode.cn/submissions/detail/runcode_17089207…
+              << 200 OK 20b
+[12:13:16.413] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:16.554][127.0.0.1:51686] Streaming response from leetcode.cn.
+127.0.0.1:51686: GET https://leetcode.cn/submissions/detail/runcode_17089207…
+              << 200 OK (content missing)
+[12:13:16.558][127.0.0.1:51694] Streaming request to api.growingio.com.
+[12:13:16.559] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:16.562] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:16.577][127.0.0.1:51708] Streaming request to api.growingio.com.
+[12:13:16.577] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:16.580][127.0.0.1:51710] Streaming request to api.growingio.com.
+[12:13:16.580] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:16.583][127.0.0.1:51709] Streaming request to api.growingio.com.
+[12:13:16.583] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51694: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+127.0.0.1:51708: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+127.0.0.1:51710: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+127.0.0.1:51709: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+127.0.0.1:51821: POST https://analytics.google.com/g/collect?v=2&tid=G-PDVPZY… HTTP/2.0
+     << HTTP/2.0 204 No Content 0b
+[12:13:17.387][127.0.0.1:51820] Streaming request to analysis.leetcode.cn.
+[12:13:17.388] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51820: POST https://analysis.leetcode.cn/i/event HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[12:13:17.953][127.0.0.1:51910] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:51910 -> tcp -> mtalk.google.com:443
+127.0.0.1:51910 <- tcp <- mtalk.google.com:443
+[12:13:19.570][127.0.0.1:51709] Streaming request to api.growingio.com.
+[12:13:19.570] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:19.572][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:19.573] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:19.574][127.0.0.1:51820] Streaming request to analysis.leetcode.cn.
+[12:13:19.574] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51820: POST https://analysis.leetcode.cn/i/event HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:51709: POST https://api.growingio.com/v2/a2873925c34ecbd2/web/actio…
+              << 200 OK 0b
+127.0.0.1:51686: POST https://leetcode.cn/problems/range-sum-of-bst/interpret…
+              << 429 Too Many Requests 0b
+[12:13:19.705][127.0.0.1:51709] Streaming request to api.growingio.com.
+[12:13:19.705] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51709: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+[12:13:20.014][127.0.0.1:51820] Streaming request to analysis.leetcode.cn.
+[12:13:20.015] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51820: POST https://analysis.leetcode.cn/i/event HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[12:13:20.839][127.0.0.1:51709] Streaming request to api.growingio.com.
+[12:13:20.839] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:20.840][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:20.841] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:20.842][127.0.0.1:51820] Streaming request to analysis.leetcode.cn.
+[12:13:20.843] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:20.868][127.0.0.1:51702] server disconnect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:51820: POST https://analysis.leetcode.cn/i/event HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:51709: POST https://api.growingio.com/v2/a2873925c34ecbd2/web/actio…
+              << 200 OK 0b
+127.0.0.1:51686: POST https://leetcode.cn/problems/range-sum-of-bst/interpret…
+              << 429 Too Many Requests 0b
+[12:13:20.999][127.0.0.1:51709] Streaming request to api.growingio.com.
+[12:13:21.000] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51709: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+[12:13:21.564][127.0.0.1:51821] Streaming request to analytics.google.com.
+[12:13:21.565] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51821: POST https://analytics.google.com/g/collect?v=2&tid=G-PDVPZY… HTTP/2.0
+     << HTTP/2.0 204 No Content 0b
+[12:13:21.812][127.0.0.1:51820] Streaming request to analysis.leetcode.cn.
+[12:13:21.814] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51820: POST https://analysis.leetcode.cn/i/event HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[12:13:24.233][127.0.0.1:51709] Streaming request to api.growingio.com.
+[12:13:24.234] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:24.235][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:24.236] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:24.237][127.0.0.1:51820] Streaming request to analysis.leetcode.cn.
+[12:13:24.238] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51820: POST https://analysis.leetcode.cn/i/event HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:51709: POST https://api.growingio.com/v2/a2873925c34ecbd2/web/actio…
+              << 200 OK 0b
+127.0.0.1:51686: POST https://leetcode.cn/problems/range-sum-of-bst/interpret…
+              << 429 Too Many Requests 0b
+[12:13:24.395][127.0.0.1:51709] Streaming request to api.growingio.com.
+[12:13:24.395] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51709: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+[12:13:25.202][127.0.0.1:51820] Streaming request to analysis.leetcode.cn.
+[12:13:25.203] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:25.207] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51820: POST https://analysis.leetcode.cn/i/event HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:51820: POST https://analysis.leetcode.cn/i/event HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[12:13:25.258][127.0.0.1:51920] client connect
+[12:13:25.259] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:25.395][127.0.0.1:51686] Streaming response from leetcode.cn.
+[12:13:25.403][127.0.0.1:51821] Streaming request to analytics.google.com.
+[12:13:25.403] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:25.405][127.0.0.1:51803] Streaming request to sentry1.lingkou.xyz.
+127.0.0.1:51840: GET https://ff-proxy.leetcode.cn/sub/sdk-8iOC11xvkMhY6iS HTTP/2.0
+     << HTTP/2.0 200 OK (content missing)
+ << stream reset by client (CANCEL)
+[12:13:25.406] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:25.407] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51686: GET https://leetcode.cn/problems/range-sum-of-bst/?envType=…
+              << 200 OK (content missing)
+127.0.0.1:51803: POST https://sentry1.lingkou.xyz/api/2/envelope/?sentry_key=…
+              << 200 OK 2b
+[12:13:25.469][127.0.0.1:51803] Streaming request to sentry1.lingkou.xyz.
+[12:13:25.469] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51803: POST https://sentry1.lingkou.xyz/api/2/envelope/?sentry_key=…
+              << 200 OK 2b
+127.0.0.1:51821: POST https://analytics.google.com/g/collect?v=2&tid=G-PDVPZY… HTTP/2.0
+     << HTTP/2.0 204 No Content 0b
+[12:13:25.725][127.0.0.1:51923] client connect
+[12:13:27.289][127.0.0.1:51920] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:27.379] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51920: GET https://static.leetcode.cn/cn-frontendx-assets/producti…
+              << 304 Not Modified 0b
+[12:13:27.403][127.0.0.1:51920] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:27.403][127.0.0.1:51920] client disconnect
+[12:13:27.430][127.0.0.1:51702] server connect localhost:7890 (127.0.0.1:7890)
+127.0.0.1:51702: GET https://hm.baidu.com/hm.gif?hca=58E2DF4A64CC7E28&cc=1&c…
+              << 200 OK 43b
+[12:13:27.745][127.0.0.1:51923] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:27.813] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51923: GET https://static.leetcode.cn/cn-frontendx-assets/producti…
+              << 304 Not Modified 0b
+[12:13:27.832][127.0.0.1:51923] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:27.832][127.0.0.1:51923] client disconnect
+[12:13:28.010][127.0.0.1:51931] client connect
+[12:13:28.013][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:28.013] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.016][127.0.0.1:51683] Streaming request to leetcode.cn.
+[12:13:28.016][127.0.0.1:51681] Streaming request to leetcode.cn.
+[12:13:28.017] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.018] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.019][127.0.0.1:51685] Streaming request to leetcode.cn.
+[12:13:28.020] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.022][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:28.022][127.0.0.1:51684] Streaming request to leetcode.cn.
+[12:13:28.023] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.023] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51686: POST https://leetcode.cn/graphql/
+              << 200 OK 30b
+[12:13:28.358][127.0.0.1:51634] Streaming response from leetcode.cn.
+[12:13:28.358][127.0.0.1:51683] Streaming response from leetcode.cn.
+[12:13:28.359][127.0.0.1:51685] Streaming response from leetcode.cn.
+[12:13:28.359][127.0.0.1:51684] Streaming response from leetcode.cn.
+127.0.0.1:51681: POST https://leetcode.cn/graphql/
+              << 200 OK 40b
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+127.0.0.1:51683: POST https://leetcode.cn/graphql/noj-go/
+              << 200 OK (content missing)
+127.0.0.1:51685: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+127.0.0.1:51684: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:28.364][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:28.365][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:28.365][127.0.0.1:51683] Streaming request to leetcode.cn.
+[12:13:28.366][127.0.0.1:51685] Streaming request to leetcode.cn.
+[12:13:28.366] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.367] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.367] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.368] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.382][127.0.0.1:51681] Streaming request to leetcode.cn.
+[12:13:28.382] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.383][127.0.0.1:51684] Streaming request to leetcode.cn.
+[12:13:28.383] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.396] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.403][127.0.0.1:51709] Streaming request to api.growingio.com.
+[12:13:28.404] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.406][127.0.0.1:51710] Streaming request to api.growingio.com.
+[12:13:28.406] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.406] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.409] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.411] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51702: GET https://hm.baidu.com/hm.js?f0faad39bcf8471e3ab3ef701251…
+              << 304 Not Modified 0b
+[12:13:28.449][127.0.0.1:51933] client connect
+[12:13:28.450] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51709: POST https://api.growingio.com/v2/a2873925c34ecbd2/web/pv?st…
+              << 200 OK 0b
+127.0.0.1:51710: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+127.0.0.1:51686: POST https://leetcode.cn/graphql/
+              << 200 OK 42b
+127.0.0.1:51702: GET https://hm.baidu.com/hm.gif?cc=1&ck=1&cl=24-bit&ds=2560…
+              << 200 OK 43b
+[12:13:28.503] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.510][127.0.0.1:51634] Streaming response from leetcode.cn.
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+127.0.0.1:51685: POST https://leetcode.cn/graphql/
+              << 200 OK 72b
+127.0.0.1:51681: POST https://leetcode.cn/graphql/
+              << 200 OK 37b
+127.0.0.1:51684: POST https://leetcode.cn/graphql/
+              << 200 OK 65b
+127.0.0.1:51696: GET https://www.google-analytics.com/collect?v=1&_v=j101&a=… HTTP/2.0
+     << HTTP/2.0 200 OK 35b
+[12:13:28.520][127.0.0.1:51683] Streaming response from leetcode.cn.
+127.0.0.1:51696: POST https://www.google-analytics.com/j/collect?v=1&_v=j101&… HTTP/2.0
+     << HTTP/2.0 200 OK 3b
+127.0.0.1:51821: POST https://analytics.google.com/g/collect?v=2&tid=G-PDVPZY… HTTP/2.0
+     << HTTP/2.0 204 No Content 0b
+127.0.0.1:51683: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+127.0.0.1:51702: GET https://hm.baidu.com/hm.gif?hca=58E2DF4A64CC7E28&cc=1&c…
+              << 200 OK 43b
+[12:13:28.565] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.582][127.0.0.1:51683] Streaming request to leetcode.cn.
+[12:13:28.583] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.585][127.0.0.1:51684] Streaming request to leetcode.cn.
+[12:13:28.587] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.588][127.0.0.1:51681] Streaming request to leetcode.cn.
+[12:13:28.588][127.0.0.1:51685] Streaming request to leetcode.cn.
+[12:13:28.589][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:28.589][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:28.590] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.590] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.591] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.591] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51876: GET https://assets.leetcode.cn/aliyun-lc-upload/users/baizh…
+              << 304 Not Modified 0b
+[12:13:28.605][127.0.0.1:51876] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:28.605][127.0.0.1:51876] client disconnect
+[12:13:28.630][127.0.0.1:51710] Streaming request to api.growingio.com.
+[12:13:28.630] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.632] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.635][127.0.0.1:51803] Streaming request to sentry1.lingkou.xyz.
+[12:13:28.636][127.0.0.1:51813] Streaming request to sentry1.lingkou.xyz.
+[12:13:28.636] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.636] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.642][127.0.0.1:51709] Streaming request to api.growingio.com.
+[12:13:28.643] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.644][127.0.0.1:51708] Streaming request to api.growingio.com.
+[12:13:28.645][127.0.0.1:51694] Streaming request to api.growingio.com.
+[12:13:28.645] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.646] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.693][127.0.0.1:51935] client connect
+[12:13:28.697][127.0.0.1:51718] Streaming request to api.growingio.com.
+[12:13:28.698] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.701][127.0.0.1:51634] Streaming response from leetcode.cn.
+127.0.0.1:51710: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+127.0.0.1:51709: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+127.0.0.1:51803: POST https://sentry1.lingkou.xyz/api/2/envelope/?sentry_key=…
+              << 200 OK 2b
+127.0.0.1:51813: POST https://sentry1.lingkou.xyz/api/2/envelope/?sentry_key=…
+              << 200 OK 2b
+[12:13:28.707][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:28.707] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51694: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+127.0.0.1:51683: POST https://leetcode.cn/graphql/
+              << 200 OK 71b
+127.0.0.1:51708: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+[12:13:28.719][127.0.0.1:51683] Streaming request to leetcode.cn.
+[12:13:28.720] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51681: POST https://leetcode.cn/graphql/
+              << 200 OK 52b
+[12:13:28.742][127.0.0.1:51681] Streaming request to leetcode.cn.
+[12:13:28.743] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51684: POST https://leetcode.cn/graphql/
+              << 200 OK 35b
+127.0.0.1:51718: POST https://api.growingio.com/v2/a2873925c34ecbd2/web/pv?st…
+              << 200 OK 0b
+127.0.0.1:51685: POST https://leetcode.cn/graphql/
+              << 200 OK 60b
+127.0.0.1:51686: POST https://leetcode.cn/graphql/
+              << 200 OK 66b
+[12:13:28.763][127.0.0.1:51684] Streaming request to leetcode.cn.
+[12:13:28.764] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.765][127.0.0.1:51685] Streaming request to leetcode.cn.
+[12:13:28.766] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.767][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:28.768] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51821: POST https://analytics.google.com/g/collect?v=2&tid=G-PDVPZY… HTTP/2.0
+     << HTTP/2.0 204 No Content 0b
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK 33b
+[12:13:28.847][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:28.848] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.850][127.0.0.1:51683] Streaming response from leetcode.cn.
+127.0.0.1:51683: POST https://leetcode.cn/graphql/noj-go/
+              << 200 OK (content missing)
+[12:13:28.853][127.0.0.1:51683] Streaming request to leetcode.cn.
+[12:13:28.853] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.863][127.0.0.1:51684] Streaming response from leetcode.cn.
+127.0.0.1:51684: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:28.866][127.0.0.1:51684] Streaming request to leetcode.cn.
+[12:13:28.867] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51685: POST https://leetcode.cn/graphql/
+              << 200 OK 41b
+[12:13:28.880][127.0.0.1:51685] Streaming request to leetcode.cn.
+[12:13:28.881] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51686: POST https://leetcode.cn/graphql/
+              << 200 OK 37b
+[12:13:28.885][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:28.886] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.940][127.0.0.1:51681] Streaming response from leetcode.cn.
+127.0.0.1:51681: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:28.943][127.0.0.1:51681] Streaming request to leetcode.cn.
+[12:13:28.943] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51683: POST https://leetcode.cn/graphql/
+              << 200 OK 46b
+[12:13:28.968][127.0.0.1:51634] Streaming response from leetcode.cn.
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:28.970][127.0.0.1:51683] Streaming request to leetcode.cn.
+[12:13:28.971] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:28.972][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:28.972] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51684: POST https://leetcode.cn/graphql/
+              << 200 OK 34b
+[12:13:28.979][127.0.0.1:51684] Streaming request to leetcode.cn.
+[12:13:28.980] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51686: POST https://leetcode.cn/graphql/
+              << 200 OK 43b
+[12:13:29.026][127.0.0.1:51685] Streaming response from leetcode.cn.
+127.0.0.1:51685: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:29.029][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:29.030] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:29.031][127.0.0.1:51685] Streaming request to leetcode.cn.
+[12:13:29.031] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:29.376][127.0.0.1:51686] Streaming response from leetcode.cn.
+[12:13:29.377][127.0.0.1:51634] Streaming response from leetcode.cn.
+[12:13:29.377][127.0.0.1:51684] Streaming response from leetcode.cn.
+127.0.0.1:51681: POST https://leetcode.cn/graphql/
+              << 200 OK 47b
+127.0.0.1:51685: POST https://leetcode.cn/graphql/noj-go/
+              << 200 OK 42b
+127.0.0.1:51686: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+127.0.0.1:51683: POST https://leetcode.cn/graphql/
+              << 200 OK 38b
+127.0.0.1:51684: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:29.383][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:29.384][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:29.384][127.0.0.1:51684] Streaming request to leetcode.cn.
+[12:13:29.385] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:29.386] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:29.387] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:29.389][127.0.0.1:51681] Streaming request to leetcode.cn.
+[12:13:29.390][127.0.0.1:51685] Streaming request to leetcode.cn.
+[12:13:29.390][127.0.0.1:51683] Streaming request to leetcode.cn.
+[12:13:29.390] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:29.391] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:29.392] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:29.456][127.0.0.1:51820] Streaming request to analysis.leetcode.cn.
+[12:13:29.457] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51820: POST https://analysis.leetcode.cn/i/event HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:51686: POST https://leetcode.cn/graphql/noj-go/
+              << 200 OK 29b
+[12:13:29.513][127.0.0.1:51686] Streaming request to leetcode.cn.
+[12:13:29.513] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51685: POST https://leetcode.cn/graphql/
+              << 200 OK 46b
+[12:13:29.524][127.0.0.1:51685] Streaming request to leetcode.cn.
+[12:13:29.524] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:29.525][127.0.0.1:51684] Streaming response from leetcode.cn.
+127.0.0.1:51684: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+127.0.0.1:51683: POST https://leetcode.cn/graphql/
+              << 200 OK 46b
+127.0.0.1:51681: POST https://leetcode.cn/graphql/
+              << 200 OK 46b
+[12:13:29.538][127.0.0.1:51634] Streaming response from leetcode.cn.
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:29.555][127.0.0.1:51718] Streaming request to api.growingio.com.
+[12:13:29.555] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:29.556][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:29.558] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:29.559][127.0.0.1:51820] Streaming request to analysis.leetcode.cn.
+[12:13:29.559] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:29.575][127.0.0.1:51813] Streaming request to sentry1.lingkou.xyz.
+[12:13:29.576] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:29.577][127.0.0.1:51803] Streaming request to sentry1.lingkou.xyz.
+[12:13:29.578] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:29.592][127.0.0.1:51708] Streaming request to api.growingio.com.
+[12:13:29.592] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51820: POST https://analysis.leetcode.cn/i/event HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+127.0.0.1:51718: POST https://api.growingio.com/v2/a2873925c34ecbd2/web/actio…
+              << 200 OK 0b
+127.0.0.1:51813: POST https://sentry1.lingkou.xyz/api/2/envelope/?sentry_key=…
+              << 200 OK 2b
+127.0.0.1:51803: POST https://sentry1.lingkou.xyz/api/2/envelope/?sentry_key=…
+              << 200 OK 2b
+127.0.0.1:51708: POST https://api.growingio.com/v2/a2873925c34ecbd2/web/pv?st…
+              << 200 OK 0b
+127.0.0.1:51685: POST https://leetcode.cn/graphql/
+              << 200 OK 49b
+[12:13:29.725][127.0.0.1:51686] Streaming response from leetcode.cn.
+[12:13:29.726][127.0.0.1:51634] Streaming response from leetcode.cn.
+127.0.0.1:51686: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+127.0.0.1:51634: POST https://leetcode.cn/problems/range-sum-of-bst/interpret…
+              << 200 OK (content missing)
+[12:13:29.765] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:29.799] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:29.803] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:29.805][127.0.0.1:51938] client connect
+127.0.0.1:51888: GET https://assets.leetcode.cn/aliyun-lc-upload/users/price…
+              << 304 Not Modified 0b
+127.0.0.1:51875: GET https://assets.leetcode.cn/aliyun-lc-upload/users/wei-j…
+              << 304 Not Modified 0b
+[12:13:29.838][127.0.0.1:51888] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:29.839][127.0.0.1:51875] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:29.839][127.0.0.1:51888] client disconnect
+[12:13:29.839][127.0.0.1:51875] client disconnect
+127.0.0.1:51634: GET https://leetcode.cn/submissions/detail/runcode_17089208…
+              << 200 OK 20b
+[12:13:29.896][127.0.0.1:51634] Streaming request to leetcode.cn.
+[12:13:29.896] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:30.045][127.0.0.1:51931] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:30.076][127.0.0.1:51634] Streaming response from leetcode.cn.
+127.0.0.1:51634: POST https://leetcode.cn/graphql/
+              << 200 OK (content missing)
+[12:13:30.111] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51931: GET https://static.leetcode.cn/cn-frontendx-assets/producti…
+              << 304 Not Modified 0b
+[12:13:30.140][127.0.0.1:51931] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:30.140][127.0.0.1:51942] client connect
+[12:13:30.141][127.0.0.1:51931] client disconnect
+[12:13:30.143][127.0.0.1:51943] client connect
+[12:13:30.145][127.0.0.1:51944] client connect
+[12:13:30.171][127.0.0.1:51948] client connect
+[12:13:30.171][127.0.0.1:51949] client connect
+[12:13:30.220][127.0.0.1:51708] Streaming request to api.growingio.com.
+[12:13:30.221] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:30.259] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51871: GET https://assets.leetcode-cn.com/contest/level/Knight_sm.…
+              << 304 Not Modified 0b
+[12:13:30.281][127.0.0.1:51871] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:30.281][127.0.0.1:51871] client disconnect
+127.0.0.1:51708: POST https://api.growingio.com/v2/a2873925c34ecbd2/web/actio…
+              << 200 OK 0b
+[12:13:30.430] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:30.477][127.0.0.1:51933] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:30.563][127.0.0.1:51634] Streaming response from leetcode.cn.
+127.0.0.1:51634: GET https://leetcode.cn/submissions/detail/runcode_17089208…
+              << 200 OK (content missing)
+[12:13:30.567][127.0.0.1:51708] Streaming request to api.growingio.com.
+[12:13:30.568] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:30.587][127.0.0.1:51718] Streaming request to api.growingio.com.
+[12:13:30.587] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:30.590][127.0.0.1:51694] Streaming request to api.growingio.com.
+[12:13:30.590] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:30.592][127.0.0.1:51709] Streaming request to api.growingio.com.
+[12:13:30.592] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51718: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+127.0.0.1:51708: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+127.0.0.1:51694: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+127.0.0.1:51709: POST https://api.growingio.com/custom/a2873925c34ecbd2/web/c…
+              << 200 OK 0b
+[12:13:30.742][127.0.0.1:51935] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:30.884] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51935: GET https://static.leetcode-cn.com/cn-legacy-assets/images/…
+              << 304 Not Modified 0b
+[12:13:30.904][127.0.0.1:51935] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:30.904][127.0.0.1:51935] client disconnect
+[12:13:31.401][127.0.0.1:51820] Streaming request to analysis.leetcode.cn.
+[12:13:31.402] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51820: POST https://analysis.leetcode.cn/i/event HTTP/2.0
+     << HTTP/2.0 200 OK 2b
+[12:13:31.845][127.0.0.1:51938] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:31.918] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51938: GET https://assets.leetcode.cn/aliyun-lc-upload/users/jiino…
+              << 304 Not Modified 0b
+[12:13:31.940][127.0.0.1:51938] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:31.940][127.0.0.1:51938] client disconnect
+[12:13:31.941][127.0.0.1:51959] client connect
+[12:13:32.157][127.0.0.1:51942] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:32.172][127.0.0.1:51944] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:32.173][127.0.0.1:51943] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:32.188][127.0.0.1:51949] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:32.204][127.0.0.1:51948] server connect localhost:7890 (127.0.0.1:7890)
+[12:13:32.222] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51942: GET https://assets.leetcode.cn/aliyun-lc-upload/default_ava…
+              << 304 Not Modified 0b
+[12:13:32.261][127.0.0.1:51942] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:32.262][127.0.0.1:51942] client disconnect
+[12:13:32.263][127.0.0.1:51971] client connect
+[12:13:32.268] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:32.269] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:32.271] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+[12:13:32.281] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51944: GET https://assets.leetcode.cn/aliyun-lc-upload/users/i3usy…
+              << 304 Not Modified 0b
+[12:13:32.292][127.0.0.1:51944] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:32.292][127.0.0.1:51944] client disconnect
+127.0.0.1:51943: GET https://assets.leetcode.cn/aliyun-lc-upload/users/shuff…
+              << 304 Not Modified 0b
+127.0.0.1:51948: GET https://assets.leetcode.cn/aliyun-lc-upload/users/xiaox…
+              << 304 Not Modified 0b
+127.0.0.1:51949: GET https://assets.leetcode.cn/aliyun-lc-upload/users/shan-…
+              << 304 Not Modified 0b
+[12:13:32.305][127.0.0.1:51943] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:32.306][127.0.0.1:51948] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:32.306][127.0.0.1:51949] server disconnect localhost:7890 (127.0.0.1:7890)
+[12:13:32.307][127.0.0.1:51943] client disconnect
+[12:13:32.307][127.0.0.1:51948] client disconnect
+[12:13:32.307][127.0.0.1:51949] client disconnect
+[12:13:32.319][127.0.0.1:51803] Streaming request to sentry1.lingkou.xyz.
+[12:13:32.319] <module 'mitmproxy.ctx' from 'C:\\Users\\chao\\.conda\\envs\\protect\\lib\\site-packages\\mitmproxy\\ctx.py'>
+127.0.0.1:51803: POST https://sentry1.lingkou.xyz/api/2/envelope/?sentry_key=…
+              << 200 OK 2b

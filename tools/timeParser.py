@@ -44,6 +44,6 @@ def checkWeek(interval:str, value:List[int]):
     week = now.weekday()
     return week + 1 in value and check_interval(start_time, end_time)
 
-if __name__ == '__main__':
-    st, ed = parsePeriod('2024.2.20 8:30-2024.2.26 8:30')
-    print(st, ed)
+# if __name__ == '__main__':
+#     st, ed = parsePeriod('2024.2.20 8:30-2024.2.26 8:30')
+#     print(st, ed)

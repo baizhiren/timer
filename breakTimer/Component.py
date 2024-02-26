@@ -11,11 +11,12 @@ from breakTimer.Plug import Plug
 
 
 class Component(Plug):
-    def __init__(self, time_gap=5, name='组件', todo='', awake:Dict[str, str]=None):
+    def __init__(self, time_gap=5, name='组件', todo='', awake:Dict[str, str]=None, retry=False):
         self.time_gap = time_gap
         self.is_end = False
         self.name = name
         self.awake = awake
+        self.retry = retry
         if todo != '':
             self.todo = todo
 
@@ -30,7 +31,8 @@ class Component(Plug):
                 self.error()
                 print(f'任务{self.name}错误', e)
                 print(traceback.print_exc())
-                break
+                if not self.retry:
+                    break
             time.sleep(self.time_gap)
 
     def stop(self):
