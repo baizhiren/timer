@@ -49,7 +49,7 @@
 
 **运行方式**：解压release 中的breakTimer.zip文件后，运行其中的breakTimer.exe文件
 
-
+都看到这了，给个小星星吧~
 ---
 ## 时间参数
 
