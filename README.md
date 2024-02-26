@@ -37,9 +37,9 @@
     学习模式可以启动黑名单来关掉一些让人分心的应用（参考config参数中的"black_lists"项配置）
 
 12. 学习模式黑名单（针对网页）:
-    可以阻止一些网络域名，通过代理的方式实现，参考config参数中"block_website"配置，同时支持链接vpn后的网站过滤
+    可以阻止一些网络域名，通过代理的方式实现，同时支持链接vpn后的网站过滤
 
-    若想使用这个功能，请下载[mitmproxy 证书](https://docs.mitmproxy.org/stable/concepts-certificates/)
+    若想使用这个功能，请下载[mitmproxy 证书](https://docs.mitmproxy.org/stable/concepts-certificates/)，并参考config参数中"block_website"配置，
 
 14. 休息模式白名单
     如果想在一些时间段禁止休息模式的开启（以防止开会等情况）, 可以参考config参数中的"white_sheet""项配置
@@ -49,7 +49,8 @@
 
 **运行方式**：解压release 中的breakTimer.zip文件后，运行其中的breakTimer.exe文件
 
-都看到这了，给个小星星吧~
+**都看到这了，给个小星星吧~**
+
 ---
 ## 时间参数
 
@@ -154,7 +155,7 @@
             "steam.exe",
             "chrome.exe"
          ],
-         "enable": true, # 是否开启
+         "enable": 1, # 是否开启
          'time':{
              'mode': 'click',
           }
