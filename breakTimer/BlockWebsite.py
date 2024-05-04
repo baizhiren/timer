@@ -48,6 +48,7 @@ class BlockWebsite(Component):
         import os
         next_website = []
         new_website_name = set()
+        # 已有的是否过期
         if self.pre_website != -1:
             for website in self.pre_website:
                 if not check_expire(website["time"]):
@@ -146,6 +147,13 @@ class BlockWebsite(Component):
     def error(self):
         if self.modify_proxy_option:
             self.modify_proxy_option.stop()
+
+    def stop(self):
+        super().stop()
+        if self.modify_proxy_option:
+            self.modify_proxy_option.stop()
+        self.block_process.stop()
+
 
 
 

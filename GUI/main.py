@@ -26,7 +26,7 @@ from breakTimer.DelayBreak import DelayBreak
 from breakTimer.FileChecker import FileChecker
 from breakTimer.Hook import Hook
 
-app_name = "breakTimer3.9.5"
+app_name = "breakTimer3.9.6"
 
 # 打开注册表键
 
@@ -41,7 +41,7 @@ from breakTimer.LeaveDetect import LeaveDetect
 
 ui.FAILSAFE = False
 ['正常', '学习', '短', '休息', '超短']
-debug_mode = '短'
+debug_mode = '休息'
 
 import logging
 
@@ -73,6 +73,19 @@ def redirect_print_to_log(log_file_path):
     sys.stdout = print_to_log
 
 
+def create_if_not_exist(file_path):
+    if not os.path.exists(file_path):
+        # 文件不存在，创建文件并写入内容
+        with open(file_path, "w") as file:
+            file.write("")
+        print(f"文件 '{file_path}' 不存在，已创建文件。")
+    else:
+        # 文件已存在，不做任何操作
+        print(f"文件 '{file_path}' 已存在，不做任何操作。")
+
+
+
+
 if __name__ == '__main__':
     # multiprocessing.freeze_support()
 
@@ -89,16 +102,22 @@ if __name__ == '__main__':
         # print("自动启动时的环境变量：", os.environ)
         # print("自动启动时的环境变量：", os.environ.get('PYTHONPATH'))
         user_dir = os.environ['USERPROFILE'] + '\\.breakTimer'
+        log_dir = user_dir + "\\output.log"
+
+        work_dir = os.getcwd()
+
+
+        config_path = user_dir + '\\location.txt'
+
+
+        os.makedirs(user_dir, exist_ok=True)
+        create_if_not_exist(log_dir)
+
         if not debug:
             redirect_print_to_log(user_dir + "\\output.log")
 
-        work_dir = os.getcwd()
         print("自动启动时的当前工作目录：", work_dir)
-
-        config_path = user_dir + '\\location.txt'
         print('config_path: ', config_path)
-
-        os.makedirs(user_dir, exist_ok=True)
 
         try:
             with open(config_path, 'r') as file:
@@ -110,7 +129,7 @@ if __name__ == '__main__':
                 file.write(path)
 
         proxy_path = os.environ['USERPROFILE'] + r"//.config/clash/profiles"
-        print(proxy_path)
+        print("proxy_path", proxy_path)
         import os
         # proxy_path
 
@@ -159,60 +178,60 @@ if __name__ == '__main__':
             "mouse_lock": 1,
             "auto_boot": 1,
             "break_now_time": 20,
-            "black_lists": [
-              {
-                 "name": "study",
-                 "list": [
-                    "msedge.exe",
-                    "steam.exe",
-                    "chrome.exe"
-                 ],
-                 "enable": 0,
-                 "time": {
-                    "mode": "click"
-                 }
-              },
-              {
-                 "name": "test",
-                 "list": [
-                    "chrome.exe"
-                 ],
-                 "enable": 0,
-                 "time": {
-                    "mode": "day",
-                    "interval": "11:00-12:30"
-                 }
-              }
-            ],
-            "block_website": {
-              "enable": 0,
-              "proxy_rules_location": "C:\\Users\\chao//.config/clash/profiles",
-              "websites": [
-                 {
-                    "name": "zhihu.com",
-                    "time": {
-                       "mode": "period",
-                       "interval": "2024.2.22 14:00-2024.2.22 23:00"
-                    },
-                    "enable": 1
-                 }
-              ]
-            },
             "block_keyboard": 1,
             "full_screen": 1,
             "lock_screen_when_start_rest": 1,
             "topmost": 1,
+            "leave_restart": 1,
+            "pause_current_app_when_break": 1,
+            "delay_break": 1,
+            "check_window_position": 1,
+            "monitor_gap": 1,
+            "black_lists": [
+                {
+                    "name": "study",
+                    "list": [
+                        "msedge.exe",
+                        "steam.exe",
+                        "chrome.exe"
+                    ],
+                    "enable": 0,
+                    "time": {
+                        "mode": "click"
+                    }
+                },
+                {
+                    "name": "test",
+                    "list": [
+                        "chrome.exe"
+                    ],
+                    "enable": 0,
+                    "time": {
+                        "mode": "day",
+                        "interval": "11:00-12:30"
+                    }
+                }
+            ],
+            "block_website": {
+                "enable": 0,
+                "proxy_rules_location": "C:\\Users\\chao//.config/clash/profiles",
+                "websites": [
+                    {
+                        "name": "zhihu.com",
+                        "time": {
+                            "mode": "period",
+                            "interval": "2024.2.22 14:00-2024.2.22 23:00"
+                        },
+                        "enable": 1
+                    }
+                ]
+            },
             "white_sheet": [
                 {
                     "mode": "period",
                     "interval": "2024.2.21 10:00-2024.2.21 10:10"
                 }
-            ],
-            "leave_restart": 1,
-            "pause_current_app_when_break": 1,
-            "delay_break": 1,
-            "check_window_position": 1,
-            "monitor_gap": 1
+            ]
         }
 
         wx = "500"
@@ -225,7 +244,7 @@ if __name__ == '__main__':
         target_end = ''
         now = ''
         destory = False
-        global block_website
+        block_website = None
 
 
         class JsonWriter(Component, Hook):
@@ -234,10 +253,24 @@ if __name__ == '__main__':
                 super().__init__(name='jsonWriter')
 
             def start_fish(self):
+                global block_website
+                pre_block_enable = v_["block_website"]["enable"]
+
                 write_configs(False, False)
                 # 做一些热更新
                 # 1. block website的网站更新
-                block_website.websites = v_["block_website"]["websites"]
+                if block_website:
+                    block_website.websites = v_["block_website"]["websites"]
+
+                if pre_block_enable == 0 and v_["block_website"]["enable"] == 1:
+                    block_website = BlockWebsite(block_websites=v_["block_website"]["websites"],
+                                                 dir=v_["block_website"]["proxy_rules_location"])
+                    Thread(name='网页阻止', target=block_website.start, daemon=True).start()
+                    print('**代理服务器开启')
+                if pre_block_enable == 1 and v_["block_website"]["enable"] == 0:
+                    block_website.stop()
+                    print('**关闭代理服务器！')
+
 
                 # 2. 白名单更新
                 # print(f'已读取新配置config{v_}')
@@ -349,20 +382,20 @@ if __name__ == '__main__':
         now_state = ''
         #作弊
         if debug:
-            v_["full_screen"] = 0
+            #v_["full_screen"] = 0
             v_["mouse_lock"] = 0
-            v_["lock_screen_when_start_rest"] = 0
+            #v_["lock_screen_when_start_rest"] = 0
             v_["topmost"] = 0
             v_["leave_restart"] = 1
             v_["block_keyboard"] = 0
-            force = 0
+            # force = 0
             if debug_mode == '正常':
                 studyTime = 15
                 smallTime = 15
                 bigTime = 15
                 smallNum = 3
             elif debug_mode == '学习':
-                studyTime = 30
+                studyTime = 20
                 smallTime = 5
                 bigTime = 10
                 smallNum = 3
@@ -373,8 +406,8 @@ if __name__ == '__main__':
                 smallNum = 2
             elif  debug_mode == '休息':
                 studyTime = 5
-                smallTime = 30
-                bigTime = 10
+                smallTime = 20
+                bigTime = 25
                 smallNum = 3
             elif debug_mode == '短':
                 studyTime = 8
@@ -512,7 +545,11 @@ if __name__ == '__main__':
                         if v_["full_screen"]:
                             root.attributes('-fullscreen', True)
                             if v_["split_screen"]:
-                                Thread(name='span in the full stage', target=span, daemon=True).start()
+                                # split_screen_timer = Timer(1, span)
+                                # split_screen_timer.name = 'split screen in the loop span'
+                                # split_screen_timer.daemon = True
+                                span()
+                                print('当前屏幕：', get_monitors())
                                 print('增加多屏锁定1 full stage开启')
                         if v_["block_keyboard"]:
                             block_keyboard = BlockKeyBoard()
@@ -530,7 +567,8 @@ if __name__ == '__main__':
                     login_button.configure(state='disable')
                     break_now_button.configure(state='disable')
                     reload_button.configure(state='disable')
-                    jump_button.configure(state='disable')
+                    if not debug:
+                        jump_button.configure(state='disable')
                     if name != '养肝阶段' and v_["delay_break"]:
                         func = partial(Execute.now_execute.insert_stage, info={'name': '学习阶段_临时', 'time': 5})
                         delayBreak = DelayBreak(func)
@@ -589,7 +627,7 @@ if __name__ == '__main__':
                 time.sleep(1)
                 while pause:
                     time.sleep(1)
-            # stageInfoVar.set(f'当前阶段:{name}  剩余时间: 0分 : 0秒')
+            stageInfoVar.set(f'当前阶段:{name}  剩余时间: 0分 : 0秒')
             if name in fullStage and name != '养肝阶段':
                 exit_full_stage()
                 if delayBreak:
@@ -605,7 +643,7 @@ if __name__ == '__main__':
                             print('大休息阶段 或者 立刻休息结束, 等待键盘输入')
                             keyboard.read_key()
                             Thread(name='在大休息阶段结束、立刻休息结束', target=run, daemon=True).start()
-            if name == '学习阶段':
+            if '学习阶段' in name:
                 if leaveDetect:
                     leaveDetect.stop()
 
@@ -835,10 +873,10 @@ if __name__ == '__main__':
             #print('**check position start **')
             if force and now_state in fullStage:
                 monitors = get_monitors()
-                print('当前屏幕：', monitors)
                 if v_["full_screen"] and v_["split_screen"]:
                     if len(monitors) != len(before_monitors):
                         destroy_sub_screen()
+                        print('当前屏幕：', monitors)
                         print(f'增加多屏锁定2 屏幕数量不一致 before{len(before_monitors)} now:{len(monitors)}')
                         span()
                     else:
@@ -846,6 +884,7 @@ if __name__ == '__main__':
                             if m1.width != m2.width or m1.height != m2.height or m1.x != m2.x or m1.y != m2.y:
                                 destroy_sub_screen()
                                 span()
+                                print('当前屏幕：', monitors)
                                 print('增加多屏锁定3 屏幕位置变化')
                 if v_["mouse_lock"]:
                     ui.moveTo(0, 0)
