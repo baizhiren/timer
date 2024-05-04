@@ -26,7 +26,7 @@ from breakTimer.DelayBreak import DelayBreak
 from breakTimer.FileChecker import FileChecker
 from breakTimer.Hook import Hook
 
-app_name = "breakTimer3.9.6"
+app_name = "breakTimer3.9.7"
 
 # 打开注册表键
 
@@ -423,7 +423,29 @@ if __name__ == '__main__':
             key_path = r"Software\Microsoft\Windows\CurrentVersion\Run"
             try:
                 reg = winreg.OpenKey(winreg.HKEY_CURRENT_USER, key_path, 0, winreg.KEY_READ)
+
+                def delete_matching_registry_values(key_path, pattern):
+                    # 打开指定路径的注册表键
+                    with winreg.OpenKey(winreg.HKEY_CURRENT_USER, key_path, 0, winreg.KEY_ALL_ACCESS) as key:
+                        i = 0
+                        while True:
+                            try:
+                                # 枚举键中的每一个值
+                                value_name, value_data, value_type = winreg.EnumValue(key, i)
+                                # 检查值的名称是否符合模式
+                                if value_name.startswith(pattern) and value_name != app_name:
+                                    print(f"Deleting: {value_name}")
+                                    winreg.DeleteValue(key, value_name)
+                                else:
+                                    i += 1
+                            except OSError:
+                                # 当索引超出范围时，停止遍历
+                                break
+                # 使用函数，指定键路径和要匹配的模式
+                pattern = 'breakTimer'
+                delete_matching_registry_values(key_path, pattern)
                 value, value_type = winreg.QueryValueEx(reg, app_name)
+
                 print(value, value_type)
                 winreg.CloseKey(reg)
                 print('自启项已存在')
